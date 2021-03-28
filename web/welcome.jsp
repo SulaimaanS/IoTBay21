@@ -19,7 +19,7 @@
             String password = request.getParameter("favcol");
             String phoneNumber = request.getParameter("phonenum");            
             String steetNumber = request.getParameter("streetnumber");
-            String streetName = request.getParameter("streetname")
+            String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
     %>
     </head>

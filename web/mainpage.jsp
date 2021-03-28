@@ -12,15 +12,15 @@
         <link rel="stylesheet" href="Stylesheets/MainSyle.css">
         <title>Main Page</title>
         <% 
-            String firstName = request.getParameter("name");
-            String lastName = request.getParameter("email");
+            String firstName = request.getParameter("fname");
+            String lastName = request.getParameter("lname");
             String dob = request.getParameter("dob");
             String gender = request.getParameter("gender");
-            String email = request.getParameter("password");
-            String password = request.getParameter("favcol");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
             String phoneNumber = request.getParameter("phonenum");            
             String steetNumber = request.getParameter("streetnumber");
-            String streetName = request.getParameter("streetname")
+            String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
     %>
     </head>
@@ -31,30 +31,30 @@
         </div>
         
         <div id="prebody">
-            <h2> Hi, !username!</h2>
+            <h2> Hi, <%=email%></h2>
             <button type="button" onclick="location.href = 'logout.jsp'"> Logout To Home Page</button>
         </div>
         
         <div id="body">
             <table>
                 <tr>
-                    <th>Username</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <td>
                 </tr>
                 <tr>
                     <td>
-                        !username!
+                        <%=firstName%> <%=lastName%>
                     </td>
                     <td>
-                        !useremail!
+                        <%=email%>
                     </td>
                 </tr>
             </table>
         </div>
         
         <div id="footer">
-            sample text
+            sample footer text
         </div>
     </body>
 </html>
