@@ -38,21 +38,25 @@
                     </select>
                 </td>    
          </tr>
-         <tr>    
-                <td  align="right">Phone Number</td>    
-                <td class="style1"><input type="tel" name="phonenum" placeholder="0xxxxxxxxx" pattern="[0-9]{10}" required/></td>    
-         </tr> 
-         <tr>    
-                <td  align="right">Password:</td>    
-                <td class="style1"><input type="password" name="password"/></td>    
-         </tr>   
+         
          <tr>    
                 <td  align="right">Email:</td>    
                 <td class="style1"><input type="text" name="email"/></td>    
          </tr> 
+         
+         <tr>    
+                <td  align="right">Password:</td>    
+                <td class="style1"><input type="password" name="password"/></td>    
+         </tr> 
+         
+         <tr>    
+                <td  align="right">Phone Number</td>    
+                <td class="style1"><input type="tel" name="phonenum" placeholder="(+61)" pattern="[0-9]{10}" required/></td>    
+         </tr> 
+           
          <tr>    
                 <td  align="right">Street Number:</td>    
-                <td class="style1"><input type="number" name="email"/></td>    
+                <td class="style1"><input type="number" name="streetnumber"/></td>    
          </tr>
          <tr>    
                 <td  align="right">Street Name:</td>    
