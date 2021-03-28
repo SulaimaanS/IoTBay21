@@ -14,7 +14,7 @@
     
     <body>
         <h1>Register to IoTBay</h1>
-        <form action="/labs/welcome.jsp" method="POST"> 
+        <form action="welcome.jsp" method="POST"> 
         <table id="register"; cellspacing="5px" cellpadding="5%"; align="left">
          <tr>    
                 <td  align="right">First Name:</td>    
@@ -64,7 +64,7 @@
          </tr>
          <tr>
              <td align="center">
-                 <button type="button" onclick="location.href = 'welcome.jsp'">Register</button>  
+                 <input type="submit" value="Register">
              </td>
          </tr>
         </table>
