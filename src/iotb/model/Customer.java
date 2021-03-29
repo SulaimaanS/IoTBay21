@@ -8,6 +8,6 @@
  *
  * @author razor
  */
-public class User {
+public class Customer {
     
 }
