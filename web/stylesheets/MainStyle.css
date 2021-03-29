@@ -7,10 +7,72 @@ and open the template in the editor.
     Created on : 29/03/2021, 1:48:02 PM
 */
 
-div{
-    width: 10%;
-    align-content: center;
-    color: red;
-    margin: auto;
+body{
+    margin-top:5%;
+    background-size: cover;  
+    font-family:Calibri;
+    color: #969999;
+    background-color:#1c1f2a;
 }
+
+form{
+    text-align: center;
+    margin: auto;
+    width: 25%;
+}
+
+#navbar{
+    position: fixed;
+    background-color: #418fde;
+    padding: 10px 5px 6px 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    top: 0;
+    left:0;
+    right: 0;
+}
+
+#links{
+    font-size: 18px;
+    padding: 5px;
+    word-spacing: 2px;
+    float: right;    
+}
+
+input.button{
+    background:#418fde;
+    border: none; 
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 35px;
+    color: white; 
+    margin: auto;
+    margin-bottom: 2%;
+    width: 25%;
+}
+
+
+a:link, a:visited{
+    color:#dddae8 ;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 12px;    
+}
+
+
+
+/**a:hover, a:active{
+    background-color:#1c1f2a;
+    color: white;
+}
+**/
+
 
