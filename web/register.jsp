@@ -70,8 +70,9 @@
                 <td class="style1"><input inputmode="numeric" name="postcode" pattern="[0-9]{4}"/></td>    
             </tr>
             <tr>
-                <td align="center">
-                    <input class="button" type="submit" value="Sign Up"> 
+                <td></td>
+                <td align="left">
+                    <input class="button" type="submit" value="Sign Up!"> 
                 </td>
             </tr>
         </table>
