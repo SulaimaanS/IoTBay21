@@ -22,7 +22,7 @@
             String steetNumber = request.getParameter("streetnumber");
             String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
-    %>
+        %>
     </head>
     <body>
         
