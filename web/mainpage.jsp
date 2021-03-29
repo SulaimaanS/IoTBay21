@@ -22,14 +22,14 @@
             String steetNumber = request.getParameter("streetnumber");
             String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
-    %>
+        %>
     </head>
+    
     <body>
-        
         <div id="title">
         <h1>IoTBay</h1>
         </div>
-        
+            
         <div id="prebody">
             <h2> Hi, <%=email%></h2>
             <button type="button" onclick="location.href = 'logout.jsp'"> Logout To Home Page</button>
