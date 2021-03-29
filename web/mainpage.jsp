@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/MainStyle.css">
+        <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Main Page</title>
         <% 
             String firstName = request.getParameter("fname");

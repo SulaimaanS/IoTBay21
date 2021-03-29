@@ -9,11 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Register to IoTBay</title>
     </head>
     
     <body>
-        <h1>Register to IoTBay</h1>
+        <div id="navbar">
+            <a href="index.html"> IoTBay </a>
+            <span id="links"> <a href="profile.jsp"> Profile</a> | <a href="logout.jsp">Logout</a></span>
+        </div>
+        
+        
         <form action="/labs/welcome.jsp" method="POST"> 
         <table id="register"; cellspacing="5px" cellpadding="5%"; align="left">
          <tr>    
