@@ -24,8 +24,8 @@
             String postCode = request.getParameter("postcode");
         %>
     </head>
+    
     <body>
-        
         <div id="title">
         <h1>IoTBay</h1>
         </div>
