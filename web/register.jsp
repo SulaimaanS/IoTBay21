@@ -19,6 +19,7 @@
             <span id="links"> <a href="login.jsp">Login</a></span>
         </div>
         
+        <h1>Register for IoTBay</h1>
         
         <form action="welcome.jsp" method="post"> 
             <table id="register"; cellspacing="5px" cellpadding="5%"; align="left">
