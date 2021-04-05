@@ -1,9 +1,5 @@
-<%-- 
-    Document   : welcome
-    Created on : 20/03/2021, 7:17:43 PM
-    Author     : alaw8
---%>
 
+<%@page import="isd.iotb.model.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,15 +20,24 @@
         %>
     </head>
     <body>
-        <h1>Welcome to IoTBay, <%=firstName%></h1>
+        <div>
+            <h1>Welcome to IoTBay, <%=firstName%></h1>
+        </div>
 
-        <table class="table">            
-            <tr><td>Name:</td><td><%=firstName%> <%=lastName%></td></tr>
-            <tr><td>Email:</td><td><%=email%></td></tr>
-            <tr><td>Password:</td><td><%=password%></td></tr>
-            <tr><td>Phone:</td><td><%=phoneNumber%></td></tr>
-            <tr><td>Gender:</td><td><%=gender%></td></tr>
-            <tr><td>Date of Birth:</td><td><%=dob%></td></tr>            
-        </table>
+        <div>
+            <table class="table">            
+                <tr><td>Name:</td><td><%=firstName%> <%=lastName%></td></tr>
+                <tr><td>Email:</td><td><%=email%></td></tr>
+                <tr><td>Password:</td><td><%=password%></td></tr>
+                <tr><td>Phone:</td><td><%=phoneNumber%></td></tr>
+                <tr><td>Gender:</td><td><%=gender%></td></tr>
+                <tr><td>Date of Birth:</td><td><%=dob%></td></tr>            
+            </table>
+        </div>
+
+        <%         
+                User currentUser = new User(userID, fName, lName, dov, phNumber, emailAddress, streetNumber, streetName, postCode);
+                session.setAttribute("currentUser", currentUser);      
+        %>
     </body>
 </html>

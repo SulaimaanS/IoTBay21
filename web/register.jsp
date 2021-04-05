@@ -21,7 +21,7 @@
 
         <h1>Create an IoTBay Account</h1>
 
-        <form action="register.jsp" method="post"> 
+        <form action="welcome.jsp" method="post"> 
             
             <table id="register"; cellspacing="5px" cellpadding="5%"; align="left">
                 <tr>    
