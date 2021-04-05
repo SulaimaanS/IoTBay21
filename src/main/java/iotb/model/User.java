@@ -1,26 +1,30 @@
+package iotb.model;
+
 import java.io.Serializable;
 
+public class User implements Serializable {
 
-
-
-public class User implements Serializable{
     private String userID;
     private String fName;
     private String lName;
-    private String dob;
-    private String phNumber;
     private String emailAddress;
+    private String password;
+    private String dob;
+    private String gender;
+    private String phNumber;
     private String streetNumber;
     private String streetName;
     private String postCode;
 
-    public User(String userID, String fName, String lName, String dob, String phNumber, String emailAddress, String streetNumber, String streetName, String postCode) {
+    public User(String userID, String fName, String lName, String password, String emailAddress, String dob, String gender, String phNumber, String streetNumber, String streetName, String postCode) {
         this.userID = userID;
         this.fName = fName;
         this.lName = lName;
-        this.dob = dob;
-        this.phNumber = phNumber;
         this.emailAddress = emailAddress;
+        this.password = password;
+        this.dob = dob;
+        this.gender = gender;
+        this.phNumber = phNumber;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.postCode = postCode;
@@ -97,6 +101,5 @@ public class User implements Serializable{
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
-    
-    
+
 }
