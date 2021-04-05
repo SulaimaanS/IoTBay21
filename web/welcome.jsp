@@ -9,23 +9,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Welcome to IoTBay</title>
         <% 
-            String firstName = request.getParameter("fname");
-            String lastName = request.getParameter("lname");
-            String dob = request.getParameter("dob");
-            String gender = request.getParameter("gender");
+            String firstName = request.getParameter("firstname");
+            String lastName = request.getParameter("lastname");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String phoneNumber = request.getParameter("phonenum");            
+            String dob = request.getParameter("dob");
+            String gender = request.getParameter("gender");
+            String phoneNumber = request.getParameter("phonenumber");            
             String steetNumber = request.getParameter("streetnumber");
             String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
-    %>
+        %>
     </head>
     <body>
-        <h1>Welcome to IoTBay</h1>
-        
+        <h1>Welcome to IoTBay, <%=firstName%></h1>
+
         <table class="table">            
             <tr><td>Name:</td><td><%=firstName%> <%=lastName%></td></tr>
             <tr><td>Email:</td><td><%=email%></td></tr>

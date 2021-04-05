@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Logout</title>
     </head>
     <body>
-        <h1>:c</h1>
+        <div id='title'>
+            <h1>Would You Like to Logout?</h1>
+        </div>
+        
+        <div>
+            <button>Yes, log me out</button>
+            <button>No, take me home</button>
+        </div>  
     </body>
 </html>

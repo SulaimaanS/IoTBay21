@@ -19,7 +19,7 @@
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String phoneNumber = request.getParameter("phonenum");            
-            String steetNumber = request.getParameter("streetnumber");
+            String streetNumber = request.getParameter("streetnumber");
             String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
         %>
@@ -27,19 +27,18 @@
     
     <body>
         <div id="title">
-        <h1>IoTBay</h1>
+        <h1>Main Page</h1>
         </div>
             
-        <div id="prebody">
-            <h2> Hi, <%=email%></h2>
-            <button type="button" onclick="location.href = 'logout.jsp'"> Logout To Home Page</button>
+        <div>
+            <button type="button" onclick="location.href = 'logout.jsp'"> Logout</button>
         </div>
-        
-        <div id="body">
+        <div>
             <table>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Address</th>
                     <td>
                 </tr>
                 <tr>
@@ -49,10 +48,11 @@
                     <td>
                         <%=email%>
                     </td>
+                    <td><%=streetNumber%> <%=streetName%>, <%=postCode%></td>
                 </tr>
             </table>
         </div>
-        
+                
         <div id="footer">
             sample footer text
         </div>

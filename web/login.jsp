@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Log into IoTBay</h1>
+        
         <table id="login"; cellspacing="5px" cellpadding="5%"; align="left">
          <tr>    
                 <td  align="right">Email:</td>    
@@ -24,9 +25,10 @@
          </tr>   
          <tr>
              <td align="center">
-                 <button type="button" onclick="location.href = 'customer.jsp'">Login</button>  
+                 <button type="button" onclick="location.href = 'mainpage.jsp'">Login</button>  
              </td>
          </tr>
         </table>
+        
     </body>
 </html>
