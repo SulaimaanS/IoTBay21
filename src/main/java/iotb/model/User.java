@@ -54,6 +54,22 @@ public class User implements Serializable {
         this.lName = lName;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getDob() {
         return dob;
     }
@@ -62,20 +78,20 @@ public class User implements Serializable {
         this.dob = dob;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getPhNumber() {
         return phNumber;
     }
 
     public void setPhNumber(String phNumber) {
         this.phNumber = phNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 
     public String getStreetNumber() {
@@ -102,4 +118,5 @@ public class User implements Serializable {
         this.postCode = postCode;
     }
 
+    
 }

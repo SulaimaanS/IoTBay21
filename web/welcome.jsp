@@ -20,28 +20,24 @@
             String tempID = "1";
 
         %>
-    </head>
-    <body>
-        <div>
-            <h1>Welcome to IoTBay, <%=firstName%></h1>
-        </div>
-
-        <div>
-            <table class="table">            
-                <tr><td>Name: </td><td><%=firstName%> <%=lastName%></td></tr>
-                <tr><td>Email: </td><td><%=email%></td></tr>
-                <tr><td>Password: </td><td><%=password%></td></tr>
-                <tr><td>Phone: </td><td><%=phoneNumber%></td></tr>
-                <tr><td>Gender: </td><td><%=gender%></td></tr>
-                <tr><td>Date of Birth: </td><td><%=dob%></td></tr>            
-            </table>
-        </div>
-
-
         <%
                 User currentUser = new User(tempID, firstName, lastName, email, password, dob, gender, phoneNumber, streetNumber, streetName, postCode);
                 session.setAttribute("currentUser", currentUser);      
         %>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to IoTBay, ${currentUser.fName}!</h1>
+        </div>
+
+        <div>
+            <table class="table">            
+                <tr><td>Email: </td><td>${currentUser.emailAddress}</td></tr>
+                <tr><td>Phone: </td><td>${currentUser.phNumber}</td></tr>
+                <tr><td>Gender: </td><td>${currentUser.gender}</td></tr>
+                <tr><td>Date of Birth: </td><td>${currentUser.dob}</td></tr>            
+            </table>
+        </div>        
 
     </body>
 </html>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 20/03/2021, 7:17:30 PM
-    Author     : alaw8
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

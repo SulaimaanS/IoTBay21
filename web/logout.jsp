@@ -1,8 +1,3 @@
-<%-- 
-    Document   : logout
-    Created on : 24/03/2021, 11:11:09 PM
-    Author     : razor
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,12 +8,15 @@
     </head>
     <body>
         <div id='title'>
-            <h1>Would You Like to Logout?</h1>
+            <h1>You have been logged out</h1>
+            <%
+                session.invalidate();
+            %>
         </div>
         
         <div>
-            <button>Yes, log me out</button>
-            <button>No, take me home</button>
+            <h2> Click here to return to the login screen</h2>
+            <button>Return to login</button>
         </div>  
     </body>
 </html>
