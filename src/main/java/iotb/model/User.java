@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String streetName;
     private String postCode;
 
-    public User(String userID, String fName, String lName, String password, String emailAddress, String dob, String gender, String phNumber, String streetNumber, String streetName, String postCode) {
+    public User(String userID, String fName, String lName, String emailAddress, String password, String dob, String gender, String phNumber, String streetNumber, String streetName, String postCode) {
         this.userID = userID;
         this.fName = fName;
         this.lName = lName;
