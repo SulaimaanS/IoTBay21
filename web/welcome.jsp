@@ -5,7 +5,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Welcome to IoTBay</title>
+
         <% 
             String tempID = "1";
             String fName = request.getParameter("firstname");
@@ -20,19 +22,26 @@
             String postCode = request.getParameter("postcode");
         %>
         <%
-                User currentUser = new User(tempID, fName, lName, emailAddress, 
-                        password, dob, gender, phNumber, streetNumber, 
-                        streetName, postCode);
-                session.setAttribute("currentUser", currentUser);      
+                    User currentUser = new User(tempID, fName, lName, emailAddress, 
+                            password, dob, gender, phNumber, streetNumber, 
+                            streetName, postCode);
+                    session.setAttribute("currentUser", currentUser);          
         %>
     </head>
     <body>
-        <div>
+        <div id="navContainer">
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mainpage.jsp">MainPage</a></li>
+            </ul>
+        </div>
+
+        <div id="title">
             <h1>Welcome to IoTBay, ${currentUser.fName}!</h1>
         </div>
 
-        <div>
-            <table class="table">
+        <div id="info">
+            <table id="infoTable">
                 <tr><td>Name: </td><td>${currentUser.fName} ${currentUser.lName}</td></tr>
                 <tr><td>Email: </td><td>${currentUser.emailAddress}</td></tr>
                 <tr><td>Password: </td><td>${currentUser.password}</td></tr>
@@ -42,9 +51,9 @@
                 <tr><td>Address: </td><td>${currentUser.streetNumber} ${currentUser.streetName}, ${currentUser.postCode}</td></tr>   
             </table>
         </div>   
-            
+
         <div id="footer">
-            sample footer text
+            Copyright 2021, IoTBay Solutions 
         </div>
     </body>
 </html>

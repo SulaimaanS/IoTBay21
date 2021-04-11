@@ -8,20 +8,22 @@
     </head>
 
     <body>
-        <div id="navbar">
-            <a href="index.html"> IoTBay </a>
-            <span id="links"> <a href="login.jsp">Login</a></span>
+        <div id="navContainer">
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.jsp">Login</a></li>
+            </ul>
         </div>
 
         <div id="title"> 
-           <h1>Create an IoTBay Account</h1>
+            <h1>Create an IoTBay Account</h1>
         </div>
 
-        <div>
+        <div id="registerform">
 
             <form action="welcome.jsp" method="post"> 
 
-                <table id="register"; cellspacing="5px" cellpadding="5%"; align="left">
+                <table id="registerTable">
                     <tr>    
                         <td  align="right">First Name:</td>    
                         <td class="style1"><input type="text" name="firstname" required/></td>    
@@ -69,16 +71,18 @@
                         <td  align="right">Post Code:</td>    
                         <td class="style1"><input inputmode="numeric" name="postcode" required/></td>    
                     </tr>
-                    <tr>
-                        <td><input class="button" type="submit" value="Sign Up!"></td>
+                    <tr>                       
+                        <td colspan="2" id="submitButton"><input class="button" type="submit" value="Sign Up!"></td>
                     </tr>
                 </table>
-                <input type="hidden" name="registration">
-            </form>
         </div>
 
-        <div id="footer">
-            sample footer text
-        </div>
-    </body>
+        <input type="hidden" name="registration">
+    </form>
+
+
+    <div id="footer">
+        Copyright 2021, IoTBay Solutions 
+    </div>
+</body>
 </html>

@@ -5,33 +5,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
+        <link rel="stylesheet" href="stylesheets/MainStyle.css">
     </head>
-    <body>
+    <body>      
+        <div id="navContainer">
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.jsp">Register</a></li>
+            </ul>
+        </div>
+
         <div id="title">
-        <h1>Login to IoTBay</h1>
+            <h1>Login to IoTBay</h1>
         </div>
-        
-        <div>
-        <form action="welcome.jsp" method="post"> 
-            <table id="login">
-                <tr>    
-                    <td  align="right">Email:</td>    
-                    <td class="style1"><input type="text" name="email" required/></td>    
-                </tr> 
-                <tr>    
-                    <td  align="right">Password:</td>    
-                    <td class="style1"><input type="password" name="password" required/></td>    
-                </tr>   
-                <tr>
-                    <td><input class="button" type="submit" value="Login"></td>
-                </tr>
-                <input type="hidden" name="login">
-            </table>
-        </form>
+
+        <div id="loginform">
+            <form action="welcome.jsp" method="post"> 
+                <table id="loginTable">
+                    <tr>    
+                        <td  align="right">Email:</td>    
+                        <td class="style1"><input type="text" name="email" required/></td>    
+                    </tr> 
+                    <tr>    
+                        <td  align="right">Password:</td>    
+                        <td class="style1"><input type="password" name="password" required/></td>    
+                    </tr>                      
+                    <tr>                       
+                        <td colspan="2" id="submitButton"><input class="button" type="submit" value="Login"></td>
+                    </tr>
+                </table>
+            </form>
         </div>
-        
+
         <div id="footer">
-            sample footer text
+            Copyright 2021, IoTBay Solutions 
         </div>
     </body>
 </html>
