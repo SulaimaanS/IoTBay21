@@ -1,9 +1,4 @@
-<%-- 
-    Document   : mainpage
-    Created on : 28/03/2021, 10:46:11 PM
-    Author     : razor
---%>
-
+<%@page import="iotb.model.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,49 +7,55 @@
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Main Page</title>
         <% 
-            String firstName = request.getParameter("fname");
-            String lastName = request.getParameter("lname");
-            String dob = request.getParameter("dob");
-            String gender = request.getParameter("gender");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String phoneNumber = request.getParameter("phonenum");            
-            String steetNumber = request.getParameter("streetnumber");
-            String streetName = request.getParameter("streetname");
-            String postCode = request.getParameter("postcode");
+            User currentUser = (User)session.getAttribute("currentUser");
         %>
     </head>
-    
+
     <body>
+        <%
+            if (session.getAttribute("currentUser") != null)
+            {
+        %>
+        <div id="navContainer">
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="welcome.jsp">Welcome</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
+        </div>
+
         <div id="title">
-        <h1>IoTBay</h1>
+            <h1>MainPage</h1>
         </div>
-            
-        <div id="prebody">
-            <h2> Hi, <%=email%></h2>
-            <button type="button" onclick="location.href = 'logout.jsp'"> Logout To Home Page</button>
-        </div>
-        
-        <div id="body">
-            <table>
+
+        <div id="info">
+            <table id="infoTable">
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Address</th>
                     <td>
                 </tr>
                 <tr>
                     <td>
-                        <%=firstName%> <%=lastName%>
+                        ${currentUser.fName} ${currentUser.lName}
                     </td>
                     <td>
-                        <%=email%>
+                        ${currentUser.emailAddress}
                     </td>
+                    <td>${currentUser.streetNumber} ${currentUser.streetName}, ${currentUser.postCode}</td>
                 </tr>
             </table>
-        </div>
-        
+        </div>    
+
+        <% } else { %>
+
+        <h2>You are not logged in</h2>
+        <input type=button onClick="location.href = 'index.html'"
+               value="Home">
+        <%}%>
+
         <div id="footer">
-            sample footer text
+            Copyright 2021, IoTBay Solutions 
         </div>
     </body>
 </html>

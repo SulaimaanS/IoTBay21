@@ -1,26 +1,30 @@
+package iotb.model;
+
 import java.io.Serializable;
 
+public class User implements Serializable {
 
-
-
-public class User {
     private String userID;
     private String fName;
     private String lName;
-    private String dob;
-    private String phNumber;
     private String emailAddress;
+    private String password;
+    private String dob;
+    private String gender;
+    private String phNumber;
     private String streetNumber;
     private String streetName;
     private String postCode;
 
-    public User(String userID, String fName, String lName, String dob, String phNumber, String emailAddress, String streetNumber, String streetName, String postCode) {
+    public User(String userID, String fName, String lName, String emailAddress, String password, String dob, String gender, String phNumber, String streetNumber, String streetName, String postCode) {
         this.userID = userID;
         this.fName = fName;
         this.lName = lName;
-        this.dob = dob;
-        this.phNumber = phNumber;
         this.emailAddress = emailAddress;
+        this.password = password;
+        this.dob = dob;
+        this.gender = gender;
+        this.phNumber = phNumber;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.postCode = postCode;
@@ -50,6 +54,22 @@ public class User {
         this.lName = lName;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getDob() {
         return dob;
     }
@@ -58,20 +78,20 @@ public class User {
         this.dob = dob;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getPhNumber() {
         return phNumber;
     }
 
     public void setPhNumber(String phNumber) {
         this.phNumber = phNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 
     public String getStreetNumber() {
@@ -97,6 +117,6 @@ public class User {
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
-    
+
     
 }
