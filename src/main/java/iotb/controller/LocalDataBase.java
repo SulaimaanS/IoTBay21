@@ -1,7 +1,7 @@
 //Use this as a backup in case the actual database connection isnt successful
 package iotb.controller;
 
-import iotb.model.dao.DatabaseConnector;
+import iotb.model.dao.DBConnector;
 import iotb.model.dao.UserManager;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,9 +12,9 @@ public class LocalDataBase {
 
     //take input to manually insert data
     public static void main(String[] args) throws SQLException, ClassNotFoundException{
-        DatabaseConnector databaseConnector = new DatabaseConnector();
-        Connection connection = databaseConnector.connection();
-        UserManager userManager = new UserManager(connection);
+        DBConnector connector = new DBConnector();
+        Connection conn = connector.openConnection();
+        UserManager userManager = new UserManager(conn);
 
         System.out.print("Choices a/x:");
         char c = in.nextLine().charAt(0);
@@ -43,6 +43,8 @@ public class LocalDataBase {
             System.out.println("User has been added");
             System.out.print("Choices a/x:");
             c = in.nextLine().charAt(0);
+            
+            //COMPLETE FULL TEST CODE
         }
     }
 }
