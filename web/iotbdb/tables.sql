@@ -7,9 +7,9 @@ CREATE TABLE USERTABLE(
     dob date NOT NULL,
     phoneNumber varchar(20) NOT NULL,
     emailAddress varchar(50) NOT NULL,
-    streetNumber int NOT NULL,
-    streetName varchar(20) NOT NULL,
-    postCode int NOT NULL,
+    streetNumber int,
+    streetName varchar(20),
+    postCode int,
     PRIMARY KEY (userID)
 );
 
