@@ -44,28 +44,30 @@ public class TestUserDB {
     }
 
     public static void addUser()throws SQLException, ParseException {
-             System.out.print("First Name: ");
-             String firstName = in.nextLine();
-             System.out.print("Last Name: ");
-             String lastName = in.nextLine();
-             System.out.print("Email: ");
-             String email = in.nextLine();
-             System.out.print("Password: ");
-             String password = in.nextLine();
-             System.out.print("Date of Birth: ");
-             String dob = in.nextLine();
-             System.out.print("Gender: ");
-             String gender = in.nextLine();
-             System.out.print("Phone Number: ");
-             String phonenum = in.nextLine();
-             System.out.print("Street Number: ");
-             int streetnum = in.nextInt();
-             System.out.print("Street Name: ");
-             String streetname = in.nextLine();
-             System.out.print("Postcode: ");
-             int postcode = in.nextInt();
-             
-             manager.addUser(firstName, lastName, email, password, dob, gender, phonenum, streetnum, streetname, postcode);
+//             System.out.print("First Name: ");
+//             String firstName = in.nextLine();
+//             System.out.print("Last Name: ");
+//             String lastName = in.nextLine();
+//             System.out.print("Email: ");
+//             String email = in.nextLine();
+//             System.out.print("Password: ");
+//             String password = in.nextLine();
+//             System.out.print("Date of Birth: ");
+//             String dob = in.nextLine();
+//             System.out.print("Gender: ");
+//             String gender = in.nextLine();
+//             System.out.print("Phone Number: ");
+//             String phonenum = in.nextLine();
+//             System.out.print("Street Number: ");
+//             String streetnum = in.nextLine();
+//             System.out.print("Street Name: ");
+//             String streetname = in.nextLine();
+//             System.out.print("Postcode: ");
+//             String postcode = in.nextLine();
+//             System.out.print("alex big succ");
+//             
+//             manager.addUser(firstName, lastName, email, password, dob, gender, phonenum, streetnum, streetname, postcode);
+             manager.addUser();
              System.out.println("A user has been added to the database");   
         }
     

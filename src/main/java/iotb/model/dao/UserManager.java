@@ -2,12 +2,14 @@ package iotb.model.dao;
 
 import iotb.model.User;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class UserManager {
     private Statement statement;
@@ -17,10 +19,14 @@ public class UserManager {
     }
     
     //Create Operation
-    public void addUser(String firstName, String lastName, String email, String password, String dob, String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
-        String columns = "INSERT INTO IOTBAYADMIN.USERTABLE(FIRSTNAME, LASTNAME, EMAILADDRESS, PASSWORD, DOB, GENDER, PHONENUMBER, STREETNUMBER, STREETNAME,POSTCODE)";
-        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
-        String values = "VALUES('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+date+"','"+gender+"','"+phonenum+"','"+streetnum+"','"+streetname+"','"+postcode+"')"; 
+    public void addUser() throws SQLException, ParseException{
+        //String firstName, String lastName, String email, String password, String dob, String gender, String phonenum, String streetnum , String streetname, String postcode
+        String columns = "INSERT INTO USERTABLE(FIRSTNAME, LASTNAME, PASSWORD, DOB,GENDER, PHONENUMBER, EMAILADDRESS, STREETNUMBER, STREETNAME, POSTCODE)";
+//        Date d = DateFormat.getDateInstance().parse(dob);
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//        String strDate = formatter.format(d);
+        String values = "VALUES ('John', 'Seed', 'password', '02/02/2020','Male', '123123123', 'somethin@email.com', 23 , 'phlips street', 1233 )";
+        //String values = "VALUES ('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+strDate+"','"+gender+"','"+phonenum+"',"+streetnum+",'"+streetname+"',"+postcode+")";
         statement.executeUpdate(columns+values);
     }
     
