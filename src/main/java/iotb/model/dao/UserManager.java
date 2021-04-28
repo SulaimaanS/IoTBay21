@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UserManager {
     private Statement statement;
@@ -14,9 +17,10 @@ public class UserManager {
     }
     
     //Create Operation
-    public void addUser(String firstName, String lastName, String email, String password, String dob, String gender, String phonenum, String streetnum , String streetname, String postcode) throws SQLException{
+    public void addUser(String firstName, String lastName, String email, String password, String dob, String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
         String columns = "INSERT INTO IOTBAYADMIN.USERTABLE(FIRSTNAME, LASTNAME, EMAILADDRESS, PASSWORD, DOB, GENDER, PHONENUMBER, STREETNUMBER, STREETNAME,POSTCODE)";
-        String values = "VALUES('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+dob+"','"+gender+"','"+phonenum+"','"+streetnum+"','"+streetname+"','"+postcode+"')"; 
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+        String values = "VALUES('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+date+"','"+gender+"','"+phonenum+"','"+streetnum+"','"+streetname+"','"+postcode+"')"; 
         statement.executeUpdate(columns+values);
     }
     

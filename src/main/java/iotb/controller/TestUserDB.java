@@ -9,6 +9,7 @@ import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.UserManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,7 @@ public class TestUserDB {
     public static final Scanner in = new Scanner(System.in);
     public static UserManager manager; 
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException{
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, ParseException{
         DatabaseConnector connector = new DatabaseConnector(); 
         Connection con = connector.connection(); 
         manager = new UserManager(con);
@@ -42,11 +43,7 @@ public class TestUserDB {
         }
     }
 
-    /**
-     *
-     * @throws SQLException
-     */
-    public static void addUser()throws SQLException {
+    public static void addUser()throws SQLException, ParseException {
              System.out.print("First Name: ");
              String firstName = in.nextLine();
              System.out.print("Last Name: ");
@@ -62,11 +59,11 @@ public class TestUserDB {
              System.out.print("Phone Number: ");
              String phonenum = in.nextLine();
              System.out.print("Street Number: ");
-             String streetnum = in.nextLine();
+             int streetnum = in.nextInt();
              System.out.print("Street Name: ");
              String streetname = in.nextLine();
              System.out.print("Postcode: ");
-             String postcode = in.nextLine();
+             int postcode = in.nextInt();
              
              manager.addUser(firstName, lastName, email, password, dob, gender, phonenum, streetnum, streetname, postcode);
              System.out.println("A user has been added to the database");   
