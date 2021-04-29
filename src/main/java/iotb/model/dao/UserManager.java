@@ -24,7 +24,6 @@ public class UserManager {
         Date d = DateFormat.getDateInstance().parse(dob);
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String strDate = formatter.format(d);
-        //String values = "VALUES ('John', 'Seed', 'password', '02/02/2020','Male', '123123123', 'somethin@email.com', 23 , 'phlips street', 1233 )";
         String values = "VALUES ('"+firstName+"','"+lastName+"','"+password+"','"+strDate+"','"+gender+"','"+phonenum+"','"+email+"',"+streetnum+",'"+streetname+"',"+postcode+")";
         statement.executeUpdate(columns+values);
     }

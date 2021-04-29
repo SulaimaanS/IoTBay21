@@ -64,9 +64,7 @@ public class TestUserDB {
              String streetname = in.nextLine();
              System.out.print("Postcode: ");
              String postcode = in.nextLine();
-             
              manager.addUser(firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
-             //manager.addUser();
              System.out.println("A user has been added to the database");   
         }
     
