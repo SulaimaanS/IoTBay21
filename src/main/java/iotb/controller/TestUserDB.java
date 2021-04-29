@@ -68,8 +68,15 @@ public class TestUserDB {
              System.out.println("A user has been added to the database");   
         }
     
+        public static void readUser() throws SQLException{
+             System.out.print("Enter Customer ID: ");
+             Integer customerID = in.nextInt();
+             manager.readUser(customerID);
+        //find the given id in the tables and return all values associated with it
+        }
+        
         public static void updateUser(){}
-        public static void readUser(){}
+        
         public static void deleteUser(){}
         
         public static char readChoice(){
