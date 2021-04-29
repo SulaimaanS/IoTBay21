@@ -19,14 +19,13 @@ public class UserManager {
     }
     
     //Create Operation
-    public void addUser() throws SQLException, ParseException{
-        //String firstName, String lastName, String email, String password, String dob, String gender, String phonenum, String streetnum , String streetname, String postcode
+    public void addUser(String firstName, String lastName, String email,String dob, String password,String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
         String columns = "INSERT INTO USERTABLE(FIRSTNAME, LASTNAME, PASSWORD, DOB,GENDER, PHONENUMBER, EMAILADDRESS, STREETNUMBER, STREETNAME, POSTCODE)";
-//        Date d = DateFormat.getDateInstance().parse(dob);
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//        String strDate = formatter.format(d);
-        String values = "VALUES ('John', 'Seed', 'password', '02/02/2020','Male', '123123123', 'somethin@email.com', 23 , 'phlips street', 1233 )";
-        //String values = "VALUES ('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+strDate+"','"+gender+"','"+phonenum+"',"+streetnum+",'"+streetname+"',"+postcode+")";
+        Date d = DateFormat.getDateInstance().parse(dob);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String strDate = formatter.format(d);
+        //String values = "VALUES ('John', 'Seed', 'password', '02/02/2020','Male', '123123123', 'somethin@email.com', 23 , 'phlips street', 1233 )";
+        String values = "VALUES ('"+firstName+"','"+lastName+"','"+password+"','"+strDate+"','"+gender+"','"+phonenum+"','"+email+"',"+streetnum+",'"+streetname+"',"+postcode+")";
         statement.executeUpdate(columns+values);
     }
     
