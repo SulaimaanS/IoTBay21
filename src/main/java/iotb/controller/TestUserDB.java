@@ -69,15 +69,44 @@ public class TestUserDB {
         }
     
         public static void readUser() throws SQLException{
-             System.out.print("Enter Customer ID: ");
-             Integer customerID = in.nextInt();
-             manager.readUser(customerID);
-        //find the given id in the tables and return all values associated with it
+             System.out.print("Enter User ID: ");
+             String userID = in.nextLine();
+             manager.readUser(Integer.parseInt(userID));
         }
         
-        public static void updateUser(){}
+        public static void updateUser() throws SQLException, ParseException{
+             System.out.print("Enter User ID to Update: ");
+             String userID = in.nextLine();
+             System.out.print("First Name: ");
+             String firstName = in.nextLine();
+             System.out.print("Last Name: ");
+             String lastName = in.nextLine();
+             System.out.print("Email: ");
+             String email = in.nextLine();
+             System.out.print("Password: ");
+             String password = in.nextLine();
+             System.out.print("Date of Birth: ");
+             String dob = in.nextLine();
+             System.out.print("Gender: ");
+             String gender = in.nextLine();
+             System.out.print("Phone Number: ");
+             String phonenum = in.nextLine();
+             System.out.print("Street Number: ");
+             String streetnum = in.nextLine();
+             System.out.print("Street Name: ");
+             String streetname = in.nextLine();
+             System.out.print("Postcode: ");
+             String postcode = in.nextLine(); 
+             manager.updateUser(Integer.parseInt(userID),firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+             System.out.println("A user has been updated");
+        }
         
-        public static void deleteUser(){}
+        public static void deleteUser() throws SQLException{
+             System.out.print("Enter User ID to Delete: ");
+             String userID = in.nextLine();
+             manager.deleteUser(Integer.parseInt(userID));
+             System.out.println("A user has been deleted");
+        }
         
         public static char readChoice(){
             System.out.print("Choices C/R/U/D/X: ");
@@ -89,7 +118,8 @@ public class TestUserDB {
                      "C - Create User\n" + 
                      "R - Read User\n" + 
                      "U - Update User\n" + 
-                     "D - Delete User\n");
+                     "D - Delete User\n"+ 
+                     "X - Exit\n");
         }
     }
 

@@ -28,51 +28,43 @@ public class UserManager {
         statement.executeUpdate(columns+values);
     }
     
-    //Read Operation - Read user by email and password
-    public User readUser(int customerID) throws SQLException{
-        String query = "SELECT * FROM CUSTOMERTABLE WHERE CUSTOMERID = '"+customerID+"'"; 
+    //Read Operation - Read user by id
+    public User readUser(int userID) throws SQLException{
+        String query = "SELECT * FROM USERTABLE WHERE USERID = "+userID+""; 
         ResultSet rs = statement.executeQuery(query);
         
         while(rs.next()){
-            int userID = Integer.parseInt(rs.getString(1));
-            //fetch the ID and password from the row in the result set
-            //compare the ID and the password to the input one
-            //feth the rest of the data once found
-            //create a User object and return it
-        }
-        
-        return null;
-    }
-    
-    public User readUser(int ID, String password) throws SQLException{
-        String fetch ="SELECT * FROM ISDUSER.\"USER\" WHERE ID="+ID+" AND PASSWORD='"+password+"'";//read from where ID = and password = 
-        
-        ResultSet rs = st.executeQuery(fetch);
-        
-        while(rs.next()){
-            int userID = Integer.parseInt(rs.getString(1));
-            String userPass = rs.getString(4);
+            String id = rs.getString(1);
+            String firstname = rs.getString(2);
+            String lastname = rs.getString(3);
+            String email = rs.getString(4);
+            String password = rs.getString(5);
+            String dob = rs.getString(6);
+            String gender = rs.getString(7);
+            String phonenum = rs.getString(8);
+            String streetnum = rs.getString(9);
+            String streetname = rs.getString(10);
+            String postcode = rs.getString(11);
             
-            if(userID == ID && userPass.equals(password)){
-                 String name = rs.getString(2);
-                 String email = rs.getString(3);
-                 String phone = rs.getString(5);
-                 String gender = rs.getString(6);
-                 String dob = rs.getString(7);
-                 
-                 return new User(ID,name,email,password,phone,gender,dob);
-            }
+            return new User(id,firstname, lastname, email, password, dob, gender, phonenum, streetnum, streetname, postcode);
         }
         return null;
     }
     
-    //Update Operation - Update user by email
-    public void updateUser(String email){
-        
+    //Update Operation - Update user by id
+    public void updateUser(int userID, String firstName, String lastName, String email,String dob, String password,String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
+        Date d = DateFormat.getDateInstance().parse(dob);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String strDate = formatter.format(d);
+        String update = "UPDATE USERTABLE SET FIRSTNAME='"+firstName+"',LASTNAME='"+lastName+"',EMAILADDRESS='"+email+"',DOB='"+strDate+"',PASSWORD='"+password+"',GENDER='"+gender+"',PHONENUMBER='"+phonenum+"',STREETNUMBER="+streetnum+",STREETNAME='"+streetname+"',POSTCODE="+postcode+" WHERE USERID="+userID+"";
+        statement.executeUpdate(update);
     }
     
-    //Delete Operation - Delete user by email
-    public void deleteUser(String email){
-    
+    //Delete Operation - Delete user by id
+    public void deleteUser(int userID) throws SQLException{
+        String delete = "DELETE FROM USERTABLE WHERE USERID="+userID+"";
+        statement.executeUpdate(delete);
     }
 }
+
+
