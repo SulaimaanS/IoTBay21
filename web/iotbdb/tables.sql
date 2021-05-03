@@ -61,7 +61,6 @@ ADD FOREIGN KEY (orderID) REFERENCES ORDERTABLE(orderID);
 CREATE TABLE PRODUCTTABLE(
     productID int NOT NULL, 
     productName varchar(50) NOT NULL,
-    productDescription varchar(200) NOT NULL,
     productCategory varchar(30) NOT NULL,
     productPrice float NOT NULL,
     productStock int NOT NULL,

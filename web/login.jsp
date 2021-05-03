@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +19,7 @@
         </div>
 
         <div id="loginform">
-            <form action="welcome.jsp" method="post"> 
+            <form action="LoginServlet" method="post"> 
                 <table id="loginTable">
                     <tr>    
                         <td  align="right">Email:</td>    
@@ -36,7 +35,6 @@
                 </table>
             </form>
         </div>
-
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>
