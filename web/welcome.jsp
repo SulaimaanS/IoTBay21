@@ -25,7 +25,7 @@
                     User currentUser = new User(tempID, fName, lName, emailAddress, 
                             password, dob, gender, phNumber, streetNumber, 
                             streetName, postCode);
-                    session.setAttribute("currentUser", currentUser);          
+                    session.setAttribute("currentUser", currentUser);
         %>
     </head>
     <body>
