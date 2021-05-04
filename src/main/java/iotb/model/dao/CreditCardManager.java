@@ -28,7 +28,7 @@ public class CreditCardManager {
     }
     
     // CREATE
-    public void addCreditCard(String cardNumber, String expiryDate, String holderName, int cvv) throws SQLException, ParseException {
+    public void addCreditCard(String cardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
         Date d = DateFormat.getDateInstance().parse(expiryDate);
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String formattedDate = formatter.format(d);
@@ -58,19 +58,19 @@ public class CreditCardManager {
     
     // UPDATE - all credit card details
     
-    public void updateCreditCard(String cardNumber, String expiryDate, String holderName, int cvv) throws SQLException, ParseException {
+    public void updateCreditCard(String cardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
         Date d = DateFormat.getDateInstance().parse(expiryDate);
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String formattedDate = formatter.format(d);
         
-        String update = "UPDATE CREDITCARD TABLE SET CARDNUMBER = '"+cardNumber+"', SET EXPIRYDATE = '"+formattedDate+"', SET HOLDERNAME = '"+holderName+"', SET CVV = '"+cvv+"'"; // NOTE INT MIGHT BE A PROBLEM
+        String update = "UPDATE CREDITCARDTABLE SET CARDNUMBER = '"+cardNumber+"', SET EXPIRYDATE = '"+formattedDate+"', SET HOLDERNAME = '"+holderName+"', SET CVV = '"+cvv+"'"; // NOTE INT MIGHT BE A PROBLEM
         st.executeUpdate(update);
     }
     
     // DELETE - by card number
     
     public void deleteCreditCard(String cardNumber) throws SQLException {
-        String delete = "DELETE FROM CREDITCARD TABLE WHERE CARDNUMBER = "+ cardNumber +"";
+        String delete = "DELETE FROM CREDITCARDTABLE WHERE CARDNUMBER = "+ cardNumber +"";
         st.executeUpdate(delete);
     }
 }
