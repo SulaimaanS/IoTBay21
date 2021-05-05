@@ -41,7 +41,7 @@ public class UserManager {
             String password = rs.getString(5);
             String phonenum = rs.getString(6);
             
-            return new User(id,firstname, lastname, email, password,phonenum);
+            return new User(Integer.parseInt(id),firstname, lastname, email, password,phonenum);
         }
         return null;
     }

@@ -4,28 +4,27 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private String userID;
+    private Integer userID;
     private String fName;
     private String lName;
     private String emailAddress;
     private String password;
     private String phNumber;
 
-    public User(String userID, String fName, String lName, String emailAddress, String password, String phNumber) {
+    public User(Integer userID, String fName, String lName, String emailAddress, String password, String phNumber) {
         this.userID = userID;
         this.fName = fName;
         this.lName = lName;
         this.emailAddress = emailAddress;
         this.password = password;
         this.phNumber = phNumber;
-
     }
 
-    public String getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
@@ -69,4 +68,5 @@ public class User implements Serializable {
         this.phNumber = phNumber;
     }
 
+    
 }
