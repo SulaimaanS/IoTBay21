@@ -19,12 +19,12 @@ public class UserManager {
     }
     
     //Create Operation
-    public void addUser(String firstName, String lastName, String email,String dob, String password,String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
-        String columns = "INSERT INTO USERTABLE(FIRSTNAME, LASTNAME, PASSWORD, DOB,GENDER, PHONENUMBER, EMAILADDRESS, STREETNUMBER, STREETNAME, POSTCODE)";
-        Date d = DateFormat.getDateInstance().parse(dob);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-        String strDate = formatter.format(d);
-        String values = "VALUES ('"+firstName+"','"+lastName+"','"+password+"','"+strDate+"','"+gender+"','"+phonenum+"','"+email+"',"+streetnum+",'"+streetname+"',"+postcode+")";
+    public void addUser(String firstName, String lastName, String email,String password,String phonenum) throws SQLException, ParseException{
+        String columns = "INSERT INTO USERTABLE(FIRSTNAME, LASTNAME, PASSWORD, PHONENUMBER, EMAILADDRESS)";
+//        Date d = DateFormat.getDateInstance().parse(dob);
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+//        String strDate = formatter.format(d);
+        String values = "VALUES ('"+firstName+"','"+lastName+"','"+password+"','"+phonenum+"','"+email+"')";
         statement.executeUpdate(columns+values);
     }
     
@@ -39,24 +39,19 @@ public class UserManager {
             String lastname = rs.getString(3);
             String email = rs.getString(4);
             String password = rs.getString(5);
-            String dob = rs.getString(6);
-            String gender = rs.getString(7);
-            String phonenum = rs.getString(8);
-            String streetnum = rs.getString(9);
-            String streetname = rs.getString(10);
-            String postcode = rs.getString(11);
+            String phonenum = rs.getString(6);
             
-            return new User(id,firstname, lastname, email, password, dob, gender, phonenum, streetnum, streetname, postcode);
+            return new User(id,firstname, lastname, email, password,phonenum);
         }
         return null;
     }
     
     //Update Operation - Update user by id
-    public void updateUser(int userID, String firstName, String lastName, String email,String dob, String password,String gender, String phonenum, int streetnum , String streetname, int postcode) throws SQLException, ParseException{
-        Date d = DateFormat.getDateInstance().parse(dob);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-        String strDate = formatter.format(d);
-        String update = "UPDATE USERTABLE SET FIRSTNAME='"+firstName+"',LASTNAME='"+lastName+"',EMAILADDRESS='"+email+"',DOB='"+strDate+"',PASSWORD='"+password+"',GENDER='"+gender+"',PHONENUMBER='"+phonenum+"',STREETNUMBER="+streetnum+",STREETNAME='"+streetname+"',POSTCODE="+postcode+" WHERE USERID="+userID+"";
+    public void updateUser(int userID, String firstName, String lastName, String email,String password,String phonenum) throws SQLException, ParseException{
+//        Date d = DateFormat.getDateInstance().parse(dob);
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+//        String strDate = formatter.format(d);
+        String update = "UPDATE USERTABLE SET FIRSTNAME='"+firstName+"',LASTNAME='"+lastName+"',EMAILADDRESS='"+email+"',PASSWORD='"+password+"',PHONENUMBER='"+phonenum+"' WHERE USERID="+userID+"";
         statement.executeUpdate(update);
     }
     

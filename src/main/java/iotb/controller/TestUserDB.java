@@ -52,19 +52,9 @@ public class TestUserDB {
              String email = in.nextLine();
              System.out.print("Password: ");
              String password = in.nextLine();
-             System.out.print("Date of Birth: ");
-             String dob = in.nextLine();
-             System.out.print("Gender: ");
-             String gender = in.nextLine();
              System.out.print("Phone Number: ");
              String phonenum = in.nextLine();
-             System.out.print("Street Number: ");
-             String streetnum = in.nextLine();
-             System.out.print("Street Name: ");
-             String streetname = in.nextLine();
-             System.out.print("Postcode: ");
-             String postcode = in.nextLine();
-             manager.addUser(firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+             manager.addUser(firstName, lastName, email,password,phonenum);
              System.out.println("A user has been added to the database");   
         }
     
@@ -85,19 +75,9 @@ public class TestUserDB {
              String email = in.nextLine();
              System.out.print("Password: ");
              String password = in.nextLine();
-             System.out.print("Date of Birth: ");
-             String dob = in.nextLine();
-             System.out.print("Gender: ");
-             String gender = in.nextLine();
              System.out.print("Phone Number: ");
              String phonenum = in.nextLine();
-             System.out.print("Street Number: ");
-             String streetnum = in.nextLine();
-             System.out.print("Street Name: ");
-             String streetname = in.nextLine();
-             System.out.print("Postcode: ");
-             String postcode = in.nextLine(); 
-             manager.updateUser(Integer.parseInt(userID),firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+             manager.updateUser(Integer.parseInt(userID),firstName, lastName, email, password,phonenum);
              System.out.println("A user has been updated");
         }
         
