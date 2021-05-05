@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 //TBD
-
 public class Customer {
+
     private Integer userID;
     private Integer customerID;
     private Date dob;
-    private Integer streetNumber; 
-    private String streetName; 
+    private Integer streetNumber;
+    private String streetName;
     private Integer postCode;
     private Boolean registered;
 
@@ -80,5 +80,4 @@ public class Customer {
         this.registered = registered;
     }
 
-    
 }
