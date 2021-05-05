@@ -31,27 +31,17 @@ public class TestCatalogueDB{
     }
 
     public static void addProduct()throws SQLException, ParseException {
-             System.out.print("First Name: ");
-             String firstName = in.nextLine();
-             System.out.print("Last Name: ");
-             String lastName = in.nextLine();
-             System.out.print("Email: ");
-             String email = in.nextLine();
-             System.out.print("Password: ");
-             String password = in.nextLine();
-             System.out.print("Date of Birth: ");
-             String dob = in.nextLine();
-             System.out.print("Gender: ");
-             String gender = in.nextLine();
-             System.out.print("Phone Number: ");
-             String phonenum = in.nextLine();
-             System.out.print("Street Number: ");
-             String streetnum = in.nextLine();
-             System.out.print("Street Name: ");
-             String streetname = in.nextLine();
-             System.out.print("Postcode: ");
-             String postcode = in.nextLine();
-             manager.addProduct(firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+             System.out.print("Product Name: ");
+             String name = in.nextLine();
+             System.out.print("Product Description: ");
+             String description = in.nextLine();
+             System.out.print("Product Category: ");
+             String category = in.nextLine();
+             System.out.print("Product Price: ");
+             String price = in.nextLine();
+             System.out.print("Product Stock: ");
+             String stock = in.nextLine();
+             manager.addProduct(name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
              System.out.println("A Product has been added to the database");   
         }
     
@@ -63,28 +53,18 @@ public class TestCatalogueDB{
         
         public static void updateProduct() throws SQLException, ParseException{
              System.out.print("Enter Product ID to Update: ");
-             String ProductID = in.nextLine();
-             System.out.print("First Name: ");
-             String firstName = in.nextLine();
-             System.out.print("Last Name: ");
-             String lastName = in.nextLine();
-             System.out.print("Email: ");
-             String email = in.nextLine();
-             System.out.print("Password: ");
-             String password = in.nextLine();
-             System.out.print("Date of Birth: ");
-             String dob = in.nextLine();
-             System.out.print("Gender: ");
-             String gender = in.nextLine();
-             System.out.print("Phone Number: ");
-             String phonenum = in.nextLine();
-             System.out.print("Street Number: ");
-             String streetnum = in.nextLine();
-             System.out.print("Street Name: ");
-             String streetname = in.nextLine();
-             System.out.print("Postcode: ");
-             String postcode = in.nextLine(); 
-             //manager.updateProduct(Integer.parseInt(ProductID),firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+             String id = in.nextLine();
+             System.out.print("Product Name: ");
+             String name = in.nextLine();
+             System.out.print("Product Description: ");
+             String description = in.nextLine();
+             System.out.print("Product Category: ");
+             String category = in.nextLine();
+             System.out.print("Product Price: ");
+             String price = in.nextLine();
+             System.out.print("Product Stock: ");
+             String stock = in.nextLine();
+             manager.updateProduct(Integer.parseInt(id), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
              System.out.println("A Product has been updated");
         }
         
