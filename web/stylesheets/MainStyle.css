@@ -1,78 +1,105 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 29/03/2021, 1:48:02 PM
-*/
+*{
+    font-family:sans-serif;
+}
 
 body{
-    margin-top:5%;
-    background-size: cover;  
-    font-family:Calibri;
-    color: #969999;
-    background-color:#1c1f2a;
+    background-color: #d6dfe5;
 }
 
-form{
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #314f6f;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #d6dfe5;
     text-align: center;
-    margin: auto;
-    width: 25%;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-#navbar{
+li a:hover {
+    background-color: #cc2c24;
+}
+
+.active {
+    background-color: #cc2c24;
+}
+
+#title {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#homeTitle{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding-top: 10%;
+}
+
+#homeLogo{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding-top: 15%;
+}
+
+#registerform {
+    margin: auto;
+    width:25%;
+    text-align: center;
+}
+
+#registerTable{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+#loginform{
+    margin: auto;
+    width:25%;
+    text-align: center;
+}
+
+#loginTable{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+#submitButton{
+    text-align: center;
+}
+
+#info{
+    margin: auto;
+    width: 80%;
+}
+
+#infoTable{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+#footer{
     position: fixed;
-    background-color: #418fde;
-    padding: 10px 5px 6px 15px;
+    left: 0;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
     color: white;
-    font-size: 30px;
-    font-weight: bold;
-    top: 0;
-    left:0;
-    right: 0;
-}
-
-#links{
-    font-size: 18px;
-    padding: 5px;
-    word-spacing: 2px;
-    float: right;    
-}
-
-input.button{
-    background:#418fde;
-    border: none; 
-    color: white;
-    padding: 8px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    background-color: #314f6f;
 }
-
-h1{
-    font-size: 35px;
-    color: white; 
-    margin: auto;
-    margin-bottom: 2%;
-    width: 25%;
-}
-
-
-a:link, a:visited{
-    color:#dddae8 ;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 12px;    
-}
-
-
-
-/**a:hover, a:active{
-    background-color:#1c1f2a;
-    color: white;
-}
-**/
 
 

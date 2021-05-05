@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="iotb.model.*" %>
 
 <html>
     <head>
@@ -24,7 +26,7 @@
         <div id="homeLogo">
             Logo
         </div>
-
+        <jsp:include page="/ConnectionServlet" flush="true"/>
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

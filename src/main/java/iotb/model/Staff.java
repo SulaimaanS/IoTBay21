@@ -1,3 +1,5 @@
+package iotb.model;
+
 import java.io.Serializable;
 
 //TBD
