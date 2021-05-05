@@ -5,6 +5,7 @@
  */
 package iotb.controller;
 
+import iotb.model.CreditCard;
 import iotb.model.dao.CreditCardManager;
 import iotb.model.dao.DBConnector;
 import java.sql.Connection;
@@ -41,14 +42,17 @@ public class TestCreditCardDB {
  
     }
     
-    // CREATE
+    // CREATE - requires an existing paymentID to link the card to the payment
+    
     public static void addCreditCard() throws SQLException, ParseException {
+            System.out.println("PaymentID: ");
+            String paymentID = in.nextLine();    
+            System.out.println("Holder Name: ");
+            String holderName = in.nextLine();    
             System.out.println("Card Number: ");
             String cardNumber = in.nextLine();
             System.out.println("Expiry Date: ");
             String expiryDate = in.nextLine();
-            System.out.println("Holder Name: ");
-            String holderName = in.nextLine();
             System.out.println("CVV: ");
             String cvv = in.nextLine();
             
@@ -56,19 +60,23 @@ public class TestCreditCardDB {
             System.out.println("Credit Card successfully added");
         }
     
-    // READ - by card number
+    // READ - by card number - says whether card exists
     
     public static void readCreditCard() throws SQLException {
         System.out.println("Enter card number: ");
         String cardNumber = in.nextLine();
-        manager.readCreditCard(cardNumber);
+        CreditCard creditCard = manager.readCreditCard(cardNumber);
+        String exists = (creditCard != null) ? "Credit card exists in the database" : "Credit card does not exist";
+        System.out.println(exists);
     }
     
-    // UPDATE
+    // UPDATE - by card number
     
     public static void updateCreditCard() throws SQLException, ParseException {
+        System.out.println("Card Number to update: ");
+        String oldCardNumber = in.nextLine();
         System.out.println("Card Number: ");
-        String cardNumber = in.nextLine();
+        String newCardNumber = in.nextLine();
         System.out.println("Expiry Date: ");
         String expiryDate = in.nextLine();
         System.out.println("Holder Name: ");
@@ -76,7 +84,7 @@ public class TestCreditCardDB {
         System.out.println("CVV: ");
         String cvv = in.nextLine();
             
-        manager.updateCreditCard(cardNumber, expiryDate, holderName, cvv);
+        manager.updateCreditCard(oldCardNumber, newCardNumber, expiryDate, holderName, cvv);
         System.out.println("Credit Card successfully added");
     }
     
