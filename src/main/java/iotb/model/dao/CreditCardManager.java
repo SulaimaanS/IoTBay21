@@ -27,31 +27,33 @@ public class CreditCardManager {
         st = connection.createStatement();
     }
     
-    // CREATE
+    // CREATE - requires an existing paymentID
     
-    public void addCreditCard(String cardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
+    public void addCreditCard(int paymentID, String cardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
         //Date d = DateFormat.getDateInstance().parse(expiryDate);
         //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         //String formattedDate = formatter.format(d);
         
-        String columns = "INSERT INTO CREDITCARDTABLE(CARDNUMBER, EXPIRYDATE, HOLDERNAME, CVV)";
-        String values = "VALUES ('"+cardNumber+"','"+expiryDate+"','"+holderName+"','"+cvv+"')"; //NOTE INT MIGHT BE A PROBLEM - resolved changed CVV to varchar
+        String columns = "INSERT INTO CREDITCARDTABLE(PAYMENTID, CARDNUMBER, EXPIRYDATE, HOLDERNAME, CVV)";
+        String values = "VALUES ("+paymentID+",'"+cardNumber+"','"+expiryDate+"','"+holderName+"','"+cvv+"')"; 
         st.executeUpdate(columns + values);
     }
     
     // READ - by card number
+    
     public CreditCard readCreditCard(String cardNumber)throws SQLException {
         String query = "SELECT * FROM CREDITCARDTABLE WHERE CARDNUMBER = '"+cardNumber+"'";
         ResultSet rs = st.executeQuery(query);
         
         while (rs.next()) {
-            String cardID = rs.getString(1);
-            String cardNo = rs.getString(2);
-            String expiryDate = rs.getString(3);
-            String holderName = rs.getString(4);
-            String cvv = rs.getString(5);
+            String paymentID = rs.getString(1);
+            String cardID = rs.getString(2);
+            String cardNo = rs.getString(3);
+            String expiryDate = rs.getString(4);
+            String holderName = rs.getString(5);
+            String cvv = rs.getString(6);
             
-            return new CreditCard(cardID, cardNo, expiryDate, holderName, cvv);
+            return new CreditCard(paymentID, cardID, cardNo, expiryDate, holderName, cvv);
         }
         
         return null;
@@ -60,9 +62,7 @@ public class CreditCardManager {
     // UPDATE - all credit card details
     
     public void updateCreditCard(String oldCardNumber, String newCardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
-        //Date d = DateFormat.getDateInstance().parse(expiryDate);
-        //SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-        //String formattedDate = formatter.format(d);
+        
         
         //newCardNumber is the new card to be updated
         //oldCardNumber is used to search the existing credit card in the database

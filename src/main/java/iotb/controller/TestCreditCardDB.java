@@ -56,7 +56,7 @@ public class TestCreditCardDB {
             System.out.println("CVV: ");
             String cvv = in.nextLine();
             
-            manager.addCreditCard(cardNumber, expiryDate, holderName, cvv);
+            manager.addCreditCard(Integer.parseInt(paymentID), cardNumber, expiryDate, holderName, cvv); //Note: convert paymentID to int
             System.out.println("Credit Card successfully added");
         }
     
@@ -94,6 +94,7 @@ public class TestCreditCardDB {
         System.out.println("Card Number: ");
         String cardNumber = in.nextLine();
         manager.deleteCreditCard(cardNumber);
+        System.out.println("Credit Card successfully deleted");
     }
     
     public static void help() {

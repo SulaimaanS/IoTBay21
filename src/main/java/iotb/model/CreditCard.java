@@ -13,18 +13,28 @@ import java.io.Serializable;
  */
 public class CreditCard implements Serializable {
     
+    private String paymentID;
     private String cardID;
     private String cardNumber;
     private String expiryDate;
     private String holderName;
     private String cvv;
 
-    public CreditCard(String cardID, String cardNumber, String expiryDate, String holderName, String cvv) {
+    public CreditCard(String paymentID, String cardID, String cardNumber, String expiryDate, String holderName, String cvv) {
+        this.paymentID = paymentID;
         this.cardID = cardID;
         this.cardNumber = cardNumber;
         this.expiryDate = expiryDate;
         this.holderName = holderName;
         this.cvv = cvv;
+    }
+
+    public String getPaymentID() {
+        return paymentID;
+    }
+
+    public void setPaymentID(String paymentID) {
+        this.paymentID = paymentID;
     }
 
     public String getCardID() {
@@ -66,6 +76,8 @@ public class CreditCard implements Serializable {
     public void setCvv(String cvv) {
         this.cvv = cvv;
     }
+
+    
     
     
     
