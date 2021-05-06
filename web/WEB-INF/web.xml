@@ -8,6 +8,22 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>iotb.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateProductServlet</servlet-name>
+        <servlet-class>iotb.controller.UpdateProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addProductServlet</servlet-name>
+        <servlet-class>iotb.controller.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>iotb.controller.DeleteProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReadProductServlet</servlet-name>
+        <servlet-class>iotb.controller.ReadProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateProductServlet</servlet-name>
+        <url-pattern>/updateProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addProductServlet</servlet-name>
+        <url-pattern>/addProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/DeleteProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadProductServlet</servlet-name>
+        <url-pattern>/ReadProductServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

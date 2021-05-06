@@ -33,12 +33,12 @@ public class ProductManager {
             String price = rs.getString(5);
             String stock = rs.getString(6);
             //return new Product(Integer.parseInt(id), name, description, category, Float.parseFloat(price),Integer.parseInt(stock));
-        System.out.println("Product ID:" + id);
-        System.out.println("Product Name:" + name);
-        System.out.println("Product Description:" + description);
-        System.out.println("Product Category:" + category);
-        System.out.println("Product Price:" + price);
-        System.out.println("Product Stock:" + stock);
+        System.out.println("Product ID: " + id);
+        System.out.println("Product Name: " + name);
+        System.out.println("Product Description: " + description);
+        System.out.println("Product Category: " + category);
+        System.out.println("Product Price: " + price);
+        System.out.println("Product Stock: " + stock);
         }
         //return null;
     }
