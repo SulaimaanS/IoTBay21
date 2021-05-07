@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Welcome to IoTBay</title>
 
-        <% 
+        <%
             String tempID = "1";
             String fName = request.getParameter("firstname");
             String lName = request.getParameter("lastname");
@@ -16,16 +16,16 @@
             String password = request.getParameter("password");
             String dob = request.getParameter("dob");
             String gender = request.getParameter("gender");
-            String phNumber = request.getParameter("phonenumber");            
+            String phNumber = request.getParameter("phonenumber");
             String streetNumber = request.getParameter("streetnumber");
             String streetName = request.getParameter("streetname");
             String postCode = request.getParameter("postcode");
         %>
         <%
-                    User currentUser = new User(tempID, fName, lName, emailAddress, 
-                            password, dob, gender, phNumber, streetNumber, 
-                            streetName, postCode);
-                    session.setAttribute("currentUser", currentUser);          
+            User currentUser = new User(tempID, fName, lName, emailAddress,
+                    password, dob, gender, phNumber, streetNumber,
+                    streetName, postCode);
+            session.setAttribute("currentUser", currentUser);
         %>
     </head>
     <body>

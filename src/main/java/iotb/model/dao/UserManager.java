@@ -28,6 +28,7 @@ public class UserManager {
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {
+
             Integer id = rs.getInt(1);
             String firstname = rs.getString(2);
             String lastname = rs.getString(3);
