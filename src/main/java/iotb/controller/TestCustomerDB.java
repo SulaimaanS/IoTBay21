@@ -88,9 +88,9 @@ public class TestCustomerDB {
         String postCode = in.nextLine();
         System.out.print("Registered: ");
         String registered = in.nextLine();
-        SimpleDateFormat format = new SimpleDateFormat(dob);
-        Date parsed = format.parse(dob);
-        manager.updateCustomer(Integer.parseInt(userID), Integer.parseInt(customerID), parsed, Integer.parseInt(streetNum), streetName, Integer.parseInt(postCode), Boolean.parseBoolean(registered));
+//        SimpleDateFormat format = new SimpleDateFormat(dob);
+//        Date parsed = format.parse(dob);
+        manager.updateCustomer(Integer.parseInt(userID), Integer.parseInt(customerID), dob, Integer.parseInt(streetNum), streetName, Integer.parseInt(postCode), Boolean.parseBoolean(registered));
         System.out.println("A customer has been updated");
     }
 

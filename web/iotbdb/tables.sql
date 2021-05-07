@@ -51,7 +51,7 @@ CREATE TABLE PRODUCTTABLE(
     productCategory varchar(30) NOT NULL,
     productPrice float NOT NULL,
     productStock int,
-    PRIMARY KEY (productID),
+    PRIMARY KEY (productID)
 );
 
 CREATE TABLE ORDERLINETABLE(
