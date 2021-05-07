@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
 
-    private String productID;
+    private int productID;
     private String productName;
     private String productDescription;
     private String productCategory;
-    private String productPrice;
-    private String productStock;
+    private float productPrice;
+    private int productStock;
 
-    public Product(String productID, String productName, String productDescription, String productCategory, String productPrice, String productStock) {
+    public Product(int productID, String productName, String productDescription, String productCategory, float productPrice, int productStock) {
         this.productID = productID;
         this.productName = productName;
         this.productDescription = productDescription;
@@ -20,11 +20,11 @@ public class Product implements Serializable {
         this.productStock = productStock;
     }
 
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setUserID(String productID) {
+    public void setUserID(int productID) {
         this.productID = productID;
     }
 
@@ -52,19 +52,19 @@ public class Product implements Serializable {
         this.productCategory = productCategory;
     }
     
-    public String getproductPrice() {
+    public float getproductPrice() {
         return productPrice;
     }
 
-    public void setproductPrice(String productPrice) {
+    public void setproductPrice(float productPrice) {
         this.productPrice = productPrice;
     }
     
-    public String getproductStock() {
+    public int getproductStock() {
         return productStock;
     }
 
-    public void setproductStock(String productStock) {
+    public void setproductStock(int productStock) {
         this.productStock = productStock;
     }    
 }
