@@ -30,10 +30,6 @@ public class CreditCardManager {
     // CREATE - requires an existing paymentID
     
     public void addCreditCard(int paymentID, String cardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
-        //Date d = DateFormat.getDateInstance().parse(expiryDate);
-        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        //String formattedDate = formatter.format(d);
-        
         String columns = "INSERT INTO CREDITCARDTABLE(PAYMENTID, CARDNUMBER, EXPIRYDATE, HOLDERNAME, CVV)";
         String values = "VALUES ("+paymentID+",'"+cardNumber+"','"+expiryDate+"','"+holderName+"','"+cvv+"')"; 
         st.executeUpdate(columns + values);
