@@ -1,5 +1,6 @@
-package iotb.controller;
+package iotb.controller.Servlets;
 
+import iotb.controller.LoginValidator;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;

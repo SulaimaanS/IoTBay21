@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.TestDB;
 
 import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.UserManager;
