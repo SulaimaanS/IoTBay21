@@ -57,14 +57,14 @@ public class PaymentManager {
         // Requires an existing orderID to be assigned to
         // Payment type can only be changed to 1 or 2 - a validator will handle this requirement
         
-        String update = "UPDATE PAYMENTTABLE SET ORDERID = "+orderID+",  PAYMENTTYPE = "+paymentType+" WHERE CARDNUMBER="+paymentID+"";
+        String update = "UPDATE PAYMENTTABLE SET ORDERID = "+orderID+",  PAYMENTTYPE = "+paymentType+" WHERE PAYMENTID="+paymentID+"";
         st.executeUpdate(update);
     }
     
     // DELETE - by paymentID
     
     public void deletePayment(int paymentID) throws SQLException {
-        String delete = "DELETE FROM PAYMENTABLE WHERE PAYMENT = "+paymentID+"";
+        String delete = "DELETE FROM PAYMENTTABLE WHERE PAYMENTID = "+paymentID+"";
         st.executeUpdate(delete);
     }
 }

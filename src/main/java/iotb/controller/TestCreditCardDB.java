@@ -85,7 +85,7 @@ public class TestCreditCardDB {
         String cvv = in.nextLine();
             
         manager.updateCreditCard(oldCardNumber, newCardNumber, expiryDate, holderName, cvv);
-        System.out.println("Credit Card successfully added");
+        System.out.println("Credit Card successfully updated");
     }
     
     // DELETE - by card number
@@ -102,7 +102,7 @@ public class TestCreditCardDB {
                 + "C - Create credit card \n"
                 + "R - Read credit card \n"
                 + "U - Update credit card \n"
-                + "D - Delete cred card \n"
+                + "D - Delete credit card \n"
                 + "X - Exit \n");
     }
     
