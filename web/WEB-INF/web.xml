@@ -37,7 +37,7 @@
         <servlet-class>iotb.controller.Servlets.ReadUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteUser</servlet-name>
+        <servlet-name>DeleteUserServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet>

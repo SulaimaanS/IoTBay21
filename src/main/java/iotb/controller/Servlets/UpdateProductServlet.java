@@ -32,7 +32,7 @@ public class UpdateProductServlet extends HttpServlet {
         User user = null;
         try {
             //6- find user by email and password
-            user = manager.readUser(Integer.parseInt(id));
+            user = manager.readUser(email,password);
         } catch (SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

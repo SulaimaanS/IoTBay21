@@ -25,4 +25,5 @@
             Copyright 2021, IoTBay Solutions 
         </div>
     </body>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>

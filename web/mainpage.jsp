@@ -6,14 +6,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Main Page</title>
-        <% 
-            User currentUser = (User)session.getAttribute("currentUser");
-        %>
     </head>
+    <% 
+            User user = (User)session.getAttribute("user");
+    %>
 
     <body>
         <%
-            if (session.getAttribute("currentUser") != null)
+            if (session.getAttribute("user") != null)
             {
         %>
         <div id="navContainer">
@@ -32,17 +32,15 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Address</th>
                     <td>
                 </tr>
                 <tr>
                     <td>
-                        ${currentUser.fName} ${currentUser.lName}
+                        ${user.fName} ${user.lName}
                     </td>
                     <td>
-                        ${currentUser.emailAddress}
+                        ${user.emailAddress}
                     </td>
-                    <td>${currentUser.streetNumber} ${currentUser.streetName}, ${currentUser.postCode}</td>
                 </tr>
             </table>
         </div>    
@@ -58,4 +56,5 @@
             Copyright 2021, IoTBay Solutions 
         </div>
     </body>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>

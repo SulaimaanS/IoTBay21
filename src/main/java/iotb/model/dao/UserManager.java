@@ -23,8 +23,8 @@ public class UserManager {
     }
 
     //Read Operation - Read user by id
-    public User readUser(int userID) throws SQLException {
-        String query = "SELECT * FROM USERTABLE WHERE USERID = " + userID + "";
+    public User readUser(String email, String password) throws SQLException {
+        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '"+password+"'";
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {
@@ -32,11 +32,11 @@ public class UserManager {
             Integer id = rs.getInt(1);
             String firstname = rs.getString(2);
             String lastname = rs.getString(3);
-            String email = rs.getString(4);
-            String password = rs.getString(5);
+            String emailaddress = rs.getString(4);
+            String pass = rs.getString(5);
             String phonenum = rs.getString(6);
-
-            return new User(id, firstname, lastname, email, password, phonenum);
+            
+            return new User(id, firstname, lastname, emailaddress, pass, phonenum);
         }
         return null;
     }

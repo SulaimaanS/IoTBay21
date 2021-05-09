@@ -70,9 +70,11 @@ public class TestUserDB {
     }
 
     public static void readUser() throws SQLException {
-        System.out.print("Enter User ID: ");
-        String userID = in.nextLine();
-        manager.readUser(Integer.parseInt(userID));
+        System.out.print("Enter Email: ");
+        String email = in.nextLine();
+        System.out.print("Enter Password: ");
+        String password = in.nextLine();
+        manager.readUser(email,password);
     }
 
     public static void updateUser() throws SQLException, ParseException {
