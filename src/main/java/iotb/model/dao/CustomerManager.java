@@ -63,4 +63,6 @@ public class CustomerManager {
         String delete = "DELETE FROM CUSTOMERTABLE WHERE CUSTOMERID=" + customerID + "";
         statement.executeUpdate(delete);
     }
+    
+    
 }

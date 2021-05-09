@@ -52,4 +52,15 @@ public class UserManager {
         String delete = "DELETE FROM USERTABLE WHERE USERID=" + userID + "";
         statement.executeUpdate(delete);
     }
+    
+    public int getID(String email, String password) throws SQLException{
+        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '"+password+"'";
+        ResultSet rs = statement.executeQuery(query);
+
+        while (rs.next()) {
+            Integer id = rs.getInt(1);  
+            return id;
+        }
+        return 0;
+    }
 }
