@@ -8,12 +8,13 @@ import javax.servlet.http.HttpSession;
 public class RegisterValidator implements Serializable {
 
     private String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
-    private String namePattern = "/^[a-z ,.'-]+$/i";
-    //([A-Z][a-z]+[\\s])+[A-Z][a-z]*
-    private String passwordPattern = "[a-z0-9]{4,}";
-    private String dobPattern = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
-    private String numberPattern = "^\\d{10}$";
-    private String postcodePattern = "^\\d{4}$";
+    private String namePattern = "^[A-Z][a-zA-Z]+$";
+    private String passwordPattern = "[A-Za-z0-9]{4,}";
+    private String dobPattern = "^(0?[1-9]|1[012])[\\/\\-](0?[1-9]|[12][0-9]|3[01])[\\/\\-]\\d{4}$";
+    private String numberPattern = "^(0|[1-9][0-9]*)$";
+    private String phonenumPattern = "^[0-9]{10}|[0-9]{6}$";
+    private String streetNamePattern = "^[a-zA-Z0-9_ ]*$";
+    private String postcodePattern = "^[0-9]{4}$";
     
     public RegisterValidator() {
     }
@@ -35,7 +36,7 @@ public class RegisterValidator implements Serializable {
     public boolean validateName(String name) {
         return validate(namePattern, name);
     }
-
+    
     public boolean validatePassword(String password) {
         return validate(passwordPattern, password);
     }
@@ -48,8 +49,16 @@ public class RegisterValidator implements Serializable {
         return validate(numberPattern, number);
     }
     
+    public boolean validatePhoneNum(String phnumber){
+        return validate(phonenumPattern,phnumber);
+    }
+    
+    public boolean validatestreetName(String streetName){
+        return validate(streetNamePattern,streetName);
+    }
+    
     public boolean validatePostCode(String postcode) {
-        return validate(passwordPattern, postcode);
+        return validate(postcodePattern, postcode);
     }
 
     public void clear(HttpSession session){

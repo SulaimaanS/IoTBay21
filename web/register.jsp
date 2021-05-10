@@ -52,8 +52,8 @@
                         <td class="style1"><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter Password")%>" name="password" required/></td>    
                     </tr>  
                     <tr>    
-                        <td  align="right">Date of Birth:</td>    
-                        <td class="style1"><input type="date" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth")%>" name="dob" required/></td>    
+                        <td  align="right">Date of Birth:</td>
+                        <td class="style1"><input type="text" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth")%>" name="dob" required/></td> 
                     </tr>
 
                     <tr>    
