@@ -48,10 +48,13 @@
         <% } else { %>
 
         <h2>You are not logged in</h2>
-        <input type=button onClick="location.href = 'index.html'"
-               value="Home">
+        <input type=button onClick="location.href = 'index.jsp'" value="Home">
         <%}%>
-        <button class="button" formaction="DeleteCustomerServlet">Delete Account</button>
+        
+        <form action="DeleteCustomerServlet" method="Post">
+            <input type="submit" value="Delete Account">
+        </form>
+        
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

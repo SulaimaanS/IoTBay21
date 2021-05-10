@@ -26,7 +26,7 @@ public class StaffManager {
     //Create Operation
     public void addStaff(int userID) throws SQLException{
         String columns = "INSERT INTO STAFFTABLE(USERID)";
-        String values = "VALUES ('"+userID+"')";
+        String values = "VALUES "+userID+"";
         statement.executeUpdate(columns + values);
     }
 

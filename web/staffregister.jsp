@@ -27,7 +27,7 @@
     <body>
         <div id="navContainer">
             <ul id="navbar">
-                <li><a href="index.jsp>Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
                 <li><a href="stafflogin.jsp">Staff Login</a></li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
 
         <div id="registerform">
 
-            <form action="RegisterServlet" method="post"> 
+            <form action="StaffRegisterServlet" method="post"> 
 
                 <table id="registerTable">
                     <tr>    

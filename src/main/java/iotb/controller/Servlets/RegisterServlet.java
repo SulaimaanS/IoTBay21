@@ -89,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }else{
                     usermanager.addUser(fName,lName,email,password,phonenum);
-                    customermanager.addCustomer(usermanager.getID(email,password),"01/01/2001",Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
+                    customermanager.addCustomer(usermanager.getID(email,password),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
                     User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
                     session.setAttribute("user",user);
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);

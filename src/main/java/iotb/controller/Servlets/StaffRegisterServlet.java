@@ -87,8 +87,9 @@ public class StaffRegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }else{
                     usermanager.addUser(fName,lName,email,password,phonenum);
-                    staffmanager.addStaff(usermanager.getID(email,password));
-                    User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
+                    int userID = usermanager.getID(email,password); 
+                    staffmanager.addStaff(4);
+                    User user = new User(userID,fName,lName,email,password,phonenum);
                     session.setAttribute("user",user);
                     request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
