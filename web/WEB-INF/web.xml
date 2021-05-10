@@ -80,6 +80,14 @@
         <servlet-name>StaffLoginServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.StaffLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffRegisterServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.StaffRegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DeleteAccountServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -159,6 +167,14 @@
     <servlet-mapping>
         <servlet-name>StaffLoginServlet</servlet-name>
         <url-pattern>/StaffLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffRegisterServlet</servlet-name>
+        <url-pattern>/StaffRegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/DeleteAccountServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

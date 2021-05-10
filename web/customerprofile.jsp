@@ -51,7 +51,7 @@
         <input type=button onClick="location.href = 'index.html'"
                value="Home">
         <%}%>
-
+        <button class="button" formaction="DeleteCustomerServlet">Delete Account</button>
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

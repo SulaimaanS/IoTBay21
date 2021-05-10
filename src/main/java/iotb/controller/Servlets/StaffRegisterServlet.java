@@ -6,9 +6,8 @@
 package iotb.controller.Servlets;
 
 import iotb.controller.RegisterValidator;
-import iotb.model.Customer;
 import iotb.model.User;
-import iotb.model.dao.CustomerManager;
+import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,10 +25,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author alaw8
  */
-public class RegisterServlet extends HttpServlet {
-
-   private UserManager usermanager;
-   private CustomerManager customermanager;
+public class StaffRegisterServlet extends HttpServlet {
+    private UserManager usermanager;
+    private StaffManager staffmanager;
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
         
 
         usermanager = (UserManager)session.getAttribute("userManager");
-        customermanager = (CustomerManager)session.getAttribute("customerManager");
+        staffmanager = (StaffManager)session.getAttribute("staffmanager");
         
         RegisterValidator validator = new RegisterValidator();
         validator.clear(session);
@@ -89,10 +87,10 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }else{
                     usermanager.addUser(fName,lName,email,password,phonenum);
-                    customermanager.addCustomer(usermanager.getID(email,password),"01/01/2001",Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
+                    staffmanager.addStaff(usermanager.getID(email,password));
                     User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
                     session.setAttribute("user",user);
-                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
+                    request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
