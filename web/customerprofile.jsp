@@ -2,14 +2,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="stylesheets/MainStyle.css">
-        <title>Main Page</title>
-    </head>
     <% 
             User user = (User)session.getAttribute("user");
     %>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/MainStyle.css">
+        <title>Customer Page</title>
+    </head>
+    
 
     <body>
         <%
@@ -19,12 +20,11 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="welcome.jsp">Welcome</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
         </div>
 
         <div id="title">
-            <h1>MainPage</h1>
+            <h1>${user.fName}'s Page</h1>
         </div>
 
         <div id="info">

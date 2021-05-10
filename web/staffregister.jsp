@@ -1,10 +1,16 @@
+<%-- 
+    Document   : staffregister
+    Created on : 10/05/2021, 3:43:09 PM
+    Author     : alaw8
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
-        <title>Create an IoTBay Account</title>
+        <title>Create a IoTBay Staff Account</title>
     </head>
     <%
             String fnameErr = (String) session.getAttribute("fnameErr");
@@ -22,12 +28,12 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="login.jsp">Login</a></li>
+                <li><a href="stafflogin.jsp">Staff Login</a></li>
             </ul>
         </div>
 
         <div id="title"> 
-            <h1>Create an IoTBay Account</h1>
+            <h1>Create a Staff Account</h1>
         </div>
 
         <div id="registerform">

@@ -76,6 +76,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.StaffLoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <url-pattern>/StaffLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
