@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
 import iotb.model.dao.*;
 import java.io.IOException;
@@ -26,6 +26,9 @@ public class ConnectionServlet extends HttpServlet {
 
     private DatabaseConnector database;
     private UserManager userManager;
+    private StaffManager staffManager;
+    private CustomerManager customerManager; 
+    private ProductManager productManager;
     private Connection conn;
 
     @Override //Create and instance of databaseConnector for the deployment session
@@ -45,11 +48,17 @@ public class ConnectionServlet extends HttpServlet {
         conn = database.connection();
         try {
             userManager = new UserManager(conn);
+            staffManager = new StaffManager(conn);
+            customerManager = new CustomerManager(conn);
+            productManager = new ProductManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the database manager to the view-session (JSPs)
         session.setAttribute("userManager", userManager);
+        session.setAttribute("staffManager", staffManager);
+        session.setAttribute("customerManager", customerManager);
+        session.setAttribute("productManager", productManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the database connection)

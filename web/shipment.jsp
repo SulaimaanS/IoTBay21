@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : shipment
     Created on : 20/03/2021, 7:22:16 PM
     Author     : alaw8
@@ -14,4 +14,5 @@
     <body>
         <h1>Hello World!</h1>
     </body>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>

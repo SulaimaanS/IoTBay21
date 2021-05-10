@@ -1,5 +1,6 @@
-package iotb.controller;
+package iotb.controller.Servlets;
 
+import iotb.controller.LoginValidator;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import iotb.model.User;
 import iotb.model.dao.UserManager;
 
-public class ReadProductServlet extends HttpServlet {
+public class DeleteProductServlet extends HttpServlet {
 
     @Override
 
@@ -31,7 +32,7 @@ public class ReadProductServlet extends HttpServlet {
         User user = null;
         try {
             //6- find user by email and password
-            user = manager.readUser(Integer.parseInt(id));
+            user = manager.readUser(email,password);
         } catch (SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

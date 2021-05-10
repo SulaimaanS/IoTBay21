@@ -1,4 +1,4 @@
-package iotb.controller;
+package iotb.controller.TestDB;
 
 import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.ProductManager;
