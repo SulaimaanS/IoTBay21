@@ -36,6 +36,8 @@ package iotb.controller;
        private DBConnector db;
 
        private CreditCardManager creditCardManager;
+       private PaymentManager paymentManager;
+       private PaypalManager paypalManager;
 
        private Connection conn;
 
@@ -74,6 +76,8 @@ package iotb.controller;
            try {
 
                creditCardManager = new CreditCardManager(conn);
+               paymentManager = new PaymentManager(conn);
+               paypalManager = new PaypalManager(conn);
 
            } catch (SQLException ex) {
 
@@ -83,7 +87,9 @@ package iotb.controller;
 
            //export the DB manager to the view-session (JSPs)
 
-           session.setAttribute("creditCardManager", creditCardManager);           
+           session.setAttribute("creditCardManager", creditCardManager);
+           session.setAttribute("paymentManager", paymentManager);
+           session.setAttribute("paypalManager", paypalManager);
 
        }   
 

@@ -17,62 +17,61 @@ package iotb.controller;
 
    public class Validator implements Serializable{ 
 
- 
-   private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
-   private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";       
-   private String passwordPattern = "[a-z0-9]{4,}";
-   
    //Credit Card validation
-   private String expiryDatePattern; //add pattern for expiry date YYYY-MM-DD
-   private String cardNumberPattern;
-   private String holderNamePattern;
-   private String cvvPattern;
+   private String expiryDatePattern="([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"; //expiry date YYYY-MM-DD
+   private String cardNumberPattern="^[0-9]{16}$"; //max of 16 digits
+   private String holderNamePattern="^[a-zA-z ]{2,30}$"; //max of 30 letters
+   private String cvvPattern="^[0-9]{3}$"; //max of 3 digits
    
    //Payment validation
-   private String paymentTypePattern;
+   private String paymentTypePattern="^[12]{1}$"; //either 1 or 2
    
    //PayPal validation
-   private String paypalTokenPattern;
+   private String paypalUsernamePattern="^.{2,50}$"; //max of 50 characters
+   private String paypalPasswordPattern="^.{2,50}$"; //max of 50 characters
               
    public Validator(){    }
    
-   // TO DO - add validate methods for Credit Card
-
-
    public boolean validate(String pattern, String input){       
       Pattern regEx = Pattern.compile(pattern);       
       Matcher match = regEx.matcher(input);       
 
       return match.matches(); 
 
-   }       
+   }
+   
+   //Validate methods for Credit Card
 
- 
-
-   public boolean checkEmpty(String email, String password){       
-
-      return  email.isEmpty() || password.isEmpty();   
-
+   public boolean validateExpiryDate(String expiryDate) {
+       return validate(expiryDatePattern, expiryDate);
+   }
+   
+   public boolean validateCardNumber(String cardNumber) {
+       return validate(cardNumberPattern, cardNumber);
+   }
+   
+   public boolean validateHolderName(String holderName) {
+       return validate(holderNamePattern, holderName);
+   }
+   
+   public boolean validateCVV(String cvv) {
+       return validate(cvvPattern, cvv);
+   }
+   
+   //Validate methods for Payment
+   
+   public boolean validatePaymentType(String paymentType) {
+       return validate(paymentTypePattern, paymentType);
    }
 
+   //Validate methods for PayPal
    
-   public boolean validateEmail(String email){                       
-
-      return validate(emailPattern,email);   
-
+   public boolean validatePaypalUsername(String paypalUsername) {
+       return validate(paypalUsernamePattern, paypalUsername);
+   }
+   
+   public boolean validatePaypalPassword(String paypalPassword) {
+       return validate(paypalPasswordPattern, paypalPassword);
    }
 
-       
-   public boolean validateName(String name){
-
-      return validate(namePattern,name); 
-
-   }       
-   
-
-   public boolean validatePassword(String password){
-
-      return validate(passwordPattern,password); 
-
-   }          
 }
