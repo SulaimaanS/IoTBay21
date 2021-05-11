@@ -10,13 +10,13 @@
 
 INSERT INTO USERTABLE (FIRSTNAME, LASTNAME, EMAILADDRESS, PASSWORD, PHONENUMBER)
 VALUES
-('John', 'Smith', 'john.smith@example.com', '1234', '1234567'),
-('Ashley', 'Hunter', 'ashley.hunter@example.com', '4321', '7654321'),
-('Mitchell', 'Thomas', 'mitchell.thomas@example.com', '1234', '5435235'),
-('Rachel', 'Lee', 'rachel.lee@example.com', '13524', '2532546'),
-('Gregory', 'Street', 'gregory.street@example.com', '4366', '24564362'),
-('John', 'Park', 'john.park@example.com', '2346', '65436436'),
-('Fiona', 'Ashington', 'fiona.ashington@example.com', '5325', '3463428'),
-('Katrina', 'Patel', 'katrina.patel@example.com', '7654', '64703453'),
-('Linda', 'Wang', 'linda.wang@example.com', '6432', '23589763'),
-('Penelope', 'Mendez', 'penelope.mendez@example.com', '4321', '43677967');
+('Ashton', 'Hubert', 'ashton.hubert@example.com', '4567', '6793476346'),
+('Nolan', 'Hemsworth', 'nolan.hemsworth@example.com', '4363', '3456934'),
+('Hilda', 'Mitchells', 'Hilda.Mitchells@example.com', '1234', '453626'),
+('Mary', 'Hackett', 'Mary.Hackett@example.com', '6435', '96785342'),
+('Joan', 'Louis', 'Joan.Louis@example.com', '7896', '24564362'),
+('Jose', 'Fereira', 'Jose.Fereira@example.com', '3452', '76836425'),
+('Frederick', 'Hunter', 'Frederick.Hunter@example.com', '3456', '780926587'),
+('Wei', 'Li', 'Wei.Li@example.com', '8796', '8654426'),
+('Rosemary', 'Rose', 'Rosemary.Rose@example.com', '12489', '5568235'),
+('Ian', 'Patrick', 'Ian.Patrick@example.com', '96872', '8563546');

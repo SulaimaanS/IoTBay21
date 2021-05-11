@@ -14,7 +14,7 @@ import java.text.ParseException;
 
 /**
  *
- * @author 1234
+ * @author chris
  */
 public class PaymentManager {
     
@@ -51,7 +51,7 @@ public class PaymentManager {
     
     // UPDATE - by paymentID
     
-    public void updateCreditCard(int paymentID, int orderID, int paymentType) throws SQLException, ParseException {
+    public void updatePayment(int paymentID, int orderID, int paymentType) throws SQLException, ParseException {
         
         
         // Requires an existing orderID to be assigned to

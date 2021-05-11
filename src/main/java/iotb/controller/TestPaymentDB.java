@@ -75,8 +75,8 @@ public class TestPaymentDB {
         System.out.println("Payment Type (1 or 2): ");
         String paymentType = in.nextLine();
             
-        manager.updateCreditCard(Integer.parseInt(paymentID), Integer.parseInt(orderID), Integer.parseInt(paymentType));
-        System.out.println("Credit Card successfully updated");
+        manager.updatePayment(Integer.parseInt(paymentID), Integer.parseInt(orderID), Integer.parseInt(paymentType));
+        System.out.println("Payment successfully updated");
     }
     
     // DELETE - by paymentID

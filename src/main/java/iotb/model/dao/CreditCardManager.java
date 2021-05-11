@@ -17,7 +17,7 @@ import java.util.Date;
 
 /**
  *
- * @author 1234
+ * @author chris
  */
 public class CreditCardManager {
     
@@ -55,7 +55,7 @@ public class CreditCardManager {
         return null;
     }
     
-    // UPDATE - all credit card details
+    // UPDATE - all credit card details by cardnumber
     
     public void updateCreditCard(String oldCardNumber, String newCardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
         
