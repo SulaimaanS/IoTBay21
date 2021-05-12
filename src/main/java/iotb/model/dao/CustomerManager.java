@@ -59,8 +59,8 @@ public class CustomerManager {
         statement.executeUpdate(update);
     }
 
-    public void deleteCustomer(int customerID) throws SQLException {
-        String delete = "DELETE FROM CUSTOMERTABLE WHERE CUSTOMERID=" + customerID + "";
+    public void deleteCustomer(int userID) throws SQLException {
+        String delete = "DELETE FROM CUSTOMERTABLE WHERE USERID=" + userID + "";
         statement.executeUpdate(delete);
     }
     

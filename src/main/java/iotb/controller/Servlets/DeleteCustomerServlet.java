@@ -36,8 +36,8 @@ public class DeleteCustomerServlet extends HttpServlet {
         Customer customer = (Customer)session.getAttribute("customer");
         
         try{
+            customermanager.deleteCustomer(user.getUserID());
             usermanager.deleteUser(user.getUserID());
-            customermanager.deleteCustomer(customer.getCustomerID());
             request.getRequestDispatcher("logout.jsp").include(request, response);  
             }catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
