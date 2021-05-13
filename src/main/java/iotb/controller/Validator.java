@@ -20,9 +20,9 @@ package iotb.controller;
 
    //Credit Card validation
    private String expiryDatePattern="([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"; //expiry date YYYY-MM-DD
-   private String cardNumberPattern="^[0-9]{16}$"; //max of 16 digits
+   private String cardNumberPattern="^[0-9]{16}$"; //exactly 16 digits
    private String holderNamePattern="^[a-zA-z ]{2,30}$"; //max of 30 letters
-   private String cvvPattern="^[0-9]{3}$"; //max of 3 digits
+   private String cvvPattern="^[0-9]{3}$"; //exactly 3 digits
    
    //Payment validation
    private String paymentTypePattern="^[12]{1}$"; //either 1 or 2

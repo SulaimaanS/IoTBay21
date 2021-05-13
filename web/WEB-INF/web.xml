@@ -12,6 +12,10 @@
         <servlet-name>CreatePaymentServlet</servlet-name>
         <servlet-class>iotb.controller.CreatePaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.CreateCreditCardServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CreatePaymentServlet</servlet-name>
         <url-pattern>/CreatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateCreditCardServlet</servlet-name>
+        <url-pattern>/CreateCreditCardServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

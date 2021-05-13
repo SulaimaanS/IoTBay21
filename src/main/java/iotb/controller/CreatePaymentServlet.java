@@ -37,13 +37,18 @@ public class CreatePaymentServlet extends HttpServlet {
         validator.clear(session);
         
         if(!validator.validatePaymentType(paymentType)) {
-            session.setAttribute("paymentTypeErr", "Error: Payment type does not exist");
+            session.setAttribute("paymentTypeErr", "Error: Payment type does not exist"); //Kind of redundant since HTML form only takes 1 or 2
         } else {
             try {
                 manager.addPayment(Integer.parseInt(orderID), Integer.parseInt(paymentType));
                 // Payment payment = new Payment(paymentID, orderID, paymentType);
                 // session.setAttribute("payment", payment);
-                request.getRequestDispatcher("addCreditCard.jsp").include(request, response);
+                if (paymentType.equals("1")) { // if payment type is 1 then go to add credit card page else go to paypal page
+                    request.getRequestDispatcher("addCreditCard.jsp").include(request, response);
+                } else {
+                    request.getRequestDispatcher("addPaypal.jsp").include(request, response);
+                }
+                
                 
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaymentServlet.class.getName()).log(Logger.Level.FATAL, manager, ex);
