@@ -13,6 +13,7 @@ package iotb.controller;
    import java.io.Serializable;
    import java.util.regex.Matcher;
    import java.util.regex.Pattern;
+   import javax.servlet.http.HttpSession;
 
 
    public class Validator implements Serializable{ 
@@ -72,6 +73,17 @@ package iotb.controller;
    
    public boolean validatePaypalPassword(String paypalPassword) {
        return validate(paypalPasswordPattern, paypalPassword);
+   }
+   
+   public void clear(HttpSession session) {
+       session.setAttribute("expiryDateErr", "Enter expiry date");
+       session.setAttribute("cardNumberErr", "Enter card number");
+       session.setAttribute("holderNameErr", "Enter card holder name");
+       session.setAttribute("cvvErr", "Enter CVV");
+       session.setAttribute("paymentTypeErr", "Enter payment type");
+       session.setAttribute("paypalUsernameErr", "Enter PayPal username");
+       session.setAttribute("paypalPasswordErr", "Enter PayPal password");
+       session.setAttribute("existErr", "");
    }
 
 }
