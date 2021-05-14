@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/interface.css">
         <title>Add PayPal Account</title>
     </head>
     <body>
@@ -17,6 +18,11 @@
             String paypalUsernameErr = (String) session.getAttribute("paypalUsernameErr");
             String paypalPasswordErr = (String) session.getAttribute("paypalPasswordErr");
         %>
+        
+        <ul>
+            <li><a href="main.jsp">Main</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+        </ul>
         
         <h1>Add PayPal Account</h1>
         <form method="post" action="CreatePaypalServlet">

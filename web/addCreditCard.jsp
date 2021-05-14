@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/interface.css">
         <title>Add Credit Card</title>
     </head>
     <body>
@@ -19,6 +20,11 @@
             String holderNameErr = (String) session.getAttribute("holderNameErr");
             String cvvErr = (String) session.getAttribute("cvvErr");
         %>
+        
+        <ul>
+            <li><a href="main.jsp">Main</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+        </ul>
         
         <h1>Add Credit Card</h1>
         <form method="post" action="CreateCreditCardServlet">

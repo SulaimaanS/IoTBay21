@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/interface.css">
         <title>Update my PayPal Account Details</title>
     </head>
     <body>
@@ -18,6 +19,11 @@
             String paypalPasswordErr = (String)session.getAttribute("paypalPasswordErr");
             String updated = (String)session.getAttribute("updated");
         %>
+        
+        <ul>
+            <li><a href="main.jsp">Main</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+        </ul>
         
         <h1>Update my PayPal Account Details</h1><span><%=(updated != null ? updated : "")%></span>
         <form method="post" action="UpdatePaypalServlet">

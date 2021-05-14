@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="stylesheets/interface.css">
         <title>Payment Records</title>
     </head>
     <body>
+        
+        <ul>
+            <li><a href="main.jsp">Main</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+        </ul>
+        
         <h1>Payment Records</h1>
         <h2>Payment Details</h2>
         <jsp:include page="/DisplayPaymentServlet" flush="true"/>

@@ -44,6 +44,10 @@
         <servlet-name>UpdatePaymentServlet</servlet-name>
         <servlet-class>iotb.controller.UpdatePaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.DeletePaymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>UpdatePaymentServlet</servlet-name>
         <url-pattern>/UpdatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <url-pattern>/DeletePaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
