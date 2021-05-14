@@ -69,5 +69,23 @@ public class PaypalManager {
         st.executeUpdate(delete);
     }
     
+    // FETCH - all paypal records - outputs as HTML
     
+    public String fetchPaypal() throws SQLException {
+        String query = "SELECT * FROM PAYPALTABLE";
+        ResultSet rs = st.executeQuery(query);
+        String allRecords = "";
+        
+        while (rs.next()) {
+            
+            String paypalID = rs.getString("PAYPALID");
+            String paymentID = rs.getString("PAYMENTID");
+            String paypalUsername = rs.getString("PAYPALUSERNAME");
+            String paypalPassword = rs.getString("PAYPALPASSWORD");
+            allRecords += "<tr><td>" + paypalID + "</td><td>" + paymentID + "</td><td>" + paypalUsername + "</td><td>" + paypalPassword +"</td></tr>";
+            
+        }
+        
+        return allRecords;
+    }
 }

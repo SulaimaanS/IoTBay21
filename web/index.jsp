@@ -14,6 +14,7 @@
     <body>
         <h1>Landing Page</h1>
         <a href="createPayment.jsp">Add Payment Information</a>
+        <a href="viewRecords.jsp">View Payment Details</a>
         <jsp:include page="/ConnectionServlet" flush="true"/>
     </body>
 </html>

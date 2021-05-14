@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -72,5 +73,27 @@ public class CreditCardManager {
     public void deleteCreditCard(String cardNumber) throws SQLException {
         String delete = "DELETE FROM CREDITCARDTABLE WHERE CARDNUMBER = '"+cardNumber+"'";
         st.executeUpdate(delete);
+    }
+    
+    // FETCH - all credit cards - outputs as HTML
+    
+    public String fetchCreditCard() throws SQLException {
+        String query = "SELECT * FROM CREDITCARDTABLE";
+        ResultSet rs = st.executeQuery(query);
+        String allRecords = "";
+        
+        while (rs.next()) {
+            
+            String paymentID = rs.getString("PAYMENTID");
+            String cardID = rs.getString("CARDID");
+            String cardNo = rs.getString("CARDNUMBER");
+            String expiryDate = rs.getString("EXPIRYDATE");
+            String holderName = rs.getString("HOLDERNAME");
+            String cvv = rs.getString("CVV");
+            allRecords += "<tr><td>" + paymentID + "</td><td>" + cardID + "</td><td>" + cardNo + "</td><td>" + expiryDate + "</td><td>" + holderName + "</td><td>" + cvv + "</td></tr>";
+            
+        }
+        
+        return allRecords;
     }
 }

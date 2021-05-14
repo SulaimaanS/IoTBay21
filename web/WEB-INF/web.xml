@@ -20,6 +20,18 @@
         <servlet-name>CreatePaypalServlet</servlet-name>
         <servlet-class>iotb.controller.CreatePaypalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.DisplayCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.DisplayPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayPaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.DisplayPaypalServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>CreatePaypalServlet</servlet-name>
         <url-pattern>/CreatePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayCreditCardServlet</servlet-name>
+        <url-pattern>/DisplayCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayPaymentServlet</servlet-name>
+        <url-pattern>/DisplayPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayPaypalServlet</servlet-name>
+        <url-pattern>/DisplayPaypalServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

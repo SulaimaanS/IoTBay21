@@ -67,4 +67,23 @@ public class PaymentManager {
         String delete = "DELETE FROM PAYMENTTABLE WHERE PAYMENTID = "+paymentID+"";
         st.executeUpdate(delete);
     }
+    
+    // FETCH - all payments - outputs as HTML
+    
+    public String fetchPayment() throws SQLException {
+        String query = "SELECT * FROM PAYMENTTABLE";
+        ResultSet rs = st.executeQuery(query);
+        String allRecords = "";
+        
+        while (rs.next()) {
+            
+            String paymentID = rs.getString("PAYMENTID");
+            String orderID = rs.getString("ORDERID");
+            String paymentType = rs.getString("PAYMENTTYPE");
+            allRecords += "<tr><td>" + paymentID + "</td><td>" + orderID + "</td><td>" + paymentType + "</td></tr>";
+            
+        }
+        
+        return allRecords;
+    }
 }
