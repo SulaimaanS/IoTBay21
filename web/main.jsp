@@ -11,6 +11,8 @@
     <body>
         <h1>Main Page</h1>
         <a href="updateCreditCard.jsp">Update my Credit Card details</a>
+        <a href="updatePaypal.jsp">Update my PayPal Account details</a>
+        <a href="updatePayment.jsp">Update my Payment details</a>
         <a href="viewRecords.jsp">View Payment Details</a>
     </body>
 </html>

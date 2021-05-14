@@ -36,6 +36,14 @@
         <servlet-name>UpdateCreditCardServlet</servlet-name>
         <servlet-class>iotb.controller.UpdateCreditCardServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.UpdatePaypalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.UpdatePaymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>UpdateCreditCardServlet</servlet-name>
         <url-pattern>/UpdateCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePaypalServlet</servlet-name>
+        <url-pattern>/UpdatePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePaymentServlet</servlet-name>
+        <url-pattern>/UpdatePaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
