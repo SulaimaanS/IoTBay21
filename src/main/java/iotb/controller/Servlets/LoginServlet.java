@@ -1,6 +1,7 @@
 package iotb.controller.Servlets;
 
 import iotb.controller.LoginValidator;
+import iotb.model.Customer;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -11,11 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import iotb.model.User;
+import iotb.model.dao.CustomerManager;
 import iotb.model.dao.UserManager;
 
 public class LoginServlet extends HttpServlet {
 
     private UserManager manager;
+    private CustomerManager customermanager;
     
     @Override
 
@@ -27,8 +30,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");//4- capture the posted password   
 
         manager = (UserManager)session.getAttribute("userManager");//5- retrieve the manager instance from session
+        customermanager = (CustomerManager)session.getAttribute("customerManager");
         
         User user = null;
+        Customer customer = null;
         
         LoginValidator validator = new LoginValidator();
         validator.clear(session);
@@ -44,11 +49,12 @@ public class LoginServlet extends HttpServlet {
             try{
                 //user = manager.readUser(email, password);//6- find user by email and password
                 user = manager.readUser(email,password);
-                
+                customer = customermanager.readCustomer(user.getUserID());
                 if (user != null){
                     System.out.println("Login Successful");
                     session = request.getSession(true);
-                    session.setAttribute("user", user);//13-save the logged in user object to the session  
+                    session.setAttribute("user", user);
+                    session.setAttribute("customer", customer);
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
                 else{

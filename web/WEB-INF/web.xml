@@ -25,44 +25,12 @@
         <servlet-class>iotb.controller.Servlets.ReadProductServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddUserServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.AddUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateUserServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.UpdateUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReadUserServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.ReadUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.DeleteUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddCustomerServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.AddCustomerServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReadCustomerServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.ReadCustomerServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>UpdateCustomerServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.UpdateCustomerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteCustomerServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.DeleteCustomerServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddStaffServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.AddStaffServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReadStaffServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.ReadStaffServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateStaffServlet</servlet-name>
@@ -113,44 +81,12 @@
         <url-pattern>/ReadProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddUserServlet</servlet-name>
-        <url-pattern>/AddUserServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateUserServlet</servlet-name>
-        <url-pattern>/UpdateUserServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReadUserServlet</servlet-name>
-        <url-pattern>/ReadUserServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeleteUserServlet</servlet-name>
-        <url-pattern>/DeleteUserServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddCustomerServlet</servlet-name>
-        <url-pattern>/AddCustomerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReadCustomerServlet</servlet-name>
-        <url-pattern>/ReadCustomerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UpdateCustomerServlet</servlet-name>
         <url-pattern>/UpdateCustomerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteCustomerServlet</servlet-name>
         <url-pattern>/DeleteCustomerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddStaffServlet</servlet-name>
-        <url-pattern>/AddStaffServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReadStaffServlet</servlet-name>
-        <url-pattern>/ReadStaffServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateStaffServlet</servlet-name>

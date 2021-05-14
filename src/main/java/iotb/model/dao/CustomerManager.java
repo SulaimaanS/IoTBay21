@@ -36,8 +36,8 @@ public class CustomerManager {
         statement.executeUpdate(columns + values);
     }
 
-    public Customer readCustomer(int customerID) throws SQLException {
-        String query = "SELECT * FROM CUSTOMERTABLE WHERE CUSTOMERID = " + customerID + "";
+    public Customer readCustomer(int userID) throws SQLException {
+        String query = "SELECT * FROM CUSTOMERTABLE WHERE USERID = " + userID + "";
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {

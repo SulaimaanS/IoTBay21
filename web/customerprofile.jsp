@@ -19,7 +19,8 @@
         %>
         <div id="navContainer">
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="updatecustomer.jsp">Edit Profile</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
         </div>
 
