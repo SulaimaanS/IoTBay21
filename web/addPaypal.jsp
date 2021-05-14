@@ -22,8 +22,8 @@
         <form method="post" action="CreatePaypalServlet">
             <table>
                 <tr><td>Existing Payment ID: </td><td><input type="text" placeholder="Enter existing Payment ID" name="paymentID"></td></tr>
-                <tr><td>PayPal Username: </td><td><input type="text" name="paypalUsername"></td></tr>
-                <tr><td>PayPal Password </td><td><input type="password" name="paypalPassword"></td></tr>
+                <tr><td>PayPal Username: </td><td><input type="text" placeholder="<%=(paypalUsernameErr != null ? paypalUsernameErr : "Enter PayPal Username")%>" name="paypalUsername"></td></tr>
+                <tr><td>PayPal Password </td><td><input type="password" placeholder="<%=(paypalPasswordErr != null ? paypalPasswordErr : "Enter PayPal Password")%>" name="paypalPassword"></td></tr>
                 <tr><td></td><td><input type="submit" value="Add PayPal account"></td></tr>
             </table>
         </form>

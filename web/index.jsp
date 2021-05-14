@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Landing Page</h1>
+        <a href="main.jsp">Main Page</a>
         <a href="createPayment.jsp">Add Payment Information</a>
         <a href="viewRecords.jsp">View Payment Details</a>
         <jsp:include page="/ConnectionServlet" flush="true"/>

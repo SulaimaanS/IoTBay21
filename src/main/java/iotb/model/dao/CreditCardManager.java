@@ -56,15 +56,15 @@ public class CreditCardManager {
         return null;
     }
     
-    // UPDATE - all credit card details by cardnumber
+    // UPDATE - all credit card details by cardID
     
-    public void updateCreditCard(String oldCardNumber, String newCardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
+    public void updateCreditCard(int cardID, String newCardNumber, String expiryDate, String holderName, String cvv) throws SQLException, ParseException {
         
         
         //newCardNumber is the new card to be updated
         //oldCardNumber is used to search the existing credit card in the database
         
-        String update = "UPDATE CREDITCARDTABLE SET CARDNUMBER = '"+newCardNumber+"',  EXPIRYDATE = '"+expiryDate+"',  HOLDERNAME = '"+holderName+"',  CVV = '"+cvv+"' WHERE CARDNUMBER='"+oldCardNumber+"'";
+        String update = "UPDATE CREDITCARDTABLE SET CARDNUMBER = '"+newCardNumber+"',  EXPIRYDATE = '"+expiryDate+"',  HOLDERNAME = '"+holderName+"',  CVV = '"+cvv+"' WHERE CARDID="+cardID+"";
         st.executeUpdate(update);
     }
     

@@ -74,7 +74,7 @@ public class TestCreditCardDB {
     
     public static void updateCreditCard() throws SQLException, ParseException {
         System.out.println("Card Number to update: ");
-        String oldCardNumber = in.nextLine();
+        String cardID = in.nextLine();
         System.out.println("Card Number: ");
         String newCardNumber = in.nextLine();
         System.out.println("Expiry Date: ");
@@ -84,7 +84,7 @@ public class TestCreditCardDB {
         System.out.println("CVV: ");
         String cvv = in.nextLine();
             
-        manager.updateCreditCard(oldCardNumber, newCardNumber, expiryDate, holderName, cvv);
+        manager.updateCreditCard(Integer.parseInt(cardID), newCardNumber, expiryDate, holderName, cvv);
         System.out.println("Credit Card successfully updated");
     }
     

@@ -27,7 +27,7 @@ public class DisplayCreditCardServlet extends HttpServlet {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        out.println("<html><body>");
+        
         
         CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
         
@@ -37,7 +37,7 @@ public class DisplayCreditCardServlet extends HttpServlet {
             String allRecords = manager.fetchCreditCard();
             out.println(allRecords);
             out.println("</table>");
-            out.println("</html></body>");
+            
         } catch (Exception e){
             out.println("Error");
         }

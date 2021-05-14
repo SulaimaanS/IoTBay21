@@ -26,7 +26,7 @@ public class DisplayPaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        out.println("<html><body>");
+        
         
         PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
         
@@ -36,7 +36,7 @@ public class DisplayPaymentServlet extends HttpServlet {
             String allRecords = manager.fetchPayment();
             out.println(allRecords);
             out.println("</table>");
-            out.println("</html></body>");
+            
         } catch (Exception e){
             out.println("Error");
         }
