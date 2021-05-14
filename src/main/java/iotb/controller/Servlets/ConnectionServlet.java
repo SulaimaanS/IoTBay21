@@ -29,6 +29,7 @@ public class ConnectionServlet extends HttpServlet {
     private StaffManager staffManager;
     private CustomerManager customerManager; 
     private ProductManager productManager;
+    private LogManager logManager; 
     private Connection conn;
 
     @Override //Create and instance of databaseConnector for the deployment session
@@ -51,6 +52,7 @@ public class ConnectionServlet extends HttpServlet {
             staffManager = new StaffManager(conn);
             customerManager = new CustomerManager(conn);
             productManager = new ProductManager(conn);
+            logManager = new LogManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -59,6 +61,7 @@ public class ConnectionServlet extends HttpServlet {
         session.setAttribute("staffManager", staffManager);
         session.setAttribute("customerManager", customerManager);
         session.setAttribute("productManager", productManager);
+        session.setAttribute("logManager", logManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the database connection)

@@ -8,11 +8,14 @@ package iotb.controller.Servlets;
 import iotb.controller.LoginValidator;
 import iotb.model.Staff;
 import iotb.model.User;
+import iotb.model.dao.LogManager;
 import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -29,6 +32,7 @@ public class StaffLoginServlet extends HttpServlet {
 
     private UserManager usermanager;
     private StaffManager staffmanager;
+    private LogManager logmanager;
     
     @Override
 
@@ -58,10 +62,13 @@ public class StaffLoginServlet extends HttpServlet {
             try{
                 user = usermanager.readUser(email,password);
                 staff = staffmanager.readStaff(user.getUserID());
+                logmanager = (LogManager)session.getAttribute("logManager");
                 if (staff != null){
                     System.out.println("Login Successful");
                     session = request.getSession(true);
                     session.setAttribute("user", user);
+                    Date date = new Date();
+                    logmanager.addStaffLog(staff.getStaffID(),date);
                     request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
                 else{
@@ -73,6 +80,8 @@ public class StaffLoginServlet extends HttpServlet {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("stafflogin.jsp").include(request, response);
+            } catch (ParseException ex) {
+                Logger.getLogger(StaffLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
 

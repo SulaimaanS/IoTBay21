@@ -13,12 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import iotb.model.User;
 import iotb.model.dao.CustomerManager;
+import iotb.model.dao.LogManager;
 import iotb.model.dao.UserManager;
+import java.text.ParseException;
+import java.util.Date;
 
 public class LoginServlet extends HttpServlet {
 
     private UserManager manager;
     private CustomerManager customermanager;
+    private LogManager logmanager;
     
     @Override
 
@@ -26,11 +30,13 @@ public class LoginServlet extends HttpServlet {
         
 
         HttpSession session = request.getSession();
-        String email = request.getParameter("email");//3- capture the posted email      
-        String password = request.getParameter("password");//4- capture the posted password   
+        String email = request.getParameter("email");     
+        String password = request.getParameter("password"); 
 
-        manager = (UserManager)session.getAttribute("userManager");//5- retrieve the manager instance from session
+        manager = (UserManager)session.getAttribute("userManager");
         customermanager = (CustomerManager)session.getAttribute("customerManager");
+        logmanager = (LogManager)session.getAttribute("logManager");
+        
         
         User user = null;
         Customer customer = null;
@@ -38,16 +44,15 @@ public class LoginServlet extends HttpServlet {
         LoginValidator validator = new LoginValidator();
         validator.clear(session);
 
-        if (!validator.validateEmail(email)) {/*7-validate email*/
-            session.setAttribute("emailErr", "Error: Email Format Incorrect");//8-set incorrect email error to the session   
-            request.getRequestDispatcher("login.jsp").include(request, response);//9- redirect user back to the login.jsp    
+        if (!validator.validateEmail(email)) {
+            session.setAttribute("emailErr", "Error: Email Format Incorrect");
+            request.getRequestDispatcher("login.jsp").include(request, response); 
         } else if (!validator.validatePassword(password)) {
             /*10-   validate password  */
-            session.setAttribute("passErr", "Error: Password Format Incorect");//11-set incorrect password error to the session   
-            request.getRequestDispatcher("login.jsp").include(request, response);//12- redirect user back to the login.jsp  
+            session.setAttribute("passErr", "Error: Password Format Incorect");
+            request.getRequestDispatcher("login.jsp").include(request, response);
         } else {
             try{
-                //user = manager.readUser(email, password);//6- find user by email and password
                 user = manager.readUser(email,password);
                 customer = customermanager.readCustomer(user.getUserID());
                 if (user != null){
@@ -55,6 +60,8 @@ public class LoginServlet extends HttpServlet {
                     session = request.getSession(true);
                     session.setAttribute("user", user);
                     session.setAttribute("customer", customer);
+                    Date date = new Date();
+                    logmanager.addCustomerLog(user.getUserID(),date);
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
                 else{
@@ -66,6 +73,8 @@ public class LoginServlet extends HttpServlet {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("login.jsp").include(request, response);
+            } catch (ParseException ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
 

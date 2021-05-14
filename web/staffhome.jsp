@@ -33,7 +33,6 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <td>
                 </tr>
                 <tr>
                     <td>
