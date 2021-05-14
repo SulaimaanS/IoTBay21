@@ -81,15 +81,20 @@ public class UpdateCustomerServlet extends HttpServlet {
             request.getRequestDispatcher("updatecustomer.jsp").include(request, response);  
         } else {
             try{
-                User exist = usermanager.readUser(email,password);       
-                if (exist != null){
-                    session.setAttribute("existErr", "User Already Exists!");
+                User user = usermanager.readUser(email,password);                
+                if (user == null){
+                    session.setAttribute("existErr", "User Does Not Exist!");
                     request.getRequestDispatcher("updatecustomer.jsp").include(request, response);
                 }else{
-                    usermanager.addUser(fName,lName,email,password,phonenum);
-                    customermanager.addCustomer(usermanager.getID(email,password),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
-                    User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
-                    session.setAttribute("user",user);
+                    usermanager.updateUser(usermanager.getID(email,password),fName,lName,email,password,phonenum);
+                    String updatedemail = request.getParameter("email");    
+                    String updatedpassword = request.getParameter("password"); 
+                    int userID = usermanager.getID(updatedemail,updatedpassword);
+                    customermanager.updateCustomer(userID, customermanager.getID(userID),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
+                    User updateduser = new User(usermanager.getID(updatedemail,updatedpassword),fName,lName,email,password,phonenum);
+                    Customer customer = customermanager.readCustomer(user.getUserID());
+                    session.setAttribute("user",updateduser);
+                    session.setAttribute("customer",customer);
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {

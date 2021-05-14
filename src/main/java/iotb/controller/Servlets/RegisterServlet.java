@@ -54,51 +54,50 @@ public class RegisterServlet extends HttpServlet {
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Email Format Incorrect"); 
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validateName(fName)) {
             session.setAttribute("fnameErr", "First Name Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validateName(lName)) {
             session.setAttribute("lnameErr", "Last Name Format Incorrect");  
             request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Password Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validateDob(dob)) {
             session.setAttribute("dobErr", "DOB Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validatePhoneNum(phonenum)) {
             session.setAttribute("phoneErr","Phone Number Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validateNum(streetnum)) {
             session.setAttribute("streetNumErr", "Street Number Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validatestreetName(streetname)) {
             session.setAttribute("streetNameErr", "Street Name Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else if (!validator.validatePostCode(postcode)) {
             session.setAttribute("postcodeErr", "Post Code Format Incorrect");  
-            request.getRequestDispatcher("customerprofile.jsp").include(request, response);  
+            request.getRequestDispatcher("register.jsp").include(request, response);  
         } else {
             try{
                 User exist = usermanager.readUser(email,password);       
                 if (exist != null){
                     session.setAttribute("existErr", "User Already Exists!");
-                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
+                    request.getRequestDispatcher("register.jsp").include(request, response);
                 }else{
-                    usermanager.updateUser(usermanager.getID(email,password),fName,lName,email,password,phonenum);
-                    String updatedemail = request.getParameter("email");    
-                    String updatedpassword = request.getParameter("password"); 
-                    int userID = usermanager.getID(updatedemail,updatedpassword);
-                    customermanager.updateCustomer(userID, customermanager.getID(userID),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
-                    User user = new User(usermanager.getID(updatedemail,updatedpassword),fName,lName,email,password,phonenum);
+                    usermanager.addUser(fName,lName,email,password,phonenum);
+                    customermanager.addCustomer(usermanager.getID(email,password),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
+                    User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
+                    Customer customer = customermanager.readCustomer(user.getUserID());
                     session.setAttribute("user",user);
+                    session.setAttribute("customer",customer);
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                request.getRequestDispatcher("customerprofile.jsp").include(request, response);
+                request.getRequestDispatcher("register.jsp").include(request, response);
             } catch (ParseException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

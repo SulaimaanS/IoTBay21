@@ -54,8 +54,11 @@ public class CustomerManager {
         return null;
     }
 
-    public void updateCustomer(int userID, int customerID, String dob, int streetNumber, String streetName, int postCode, Boolean registered) throws SQLException {
-        String update = "UPDATE CUSTOMERTABLE SET USERID=" + userID + ",DOB='" + dob + "',STREETNUMBER=" + streetNumber + ",STREETNAME='" + streetName + "',POSTCODE=" + postCode + ",REGISTERED=" + registered + " WHERE CUSTOMERID= " + customerID + " ";
+    public void updateCustomer(int userID, int customerID, String dob, int streetNumber, String streetName, int postCode, Boolean registered) throws SQLException, ParseException {
+        Date d = DateFormat.getDateInstance().parse(dob);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String strDate = formatter.format(d);
+        String update = "UPDATE CUSTOMERTABLE SET USERID=" + userID + ",DOB='" + strDate + "',STREETNUMBER=" + streetNumber + ",STREETNAME='" + streetName + "',POSTCODE=" + postCode + ",REGISTERED=" + registered + " WHERE CUSTOMERID= " + customerID + " ";
         statement.executeUpdate(update);
     }
 

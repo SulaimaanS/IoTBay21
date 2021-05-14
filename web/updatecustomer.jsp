@@ -58,7 +58,7 @@
                     </tr>  
                     <tr>    
                         <td  align="right">Date of Birth:</td>
-                        <td class="style1"><input type="text" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth (YYYY-DD-MM)")%>" value="${customer.dob}" name="dob" required/></td> 
+                        <td class="style1"><input type="text" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth (YYYY-DD-MM)")%>" name="dob" required/></td> 
                     </tr>
 
                     <tr>    
