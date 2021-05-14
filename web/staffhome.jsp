@@ -20,6 +20,7 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="updatestaff.jsp">Edit Profile</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
         </div>
 
@@ -52,6 +53,10 @@
                value="Home">
         <%}%>
 
+        <form action="DeleteStaffServlet" method="Post">
+            <input type="submit" value="Delete Account">
+        </form>
+        
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

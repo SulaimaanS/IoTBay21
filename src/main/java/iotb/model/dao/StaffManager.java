@@ -31,12 +31,12 @@ public class StaffManager {
     }
 
     //Read Operation - Read user by id
-    public Staff readStaff(int staffID) throws SQLException{
-        String query = "SELECT * FROM STAFFTABLE WHERE USERID = " + staffID + "";
+    public Staff readStaff(int userID) throws SQLException{
+        String query = "SELECT * FROM STAFFTABLE WHERE USERID = " + userID + "";
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {
-            Integer userID = rs.getInt(2);
+            Integer staffID = rs.getInt(1);
 
             return new Staff(userID,staffID);
         }
@@ -50,8 +50,8 @@ public class StaffManager {
     }
 
     //Delete Operation - Delete user by id
-    public void deleteStaff(int staffID) throws SQLException{
-        String delete = "DELETE FROM CUSTOMERTABLE WHERE USERID=" + staffID + "";
+    public void deleteStaff(int userID) throws SQLException{
+        String delete = "DELETE FROM STAFFTABLE WHERE USERID="+userID+"";
         statement.executeUpdate(delete);
     }
 }

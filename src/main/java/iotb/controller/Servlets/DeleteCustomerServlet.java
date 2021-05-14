@@ -33,8 +33,7 @@ public class DeleteCustomerServlet extends HttpServlet {
         usermanager = (UserManager)session.getAttribute("userManager");
         customermanager = (CustomerManager)session.getAttribute("customerManager");
         User user = (User)session.getAttribute("user");
-        Customer customer = (Customer)session.getAttribute("customer");
-        
+
         try{
             customermanager.deleteCustomer(user.getUserID());
             usermanager.deleteUser(user.getUserID());
@@ -45,6 +44,5 @@ public class DeleteCustomerServlet extends HttpServlet {
                 request.getRequestDispatcher("customerprofile.jsp").include(request, response);
             }
         } 
-
 }
 

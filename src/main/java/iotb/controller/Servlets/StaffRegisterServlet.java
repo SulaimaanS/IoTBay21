@@ -6,6 +6,7 @@
 package iotb.controller.Servlets;
 
 import iotb.controller.RegisterValidator;
+import iotb.model.Staff;
 import iotb.model.User;
 import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
@@ -47,56 +48,57 @@ public class StaffRegisterServlet extends HttpServlet {
         
 
         usermanager = (UserManager)session.getAttribute("userManager");
-        staffmanager = (StaffManager)session.getAttribute("staffmanager");
+        staffmanager = (StaffManager)session.getAttribute("staffManager");
         
         RegisterValidator validator = new RegisterValidator();
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Email Format Incorrect"); 
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validateName(fName)) {
             session.setAttribute("fnameErr", "First Name Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validateName(lName)) {
             session.setAttribute("lnameErr", "Last Name Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Password Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validateDob(dob)) {
             session.setAttribute("dobErr", "DOB Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validatePhoneNum(phonenum)) {
             session.setAttribute("phoneErr","Phone Number Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validateNum(streetnum)) {
             session.setAttribute("streetNumErr", "Street Number Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validatestreetName(streetname)) {
             session.setAttribute("streetNameErr", "Street Name Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else if (!validator.validatePostCode(postcode)) {
             session.setAttribute("postcodeErr", "Post Code Format Incorrect");  
-            request.getRequestDispatcher("register.jsp").include(request, response);  
+            request.getRequestDispatcher("staffregister.jsp").include(request, response);  
         } else {
             try{
-                User exist = usermanager.readUser(email,password);       
+                User exist = usermanager.readUser(email,password);   
                 if (exist != null){
                     session.setAttribute("existErr", "User Already Exists!");
-                    request.getRequestDispatcher("register.jsp").include(request, response);
+                    request.getRequestDispatcher("staffregister.jsp").include(request, response);
                 }else{
                     usermanager.addUser(fName,lName,email,password,phonenum);
-                    int userID = usermanager.getID(email,password); 
-                    staffmanager.addStaff(4);
-                    User user = new User(userID,fName,lName,email,password,phonenum);
+                    staffmanager.addStaff(usermanager.getID(email, password));
+                    User user = new User(usermanager.getID(email, password),fName,lName,email,password,phonenum);
+                    Staff staff = staffmanager.readStaff(user.getUserID());
                     session.setAttribute("user",user);
+                    session.setAttribute("staff",staff);
                     request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                request.getRequestDispatcher("register.jsp").include(request, response);
+                request.getRequestDispatcher("staffregister.jsp").include(request, response);
             } catch (ParseException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

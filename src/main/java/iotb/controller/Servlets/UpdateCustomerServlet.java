@@ -11,7 +11,6 @@ import iotb.model.User;
 import iotb.model.dao.CustomerManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -40,7 +39,6 @@ public class UpdateCustomerServlet extends HttpServlet {
         String email = request.getParameter("email");    
         String password = request.getParameter("password"); 
         String dob = request.getParameter("dob"); 
-        String gender = request.getParameter("gender"); 
         String phonenum = request.getParameter("phonenumber"); 
         String streetnum = request.getParameter("streetnumber"); 
         String streetname = request.getParameter("streetname"); 
