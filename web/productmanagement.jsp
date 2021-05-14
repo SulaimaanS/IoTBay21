@@ -1,7 +1,7 @@
 <%-- 
-    Document   : product
-    Created on : 20/03/2021, 7:21:51 PM
-    Author     : alaw8
+    Document   : productmanagement
+    Created on : 14/05/2021, 11:49:07 PM
+    Author     : razor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +13,5 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <button>Product Management</button>
     </body>
-    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>
