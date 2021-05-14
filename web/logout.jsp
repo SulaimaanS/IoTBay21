@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="refresh" content="3; url=index.html" charset=UTF-8">
+        <meta http-equiv="refresh" content="3; url=index.jsp" charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Logout</title>
     </head>
@@ -18,7 +18,7 @@
         <div id="info">
             <h2>You will be redirected in 3 seconds</h2>
             <h3> Click here to return to the homepage if not redirected</h3>
-            <button onclick="location.href = 'index.html'">Redirect</button>
+            <button onclick="location.href = 'index.jsp'">Redirect</button>
         </div>
         
         <div id="footer">

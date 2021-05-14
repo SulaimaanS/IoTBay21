@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+  
         HttpSession session = request.getSession();
         String fName = request.getParameter("firstname");
         String lName = request.getParameter("lastname"); 
@@ -45,8 +45,6 @@ public class RegisterServlet extends HttpServlet {
         String streetnum = request.getParameter("streetnumber"); 
         String streetname = request.getParameter("streetname"); 
         String postcode = request.getParameter("postcode"); 
-        
-        
 
         usermanager = (UserManager)session.getAttribute("userManager");
         customermanager = (CustomerManager)session.getAttribute("customerManager");
@@ -89,10 +87,12 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }else{
                     usermanager.addUser(fName,lName,email,password,phonenum);
-                    customermanager.addCustomer(usermanager.getID(email,password),"01/01/2001",Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
+                    customermanager.addCustomer(usermanager.getID(email,password),dob,Integer.parseInt(streetnum),streetname,Integer.parseInt(postcode),true);
                     User user = new User(usermanager.getID(email,password),fName,lName,email,password,phonenum);
+                    Customer customer = customermanager.readCustomer(user.getUserID());
                     session.setAttribute("user",user);
-                    request.getRequestDispatcher("mainpage.jsp").include(request, response);
+                    session.setAttribute("customer",customer);
+                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
@@ -102,6 +102,5 @@ public class RegisterServlet extends HttpServlet {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
-
     }
 }

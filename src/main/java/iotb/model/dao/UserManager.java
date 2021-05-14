@@ -49,14 +49,13 @@ public class UserManager {
 
     //Delete Operation - Delete user by id
     public void deleteUser(int userID) throws SQLException {
-        String delete = "DELETE FROM USERTABLE WHERE USERID=" + userID + "";
+        String delete = "DELETE FROM USERTABLE WHERE USERID= "+userID+"";
         statement.executeUpdate(delete);
     }
     
     public int getID(String email, String password) throws SQLException{
         String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '"+password+"'";
         ResultSet rs = statement.executeQuery(query);
-
         while (rs.next()) {
             Integer id = rs.getInt(1);  
             return id;
