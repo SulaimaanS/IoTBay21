@@ -65,7 +65,7 @@ public class TestCreditCardDB {
     public static void readCreditCard() throws SQLException {
         System.out.println("Enter card number: ");
         String cardNumber = in.nextLine();
-        CreditCard creditCard = manager.readCreditCard(cardNumber);
+        CreditCard creditCard = manager.readCreditCard(Integer.parseInt(cardNumber));
         String exists = (creditCard != null) ? "Credit card exists in the database" : "Credit card does not exist";
         System.out.println(exists);
     }
@@ -93,7 +93,7 @@ public class TestCreditCardDB {
     public static void deleteCreditCard() throws SQLException {
         System.out.println("Card Number: ");
         String cardNumber = in.nextLine();
-        manager.deleteCreditCard(cardNumber);
+        manager.deleteCreditCard(Integer.parseInt(cardNumber));
         System.out.println("Credit Card successfully deleted");
     }
     

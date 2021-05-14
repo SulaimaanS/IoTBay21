@@ -49,3 +49,14 @@ form {
     margin: auto;
     width: 35%;
 }
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial;
+    color: black;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: 35%;
+}

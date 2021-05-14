@@ -36,10 +36,10 @@ public class CreditCardManager {
         st.executeUpdate(columns + values);
     }
     
-    // READ - by card number
+    // READ - by card ID
     
-    public CreditCard readCreditCard(String cardNumber)throws SQLException {
-        String query = "SELECT * FROM CREDITCARDTABLE WHERE CARDNUMBER = '"+cardNumber+"'";
+    public CreditCard readCreditCard(int cardNumber)throws SQLException {
+        String query = "SELECT * FROM CREDITCARDTABLE WHERE CARDID = "+cardNumber+"";
         ResultSet rs = st.executeQuery(query);
         
         while (rs.next()) {
@@ -68,10 +68,10 @@ public class CreditCardManager {
         st.executeUpdate(update);
     }
     
-    // DELETE - by card number
+    // DELETE - by card ID
     
-    public void deleteCreditCard(String cardNumber) throws SQLException {
-        String delete = "DELETE FROM CREDITCARDTABLE WHERE CARDNUMBER = '"+cardNumber+"'";
+    public void deleteCreditCard(int cardID) throws SQLException {
+        String delete = "DELETE FROM CREDITCARDTABLE WHERE CARDID = "+cardID+"";
         st.executeUpdate(delete);
     }
     

@@ -48,6 +48,14 @@
         <servlet-name>DeletePaymentServlet</servlet-name>
         <servlet-class>iotb.controller.DeletePaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.DeleteCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.DeletePaypalServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>DeletePaymentServlet</servlet-name>
         <url-pattern>/DeletePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCreditCardServlet</servlet-name>
+        <url-pattern>/DeleteCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePaypalServlet</servlet-name>
+        <url-pattern>/DeletePaypalServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,10 +16,20 @@
         </ul>
         
         <h1>Main Page</h1>
-        <a href="deletePayment.jsp">Remove Payment details</a>
-        <a href="updateCreditCard.jsp">Update my Credit Card details</a>
-        <a href="updatePaypal.jsp">Update my PayPal Account details</a>
-        <a href="updatePayment.jsp">Update my Payment details</a>
+        <h2>Payment options:</h2>
         <a href="viewRecords.jsp">View Payment Details</a>
+        <a href="updatePayment.jsp">Update my Payment details</a>
+        <a href="deletePayment.jsp">Remove Payment details</a>
+        
+        <h2>Credit Card options:</h2>
+        <a href="addCreditCard.jsp">Add Credit Card</a>
+        <a href="updateCreditCard.jsp">Update my Credit Card details</a>
+        <a href="deleteCreditCard.jsp">Remove Credit Card details</a>
+        
+        <h2>PayPal options:</h2>
+        <a href="addPaypal.jsp">Add PayPal Account</a>
+        <a href="updatePaypal.jsp">Update my PayPal Account details</a>
+        <a href="deletePaypal.jsp">Remove PayPal Account</a>
+        
     </body>
 </html>
