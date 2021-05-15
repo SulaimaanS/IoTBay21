@@ -2,7 +2,6 @@ package iotb.model;
 
 import java.util.Date;
 
-//TBD
 public class Customer {
 
     private Integer userID;

@@ -27,9 +27,9 @@ public class ConnectionServlet extends HttpServlet {
     private DatabaseConnector database;
     private UserManager userManager;
     private StaffManager staffManager;
-    private CustomerManager customerManager; 
+    private CustomerManager customerManager;
     private ProductManager productManager;
-    private LogManager logManager; 
+    private LogManager logManager;
     private Connection conn;
 
     @Override //Create and instance of databaseConnector for the deployment session

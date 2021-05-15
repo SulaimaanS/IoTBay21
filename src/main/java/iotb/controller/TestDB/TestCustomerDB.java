@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iotb.controller.TestDB;
 
 import java.util.Scanner;
@@ -11,8 +6,6 @@ import iotb.model.dao.DatabaseConnector;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -88,8 +81,6 @@ public class TestCustomerDB {
         String postCode = in.nextLine();
         System.out.print("Registered: ");
         String registered = in.nextLine();
-//        SimpleDateFormat format = new SimpleDateFormat(dob);
-//        Date parsed = format.parse(dob);
         manager.updateCustomer(Integer.parseInt(userID), Integer.parseInt(customerID), dob, Integer.parseInt(streetNum), streetName, Integer.parseInt(postCode), Boolean.parseBoolean(registered));
         System.out.println("A customer has been updated");
     }

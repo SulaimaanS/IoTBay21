@@ -66,13 +66,13 @@ public class CustomerManager {
         String delete = "DELETE FROM CUSTOMERTABLE WHERE USERID=" + userID + "";
         statement.executeUpdate(delete);
     }
-    
-    public int getID(int userID) throws SQLException{
-        String query = "SELECT * FROM CUSTOMERTABLE WHERE USERID = "+userID+"";
+
+    public int getID(int userID) throws SQLException {
+        String query = "SELECT * FROM CUSTOMERTABLE WHERE USERID = " + userID + "";
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {
-            Integer id = rs.getInt(1);  
+            Integer id = rs.getInt(1);
             return id;
         }
         return 0;

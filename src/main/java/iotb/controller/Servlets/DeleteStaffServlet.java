@@ -1,6 +1,5 @@
 package iotb.controller.Servlets;
 
-import iotb.model.Staff;
 import iotb.model.User;
 import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
@@ -22,26 +21,25 @@ public class DeleteStaffServlet extends HttpServlet {
 
     private UserManager usermanager;
     private StaffManager staffmanager;
-   
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        HttpSession session = request.getSession();        
 
-        usermanager = (UserManager)session.getAttribute("userManager");
-        staffmanager = (StaffManager)session.getAttribute("staffManager");
-        User user = (User)session.getAttribute("user");
+        HttpSession session = request.getSession();
 
-        try{
+        usermanager = (UserManager) session.getAttribute("userManager");
+        staffmanager = (StaffManager) session.getAttribute("staffManager");
+        User user = (User) session.getAttribute("user");
+
+        try {
             staffmanager.deleteStaff(user.getUserID());
             System.out.println("Staff has been deleted");
             usermanager.deleteUser(user.getUserID());
-            request.getRequestDispatcher("logout.jsp").include(request, response);  
-            }catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
-                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                request.getRequestDispatcher("staffhome.jsp").include(request, response);
-            }
-        } 
+            request.getRequestDispatcher("logout.jsp").include(request, response);
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            request.getRequestDispatcher("staffhome.jsp").include(request, response);
+        }
+    }
 }
-

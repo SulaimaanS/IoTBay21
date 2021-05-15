@@ -51,7 +51,7 @@ public class Product implements Serializable {
     public void setproductCategory(String productCategory) {
         this.productCategory = productCategory;
     }
-    
+
     public float getproductPrice() {
         return productPrice;
     }
@@ -59,12 +59,12 @@ public class Product implements Serializable {
     public void setproductPrice(float productPrice) {
         this.productPrice = productPrice;
     }
-    
+
     public int getproductStock() {
         return productStock;
     }
 
     public void setproductStock(int productStock) {
         this.productStock = productStock;
-    }    
+    }
 }
