@@ -15,6 +15,11 @@ import iotb.model.User;
 import iotb.model.CustomerInformationManagement;
 import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.CustomerInformationManagementManager;
+import java.text.SimpleDateFormat;
+//import java.util.Date;  
+import java.sql.Date;
+import java.text.ParseException;
+
 
 /**
  *
@@ -94,8 +99,20 @@ public static void main(String[] args) throws SQLException {
         
 }*/
 
-public static void main(String[] args) throws SQLException{
+public static void main(String[] args) throws SQLException, ParseException{
     (new TestCustomerInformationManagementDB()).runQueries();
+    
+}
+
+public TestCustomerInformationManagementDB(){
+    try{
+        connector = new DatabaseConnector();
+        con = connector.connection();
+        db = new CustomerInformationManagementManager(con);
+    }
+    catch (ClassNotFoundException | SQLException ex){
+        Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE,null,ex);
+    }
 }
 
 private char readChoice(){
@@ -103,7 +120,7 @@ private char readChoice(){
     return in.nextLine().charAt(0);
 }
 
-private void runQueries() throws SQLException{
+private void runQueries() throws SQLException, ParseException{
     char c;
     
     while((c = readChoice()) != '*'){
@@ -114,7 +131,7 @@ private void runQueries() throws SQLException{
             case 'R': ;
                 testRead();
                 break;
-                case 'U': ;
+            case 'U': ;
                 testUpdate();
                 break;
             case 'D': ;
@@ -129,11 +146,12 @@ private void runQueries() throws SQLException{
     }
 }
 
-private void testAdd(){
+private void testAdd() throws ParseException, SQLException{
         System.out.print("Customer id: ");
-        String id = in.nextLine();
+        int customerID = in.nextInt();
+        //System.out.println("");
         
-        System.out.print("Customer type: ");
+        System.out.println("Customer type: ");
         String type = in.nextLine();
 
         System.out.print("Customer first name: ");
@@ -143,7 +161,8 @@ private void testAdd(){
         String lName = in.nextLine();
 
         System.out.print("Customer date of birth: ");
-        String dob = in.nextLine();
+        String date = in.nextLine();
+        Date dob=(Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);  
         
         System.out.print("Customer gender: ");
         String gender = in.nextLine();
@@ -158,30 +177,23 @@ private void testAdd(){
         String phone = in.nextLine();
         
         System.out.print("Customer street number: ");
-        String streetNumber = in.nextLine();
+        int streetNumber = in.nextInt();
         
         System.out.print("Customer street name: ");
         String streetName = in.nextLine();
         
         System.out.print("Customer post code: ");
-        String postCode = in.nextLine();
+        int postCode = in.nextInt();
         
         System.out.print("Customer orderID: ");
-        String orderID = in.nextLine();
+        int orderID = in.nextInt();
         
         System.out.print("Customer registration: ");
-        String registered = in.nextLine();
+        boolean registered = in.nextBoolean();
+         
+        db.addCustomer(customerID, type, fName, lName, dob, gender, email, password, phone, streetNumber,
+                streetName, postCode, orderID, registered);
         
-        System.out.print("User id: ");
-        String userID = in.nextLine();
-    
-    try{
-        db.addCustomer(type, fName, lName, dob, gender, email, password, phone, streetNumber, 
-        streetName, postCode, orderID, userID, registered);
-    }
-    catch(SQLException ex){
-       Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex); 
-    }
     System.out.println("Customer is added to the database.");
 }
 
@@ -193,7 +205,7 @@ private void testRead() throws SQLException{
     System.out.print("Customer type: ");
     String type = in.nextLine();
     CustomerInformationManagement customer = db.findCustomer(fName, lName, type);
-    System.out.println("Hi");
+    //System.out.println("Hi");
     if(customer != null){
         System.out.println("Customer " + customer.getfName() +" exists in the database.");
     }
@@ -204,9 +216,11 @@ private void testRead() throws SQLException{
 
 private void testUpdate(){
     System.out.print("Customer first name: ");
+    
     String fName = in.nextLine();
     System.out.print("Customer last name: ");
     String lName = in.nextLine();
+    
     System.out.print("Customer type: ");
     String type = in.nextLine();
     

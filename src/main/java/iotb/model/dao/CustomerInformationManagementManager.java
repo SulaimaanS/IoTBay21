@@ -10,6 +10,8 @@ import iotb.model.Customer;
 import iotb.model.CustomerInformationManagement;
 import java.sql.*;
 import java.util.ArrayList;
+//import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -23,59 +25,16 @@ public class CustomerInformationManagementManager {
     
     public CustomerInformationManagement findCustomer(String fName, String lName, String type) 
     throws SQLException {       
-   //setup the select sql query string       
-   //execute this query using the statement field       
-   //add the results to a ResultSet       
-   //search the ResultSet for a user using the parameters  
    
- /*String fetch = "SELECT " +
-"IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERID, IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERTYPE," +
-"IOTBAYADMIN.USERTABLE.FIRSTNAME, IOTBAYADMIN.USERTABLE.LASTNAME, IOTBAYADMIN.USERTABLE.DOB, IOTBAYADMIN.USERTABLE.GENDER, IOTBAYADMIN.USERTABLE.EMAILADDRESS,"
-+ "IOTBAYADMIN.USERTABLE.PASSWORD, IOTBAYADMIN.USERTABLE.PHONENUMBER, IOTBAYADMIN.USERTABLE.STREETNUMBER, IOTBAYADMIN.USERTABLE.STREETNAME, IOTBAYADMIN.USERTABLE.POSTCODE," +
-"IOTBAYADMIN.CUSTOMERTABLE.ORDERID, IOTBAYADMIN.CUSTOMERTABLE.REGISTERED" +
-"FROM IOTBAYADMIN.USERTABLE" +
-"INNER JOIN IOTBAYADMIN.CUSTOMERTABLE ON IOTBAYADMIN.USERTABLE.USERID = IOTBAYADMIN.CUSTOMERTABLE.USERID" +
-"WHERE IOTBAYADMIN.USERTABLE.FIRSTNAME = '" + fName + "' AND  IOTBAYADMIN.USERTABLE.FIRSTNAME = '" + lName + "' "
- + "AND IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERTYPE = '"+type+"'";   
-*/
-   //"AND USERTABLE.LASTNAME = 'Neil' AND CUSTOMERTABLE.CUSTOMERTYPE = 'Individual'; "
+    String fetch = "SELECT * FROM IOTBAYADMIN.CUSTOMERINFORMATIONMANAGEMENT where FIRSTNAME = '" +fName+"' AND LASTNAME = '"+lName+"' AND CUSTOMERTYPE = '"+type+"'  ";
            
-   //+ "ISDUSER.USERS where EMAIL = '" + email +"'  and PASSWORD='"+ password +"'" ;
-   
-   //String fetch = "select * FROM IOTBAY.USERTABLE where FIRSTNAME = '" + fName +"'  AND LASTNAME='"+ lName +"'" ;
-   //String fetch2 = "select * FROM IOTBAY.CUSTOMERTABLE where CUSTOMERTYPE = '" + type +"'" ;
-   
-   
-   String fetch = "SELECT * FROM IOTBAYADMIN.CUSTOMERINFORMATIONMANAGEMENT1 where FIRSTNAME = '" +fName+"' AND LASTNAME = '"+lName+"' AND CUSTOMERTYPE = '"+type+"'  ";
-           
-   ResultSet rs = st.executeQuery(fetch);
-   
-   //ResultSet rs2 = st.executeQuery(fetch2);
-   
-  
-   //String customerOrderID = null;
-   //String customerRegistered = null;
-   //String customerType = null;
-   //String customerID = null;
-   /*
-   while(rs2.next()){
-       String customerType = rs2.getString(3);
-       if(customerType.equals(type)){
-           String customerID = rs2.getString(1);
-           String customerOrderID = rs2.getString(4);
-           String customerRegistered = rs2.getString(5);
-       }
-   }
-*/
-   
+    ResultSet rs = st.executeQuery(fetch);
    
    while(rs.next()){
        String customerFName = rs.getString(3); 
        String customerLName = rs.getString(4);
        String customerType = rs.getString(2);
-       //String customerFName = rs.getString(2);
-       //String customerLName = rs.getString(3);
-            if(customerFName.equals(fName) && customerLName.equals(lName) && customerType.equals(type)){
+           if(customerFName.equals(fName)&& customerLName.equals(lName) && customerType.equals(type)){
            String customerID = rs.getString(1);
            String customerDOB = rs.getString(5);
            String customerGender = rs.getString(6);
@@ -88,15 +47,6 @@ public class CustomerInformationManagementManager {
            String customerOrderID = rs.getString(13);
            String customerRegistered = rs.getString(14);
            
-           //String customerDOB = rs.getString(4);
-           //String customerGender =rs.getString(5);
-           //String customerEmail = rs.getString(6);
-           //String customerPassword = rs.getString(7);
-           //String customerPhone = rs.getString(8);
-           //String customerStreetNumber = rs.getString(9);
-           //String customerStreetName = rs.getString(10);
-           //String customerPostcode = rs.getString(11);
-           
            return new CustomerInformationManagement(customerID, customerType, customerFName, customerLName,
            customerDOB, customerGender, customerEmail, customerPassword, customerPhone, 
            customerStreetNumber, customerStreetName, customerPostcode, customerOrderID, customerRegistered);
@@ -107,17 +57,22 @@ public class CustomerInformationManagementManager {
 }
     
     //Add a user-data into the database   
-public void addCustomer(String type, String fName, String lName, String dob, 
-String gender, String email, String password, String phone, String streetNumber, String streetName, 
-String postCode, String orderID, String userID, String registered) throws SQLException {                   //code for add-operation       
-  st.executeUpdate("INSERT INTO IOTBAYADMIN.USERTABLE " + "VALES ('"+ fName +"', "
+public void addCustomer(int customerID, String type, String fName, String lName, Date dob, String gender, String email, String password, String phone, int streetNumber, String streetName, int postCode, int orderID, boolean registered) throws SQLException {                   //code for add-operation       
+  /*st.executeUpdate("INSERT INTO IOTBAYADMIN.USERTABLE " + "VALES ('"+ fName +"', "
   + " '"+ lName + "', '"+ dob+ "', '"+gender+"' '" + email +"' '"+ password +"'"
   + " '"+phone+"' '"+ streetNumber+"' '" + streetName+"' '"+ postCode +"')");   
  st.executeUpdate("INSERT INTO IOTBAYADMIN.CUSTOMERTABLE " + "VALES ('"+ userID +"', '"+ type +"', "
   + "'"+ fName +"', " + " '"+ lName + "', '"+ dob+ "', '"+gender+"' '" + email +"' '"+ password +"'"
   + " '"+phone+"' '"+ streetNumber+"' '" + streetName+"' '"+ postCode +"' '"+ orderID+"' '"+ registered+"')"); 
+*/
+ st.executeUpdate("INSERT INTO CUSTOMERINFORMATIONMANAGEMENT" +
+"(CUSTOMERID, CUSTOMERTYPE, FIRSTNAME, LASTNAME, DOB, GENDER, EMAILADDRESS, PASSWORD, PHONENUMBER," +
+"STREETNUMBER, STREETNAME, POSTCODE, ORDERID, REGISTERED))" + "VALUES ('" +customerID+"', '" +type+ "', '"+ fName+"', '"+lName+"', '"+ dob +"', '" + gender+"', '" +email +"', '" +password +"', '" + phone +"', '" +streetNumber +"', '" + streetName +"', '" + postCode +"', '" + orderID+"', '" + registered + "' )" );
 
 }
+
+
+
 
 //update a user details in the database   
 public void updateCustomer(String fName, String lName, String dob, 
@@ -129,12 +84,12 @@ String postCode) throws SQLException {
 
 //delete a user from the database   
 public void deleteCustomer(String email) throws SQLException{       
-   st.executeUpdate("DELETE FROM IOTBAYADMIN.USERTABLE WHERE EMAIL ='" + email +"' ");  
+   st.executeUpdate("DELETE FROM IOTBAYADMIN.CUSTOMERINFORMATIONMANAGEMENT WHERE EMAIL ='" + email +"' ");  
 
 }
 
 public ArrayList<CustomerInformationManagement> fectCustomers() throws SQLException{
-    String fetch = "select * from USERS";
+    String fetch = "select * from IOTBAYADMIN.CUSTOMERINFORMATIONMANAGEMENT";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<CustomerInformationManagement> temp = new ArrayList();
     
@@ -184,5 +139,6 @@ public boolean checkCustomer(String fName, String lName, String type) throws SQL
     return false;
     
 }
+
 
 }
