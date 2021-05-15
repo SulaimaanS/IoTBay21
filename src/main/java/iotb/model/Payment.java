@@ -16,11 +16,21 @@ public class Payment implements Serializable {
     private String paymentID;
     private String orderID;
     private String paymentType;
+    private String paymentDate;
 
-    public Payment(String paymentID, String orderID, String paymentType) {
+    public Payment(String paymentID, String orderID, String paymentType, String paymentDate) {
         this.paymentID = paymentID;
         this.orderID = orderID;
         this.paymentType = paymentType;
+        this.paymentDate = paymentDate;
+    }
+
+    public String getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public String getPaymentID() {

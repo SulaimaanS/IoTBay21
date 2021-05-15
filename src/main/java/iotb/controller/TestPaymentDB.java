@@ -36,6 +36,7 @@ public class TestPaymentDB {
                 case 'r': readPayment(); break;
                 case 'u': updatePayment(); break;
                 case 'd': deletePayment(); break;
+                case 'q': updatePaymentDate(); break;
                 default: help(); break;
             }
         }
@@ -88,12 +89,23 @@ public class TestPaymentDB {
         System.out.println("Payment successfully deleted");
     }
     
+    // UPDATE PAYMENT DATE - by paymentID
+    
+    public static void updatePaymentDate() throws SQLException {
+        System.out.println("Enter PaymentID: ");
+        String paymentID = in.nextLine();
+        System.out.println("Enter date: ");
+        String date = in.nextLine();
+        manager.updatePaymentDate(Integer.parseInt(paymentID), date);
+    }
+    
     public static void help() {
         System.out.println("User CRUD operations: \n"
                 + "C - Create payment \n"
                 + "R - Read payment \n"
                 + "U - Update payment \n"
                 + "D - Delete payment \n"
+                + "Q - Update payment \n"
                 + "X - Exit \n");
     }
     

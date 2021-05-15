@@ -31,8 +31,8 @@ public class DisplayPaymentServlet extends HttpServlet {
         PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
         
         try {
-            out.println("<table border=1 width=50% height=50%>");
-            out.println("<tr><th>Payment ID</th><th>Order ID</th><th>Payment Type</th></tr>");
+            out.println("<table class=\"records\">");
+            out.println("<tr><th>Payment ID</th><th>Order ID</th><th>Payment Type</th><th>Payment Date</th></tr>");
             String allRecords = manager.fetchPayment();
             out.println(allRecords);
             out.println("</table>");

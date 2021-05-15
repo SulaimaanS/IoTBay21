@@ -39,10 +39,10 @@ public class DeletePaymentServlet extends HttpServlet {
             
             if(payment != null) {
                 manager.deletePayment(Integer.parseInt(paymentID));
-                session.setAttribute("deleted", "Payment successfully removed");
+                session.setAttribute("deletedPayment", "Payment successfully removed");
                 request.getRequestDispatcher("deletePayment.jsp").include(request, response);
             } else {
-                session.setAttribute("deleted", "Payment does not exist");
+                session.setAttribute("deletedPayment", "Payment does not exist");
                 request.getRequestDispatcher("deletePayment.jsp").include(request, response);
             }
             

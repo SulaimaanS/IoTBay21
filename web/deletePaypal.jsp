@@ -18,8 +18,9 @@
         %>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
-            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
         <h1>Remove PayPal Account</h1><span><%=(deletedPaypal != null ? deletedPaypal : "")%></span>
@@ -28,6 +29,10 @@
                 <tr><td>PayPal ID: </td><td><input type="text" placeholder="Enter existing PayPal ID" name="paypalID"></td></tr>
                 <tr><td></td><td><input type="submit" value="Remove PayPal Account"></td></tr>
             </table>
-        </form>
+        </form> 
+        
     </body>
+    <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
 </html>

@@ -26,6 +26,7 @@ package iotb.controller;
    
    //Payment validation
    private String paymentTypePattern="^[12]{1}$"; //either 1 or 2
+   private String paymentDatePattern="([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"; // date format YYYY-MM-DD
    
    //PayPal validation
    private String paypalUsernamePattern="^.{2,50}$"; //max of 50 characters
@@ -73,6 +74,10 @@ package iotb.controller;
    
    public boolean validatePaypalPassword(String paypalPassword) {
        return validate(paypalPasswordPattern, paypalPassword);
+   }
+   
+   public boolean validatePaymentDate(String paymentDate) {
+       return validate(paymentDatePattern, paymentDate);
    }
    
    public void clear(HttpSession session) {

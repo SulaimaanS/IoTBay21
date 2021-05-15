@@ -22,8 +22,9 @@
         %>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
-            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
         <h1>Add Credit Card</h1>
@@ -33,9 +34,13 @@
                 <tr><td>Card Number: </td><td><input type="text" placeholder="<%=(cardNumberErr != null ? cardNumberErr : "Enter 16-digit card number")%>" name="cardNumber"></td></tr>
                 <tr><td>Expiry date: </td><td><input type="date" name="expiryDate"></td></tr>
                 <tr><td>Card Holder Name: </td><td><input type="text" placeholder="<%=(holderNameErr != null ? holderNameErr : "Enter holder name")%>" name="holderName"></td></tr>
-                <tr><td>CVV: </td><td><input type="text" placeholder="<%=(cvvErr != null ? cvvErr : "Enter 3-digit CVV number")%>" name="cvv"></td><</tr>
+                <tr><td>CVV: </td><td><input type="text" placeholder="<%=(cvvErr != null ? cvvErr : "Enter 3-digit CVV number")%>" name="cvv"></td></tr>
                 <tr><td></td><td><input type="submit" value="Add credit card"></td></tr>
             </table>
         </form>
+          
     </body>
+    <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
 </html>

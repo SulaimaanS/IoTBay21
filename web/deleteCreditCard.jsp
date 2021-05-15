@@ -19,8 +19,9 @@
         %>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
-            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
         <h1>Remove Credit Card</h1><span><%=(deleted != null ? deleted : "")%></span>
@@ -30,5 +31,9 @@
                 <tr><td></td><td><input type="submit" value="Remove Credit Card"></td></tr>
             </table>
         </form>
+          
     </body>
+    <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
 </html>

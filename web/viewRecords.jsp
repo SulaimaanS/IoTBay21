@@ -15,8 +15,9 @@
     <body>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
-            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
         <h1>Payment Records</h1>
@@ -26,5 +27,11 @@
         <jsp:include page="/DisplayCreditCardServlet" flush="true"/>
         <h2>PayPal Details</h2>
         <jsp:include page="/DisplayPaypalServlet" flush="true"/>
+        
+        
+        <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
     </body>
+    
 </html>

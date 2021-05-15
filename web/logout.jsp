@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="refresh" content="3; url=index.html" charset=UTF-8">
-        <link rel="stylesheet" href="stylesheets/MainStyle.css">
+        <link rel="stylesheet" href="stylesheets/interface.css">
         <title>Logout</title>
     </head>
     <body>

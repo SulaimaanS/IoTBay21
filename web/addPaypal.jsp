@@ -20,6 +20,7 @@
         %>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
             <li><a href="logout.jsp">Logout</a></li>
         </ul>
@@ -33,5 +34,9 @@
                 <tr><td></td><td><input type="submit" value="Add PayPal account"></td></tr>
             </table>
         </form>
+
     </body>
+    <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
 </html>

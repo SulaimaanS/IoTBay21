@@ -21,8 +21,9 @@
         %>
         
         <ul>
+            <li><a href="main.jsp">IoTBay</a></li>
             <li><a href="main.jsp">Main</a></li>
-            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
         <h1>Update my PayPal Account Details</h1><span><%=(updated != null ? updated : "")%></span>
@@ -35,5 +36,9 @@
                 <tr><td></td><td><input type="submit" value="Update PayPal details"></td></tr>
             </table>
         </form>
+ 
     </body>
+    <footer>
+            <p>IoTBay Solutions Pty Ltd</p>
+        </footer>
 </html>

@@ -42,8 +42,9 @@ public class PaymentManager {
             String paymentID = rs.getString(1);
             String orderID = rs.getString(2);
             String paymentType = rs.getString(3);
+            String paymentDate = rs.getString(4);
             
-            return new Payment(paymentID, orderID, paymentType);
+            return new Payment(paymentID, orderID, paymentType, paymentDate);
         }
         
         return null;
@@ -80,10 +81,37 @@ public class PaymentManager {
             String paymentID = rs.getString("PAYMENTID");
             String orderID = rs.getString("ORDERID");
             String paymentType = rs.getString("PAYMENTTYPE");
-            allRecords += "<tr><td>" + paymentID + "</td><td>" + orderID + "</td><td>" + paymentType + "</td></tr>";
+            String paymentDate = rs.getString("PAYMENTDATE");
+            
+            allRecords += "<tr><td>" + paymentID + "</td><td>" + orderID + "</td><td>" + paymentType + "</td><td>" + paymentDate + "</td></tr>";
             
         }
         
         return allRecords;
+    }
+    
+    // SEARCH - for a specific record by paymentID 
+    
+    public String searchPayment(int searchpaymentID, String searchpaymentDate) throws SQLException {
+        String query = "SELECT * FROM PAYMENTTABLE WHERE PAYMENTID = "+searchpaymentID+", PAYMENTDATE = '"+searchpaymentDate+"'";
+        ResultSet rs = st.executeQuery(query);
+        
+        while (rs.next()) {
+            String paymentID = rs.getString("PAYMENTID");
+            String orderID = rs.getString("ORDERID");
+            String paymentType = rs.getString("PAYMENTTYPE");
+            String paymentDate = rs.getString("PAYMENTDATE");
+            
+            String searchedRecord = "<tr><td>" + paymentID + "</td><td>" + orderID + "</td><td>" + paymentType + "</td><td>" + paymentDate + "</td></tr>";
+        }
+        
+        return "Error";
+    }
+    
+    // UPDATE PAYMENT DATE - not accessible to website
+    
+    public void updatePaymentDate(int paymentID, String date) throws SQLException {
+        String update = "UPDATE PAYMENTTABLE SET PAYMENTDATE = '"+date+"' WHERE PAYMENTID="+paymentID+"";
+        st.executeUpdate(update);
     }
 }

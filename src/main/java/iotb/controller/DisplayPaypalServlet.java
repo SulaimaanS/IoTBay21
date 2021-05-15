@@ -31,7 +31,7 @@ public class DisplayPaypalServlet extends HttpServlet {
         PaypalManager manager = (PaypalManager) session.getAttribute("paypalManager");
         
         try {
-            out.println("<table border=1 width=50% height=50%>");
+            out.println("<table class=\"records\">");
             out.println("<tr><th>PayPal ID</th><th>Payment ID</th><th>PayPal Username</th><th>PayPal Password</th></tr>");
             String allRecords = manager.fetchPaypal();
             out.println(allRecords);

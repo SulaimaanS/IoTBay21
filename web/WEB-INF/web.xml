@@ -56,6 +56,18 @@
         <servlet-name>DeletePaypalServlet</servlet-name>
         <servlet-class>iotb.controller.DeletePaypalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>iotb.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.SearchPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchedPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.SearchedPaymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -111,6 +123,18 @@
     <servlet-mapping>
         <servlet-name>DeletePaypalServlet</servlet-name>
         <url-pattern>/DeletePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchPaymentServlet</servlet-name>
+        <url-pattern>/SearchPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchedPaymentServlet</servlet-name>
+        <url-pattern>/SearchedPaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
