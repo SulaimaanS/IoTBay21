@@ -1,8 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package iotb.controller.Servlets;
 
-import iotb.controller.LoginValidator;
+import iotb.controller.ProductValidator;
+import iotb.model.Product;
+import iotb.model.dao.ProductManager;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -10,53 +18,67 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import iotb.model.User;
-import iotb.model.dao.UserManager;
 
+/**
+ *
+ * @author alaw8
+ */
 public class AddProductServlet extends HttpServlet {
 
-    @Override
+    private ProductManager productmanager;
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1- retrieve the current session
+
         HttpSession session = request.getSession();
-        //2- create an instance of the Validator class  
-        LoginValidator validator = new LoginValidator();
-        //3- capture the posted email      
-        String email = request.getParameter("email");
-        String id = request.getParameter("id");
-        //4- capture the posted password    
-        String password = request.getParameter("password");
-        //5- retrieve the manager instance from session   
-        UserManager manager = (UserManager) session.getAttribute("manager");
-        User user = null;
-        try {
-            //6- find user by email and password
-            user = manager.readUser(email,password);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (!validator.validateEmail(email)) {/*7-validate email*/
-            //8-set incorrect email error to the session      
-            session.setAttribute("emailErr", "Error: Email Format Incorect");
-            //9- redirect user back to the login.jsp     
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        } else if (!validator.validatePassword(password)) {
-            /*10-   validate password  */
-            //11-set incorrect password error to the session   
-            session.setAttribute("passErr", "Error: Password Format Incorect");
-            //12- redirect user back to the login.jsp      
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        } else if (user != null) {
-            //13-save the logged in user object to the session  
-            session.setAttribute("user", user);
-            //14- redirect user to the main.jsp    
-            request.getRequestDispatcher("index.jsp").include(request, response);
+        String name = request.getParameter("productName");
+        String description = request.getParameter("productDesc");
+        String category = request.getParameter("productCat");
+        String price = request.getParameter("productPrice");
+        String stock = request.getParameter("productStock");
+
+        productmanager = (ProductManager) session.getAttribute("productManager");
+
+        ProductValidator validator = new ProductValidator();
+        validator.clear(session);
+
+        if (!validator.validateProductName(name)) {
+            session.setAttribute("productNameErr", "Product Name Format Incorrect");
+            request.getRequestDispatcher("addproduct.jsp").include(request, response);
+
+        } else if (!validator.validateProductDesc(description)) {
+            session.setAttribute("productDescErr", "Product Description Format Incorrect");
+            request.getRequestDispatcher("addproduct.jsp").include(request, response);
+
+        } else if (!validator.validateProductCat(category)) {
+            session.setAttribute("productCatErr", "Product Category Format Incorrect");
+            request.getRequestDispatcher("addproduct.jsp").include(request, response);
+
+        } else if (!validator.validateProductPrice(price)) {
+            session.setAttribute("productPriceErr", "Product Price Format Incorrect");
+            request.getRequestDispatcher("addproduct.jsp").include(request, response);
+
+        } else if (!validator.validateProductStock(stock)) {
+            session.setAttribute("productStockErr", "Product Stock Format Incorrect");
+            request.getRequestDispatcher("addproduct.jsp").include(request, response);
         } else {
-            //15-set user does not exist error to the session    
-            session.setAttribute("existErr", "Error: User does not exist");
-            //16- redirect user back to the login.jsp       
-            request.getRequestDispatcher("login.jsp").include(request, response);
+            try {
+                Product exist = productmanager.readProduct(productmanager.getID(name));
+                if (exist != null) {
+                    session.setAttribute("existErr", "Product Already Exists!");
+                    request.getRequestDispatcher("addproduct.jsp").include(request, response);
+                } else {
+                    productmanager.addProduct(name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
+                    Product product = new Product(productmanager.getID(name), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
+                    request.getRequestDispatcher("catalogue.jsp").include(request, response);
+                }
+            } catch (SQLException | NullPointerException ex) {
+                System.out.println(ex.getMessage() == null ? "Product does not exist" : "welcome");
+                Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+                request.getRequestDispatcher("addproduct.jsp").include(request, response);
+            } catch (ParseException ex) {
+                Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
