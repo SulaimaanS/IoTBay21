@@ -16,6 +16,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>CustomerInformationManagementServlet</servlet-name>
+    <servlet-class>iotb.controller.ConnectionServlet </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerInformationManagementServlet</servlet-name>
+    <url-pattern>CustomerInformationManagementServlet</url-pattern>
+  </servlet-mapping>
     <session-config>
         <session-timeout>
             30

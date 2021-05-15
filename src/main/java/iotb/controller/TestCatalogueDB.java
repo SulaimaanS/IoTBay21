@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TestCatalogueDB{
 
-
+    /*
     public static final Scanner in = new Scanner(System.in);
     public static ProductManager manager; 
     
@@ -108,5 +108,6 @@ public class TestCatalogueDB{
                      "D - Delete Product\n"+ 
                      "X - Exit\n");
         }
+*/
     }
 

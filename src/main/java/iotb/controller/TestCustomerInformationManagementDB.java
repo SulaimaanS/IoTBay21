@@ -10,15 +10,14 @@ import java.sql.*;
 import java.util.*;
 
 import java.util.logging.*;
-import iotb.model.Customer;
-import iotb.model.User;
 import iotb.model.CustomerInformationManagement;
 import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.CustomerInformationManagementManager;
-import java.text.SimpleDateFormat;
-//import java.util.Date;  
-import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;  
+//import java.sql.Date;
+//import java.text.ParseException;
 
 
 /**
@@ -116,7 +115,7 @@ public TestCustomerInformationManagementDB(){
 }
 
 private char readChoice(){
-    System.out.print("Operations CRUDS or * to exit:");
+    System.out.print("Operations CRUDS or * to exit: ");
     return in.nextLine().charAt(0);
 }
 
@@ -146,12 +145,13 @@ private void runQueries() throws SQLException, ParseException{
     }
 }
 
-private void testAdd() throws ParseException, SQLException{
+private void testAdd() throws SQLException{
         System.out.print("Customer id: ");
-        int customerID = in.nextInt();
+        String customerID = in.nextLine();
+        //int id = Integer.parseInt(customerID);
         //System.out.println("");
         
-        System.out.println("Customer type: ");
+        System.out.print("Customer type: ");
         String type = in.nextLine();
 
         System.out.print("Customer first name: ");
@@ -162,7 +162,8 @@ private void testAdd() throws ParseException, SQLException{
 
         System.out.print("Customer date of birth: ");
         String date = in.nextLine();
-        Date dob=(Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);  
+        //Date dob=(Date) new SimpleDateFormat("dd-MM-yyyy").parse(date); 
+        //Date dob = Date.valueOf(date);
         
         System.out.print("Customer gender: ");
         String gender = in.nextLine();
@@ -177,21 +178,25 @@ private void testAdd() throws ParseException, SQLException{
         String phone = in.nextLine();
         
         System.out.print("Customer street number: ");
-        int streetNumber = in.nextInt();
+        String streetNumber = in.nextLine();
+        //int streetNum = Integer.parseInt(streetNumber);
         
         System.out.print("Customer street name: ");
         String streetName = in.nextLine();
         
         System.out.print("Customer post code: ");
-        int postCode = in.nextInt();
+        String postCode = in.nextLine();
+        //int code = Integer.parseInt(postCode);
         
         System.out.print("Customer orderID: ");
-        int orderID = in.nextInt();
+        String orderID = in.nextLine();
+        //int order = Integer.parseInt(orderID);
         
         System.out.print("Customer registration: ");
-        boolean registered = in.nextBoolean();
+        String registered = in.nextLine();
+        //boolean registration = Boolean.parseBoolean(registered);
          
-        db.addCustomer(customerID, type, fName, lName, dob, gender, email, password, phone, streetNumber,
+        db.addCustomer(customerID, type, fName, lName, date, gender, email, password, phone, streetNumber,
                 streetName, postCode, orderID, registered);
         
     System.out.println("Customer is added to the database.");
@@ -215,26 +220,24 @@ private void testRead() throws SQLException{
 }
 
 private void testUpdate(){
-    System.out.print("Customer first name: ");
-    
-    String fName = in.nextLine();
-    System.out.print("Customer last name: ");
-    String lName = in.nextLine();
-    
-    System.out.print("Customer type: ");
-    String type = in.nextLine();
+  
+    System.out.print("Customer email: ");
+    String email = in.nextLine();
     
     try{
-        if(db.checkCustomer(fName, lName, type)){
+        if(db.checkCustomer(email)){
+        
+        System.out.print("Customer first name: ");
+        String fName = in.nextLine();
+        
+        System.out.print("Customer last name: ");
+        String lName = in.nextLine();
         
         System.out.print("Customer date of birth: ");
         String dob = in.nextLine();
             
         System.out.print("Customer gender: ");
         String gender = in.nextLine();
-        
-        System.out.print("Customer email: ");
-        String email = in.nextLine();
         
         System.out.print("Customer password: ");
         String password = in.nextLine();
@@ -250,15 +253,13 @@ private void testUpdate(){
         
         System.out.print("Customer post code: ");
         String postCode = in.nextLine();
-        
+        /*
         System.out.print("Customer orderID: ");
         String orderID = in.nextLine();
-        
-        System.out.print("User id: ");
-        String userID = in.nextLine();
-        
-            db.updateCustomer(fName, lName, dob, gender, email, password, phone, streetNumber,
-            streetName, postCode);
+        */
+        db.updateCustomer(fName, lName, dob, gender, email, password, phone, streetNumber,
+        streetName, postCode);
+        System.out.println("Customer has been updated");
         }
         else{
             System.out.println("Customer does not exist");
@@ -270,18 +271,19 @@ private void testUpdate(){
 }
 
 private void testDelete(){
-    System.out.print("Customer first name: ");
-    String fName = in.nextLine();
-    System.out.print("Customer last name: ");
-    String lName = in.nextLine();
-    System.out.print("Customer type: ");
-    String type = in.nextLine();
+    //System.out.print("Customer first name: ");
+    //String fName = in.nextLine();
+    //System.out.print("Customer last name: ");
+    //String lName = in.nextLine();
+    //System.out.print("Customer type: ");
+    //String type = in.nextLine();
     System.out.print("Customer email: ");
     String email = in.nextLine();
     
     try{
-        if(db.checkCustomer(fName, lName, type)){
+        if(db.checkCustomer(email)){
             db.deleteCustomer(email);
+            System.out.println("Customer has been deleted");
         }
         else{
             System.out.println("Customer does not exist");
@@ -298,7 +300,7 @@ private void showAll(){
         ArrayList<CustomerInformationManagement> customers = db.fectCustomers();
         System.out.println("CUSTOMER INFORMATION TABLE: ");
         customers.stream().forEach((customer) -> {
-            System.out.printf("%-20s %-30s %-20s %-10 \n", customer.getCustomerID(), customer.getType(),
+            System.out.printf("%-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s %-30s \n", customer.getCustomerID(), customer.getType(),
                     customer.getfName(), customer.getlName(), customer.getDob(), customer.getGender(),
                     customer.getEmail(), customer.getPassword(), customer.getPhone(), 
                     customer.getStreetNumber(), customer.getStreetName(), customer.getPostCode(), 
