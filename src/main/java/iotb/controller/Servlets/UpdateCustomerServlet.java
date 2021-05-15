@@ -74,17 +74,15 @@ public class UpdateCustomerServlet extends HttpServlet {
             request.getRequestDispatcher("updatecustomer.jsp").include(request, response);
         } else {
             try {
-                User user = usermanager.readUser(email, password);
+                User user = (User) session.getAttribute("user");
                 if (user == null) {
                     session.setAttribute("existErr", "User Does Not Exist!");
                     request.getRequestDispatcher("updatecustomer.jsp").include(request, response);
                 } else {
-                    usermanager.updateUser(usermanager.getID(email, password), fName, lName, email, password, phonenum);
-                    String updatedemail = request.getParameter("email");
-                    String updatedpassword = request.getParameter("password");
-                    int userID = usermanager.getID(updatedemail, updatedpassword);
+                    int userID = user.getUserID();
+                    usermanager.updateUser(userID, fName, lName, email, password, phonenum);
                     customermanager.updateCustomer(userID, customermanager.getID(userID), dob, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode), true);
-                    User updateduser = new User(usermanager.getID(updatedemail, updatedpassword), fName, lName, email, password, phonenum);
+                    User updateduser = new User(userID, fName, lName, email, password, phonenum);
                     Customer customer = customermanager.readCustomer(user.getUserID());
                     session.setAttribute("user", updateduser);
                     session.setAttribute("customer", customer);

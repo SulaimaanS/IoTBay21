@@ -34,7 +34,6 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String dob = request.getParameter("dob");
-        String gender = request.getParameter("gender");
         String phonenum = request.getParameter("phonenumber");
         String streetnum = request.getParameter("streetnumber");
         String streetname = request.getParameter("streetname");

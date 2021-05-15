@@ -33,12 +33,7 @@ public class StaffRegisterServlet extends HttpServlet {
         String lName = request.getParameter("lastname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String dob = request.getParameter("dob");
-        String gender = request.getParameter("gender");
         String phonenum = request.getParameter("phonenumber");
-        String streetnum = request.getParameter("streetnumber");
-        String streetname = request.getParameter("streetname");
-        String postcode = request.getParameter("postcode");
 
         usermanager = (UserManager) session.getAttribute("userManager");
         staffmanager = (StaffManager) session.getAttribute("staffManager");
@@ -58,20 +53,8 @@ public class StaffRegisterServlet extends HttpServlet {
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Password Format Incorrect");
             request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        } else if (!validator.validateDob(dob)) {
-            session.setAttribute("dobErr", "DOB Format Incorrect");
-            request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        } else if (!validator.validatePhoneNum(phonenum)) {
+        }else if (!validator.validatePhoneNum(phonenum)) {
             session.setAttribute("phoneErr", "Phone Number Format Incorrect");
-            request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        } else if (!validator.validateNum(streetnum)) {
-            session.setAttribute("streetNumErr", "Street Number Format Incorrect");
-            request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        } else if (!validator.validatestreetName(streetname)) {
-            session.setAttribute("streetNameErr", "Street Name Format Incorrect");
-            request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        } else if (!validator.validatePostCode(postcode)) {
-            session.setAttribute("postcodeErr", "Post Code Format Incorrect");
             request.getRequestDispatcher("staffregister.jsp").include(request, response);
         } else {
             try {
