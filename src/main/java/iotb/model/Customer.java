@@ -7,13 +7,15 @@ import java.io.Serializable;
 public class Customer {
     private String userID;
     private String customerID;
+    private String type;
     private String orderID;
     private String registered;
 
-    public Customer(String userID, String customerID, String orderID, String registered) {
+    public Customer(String userID, String customerID, String type, String orderID, String registered) {
         this.userID = userID;
         this.customerID = customerID;
         this.orderID = orderID;
+        this.type = type;
         this.registered = registered;
     }
 
@@ -24,7 +26,13 @@ public class Customer {
     public void setUserID(String userID) {
         this.userID = userID;
     }
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String userID) {
+        this.type = type;
+    }
     public String getCustomerID() {
         return customerID;
     }
