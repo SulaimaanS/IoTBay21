@@ -2,15 +2,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <% 
-            User user = (User)session.getAttribute("user");
+    <%
+        User user = (User) session.getAttribute("user");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Staff Home</title>
     </head>
-    
+
 
     <body>
         <div id="navContainer">
@@ -44,7 +44,7 @@
         <form action="DeleteStaffServlet" method="Post">
             <input type="submit" value="Delete Account">
         </form>
-        
+
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

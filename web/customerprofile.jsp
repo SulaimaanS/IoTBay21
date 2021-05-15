@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Customer Page</title>
     </head>
-    
+
     <body>
         <div id="navContainer">
             <ul id="navbar">
@@ -37,11 +37,11 @@
                 </tr>
             </table>
         </div>    
-        
+
         <form action="DeleteCustomerServlet" method="Post">
             <input type="submit" value="Delete Account">
         </form>
-        
+
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

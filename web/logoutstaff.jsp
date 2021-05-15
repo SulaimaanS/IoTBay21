@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +9,7 @@
         <div id="title">
             <h1>Logout Confirmation</h1>
         </div>
-            
+
         <div id="info">
             <h2>Are you sure you want to log out?</h2>
             <form action="staffhome.jsp" method="Post">
@@ -20,7 +19,7 @@
                 <input type="submit" value="Logout">
             </form>
         </div>
-        
+
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>

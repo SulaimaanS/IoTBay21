@@ -3,9 +3,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <% 
-            User user = (User)session.getAttribute("user");
-            Customer customer = (Customer)session.getAttribute("customer");
+    <%
+        User user = (User) session.getAttribute("user");
+        Customer customer = (Customer) session.getAttribute("customer");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,16 +13,16 @@
         <title>Edit ${user.fName}'s Profile</title>
     </head>
     <%
-            String fnameErr = (String) session.getAttribute("fnameErr");
-            String lnameErr = (String) session.getAttribute("lnameErr");
-            String existErr = (String) session.getAttribute("existErr");
-            String emailErr = (String) session.getAttribute("emailErr");
-            String passErr = (String) session.getAttribute("passErr");
-            String dobErr = (String) session.getAttribute("dobErr");
-            String phoneErr = (String) session.getAttribute("phoneErr");
-            String streetNumErr = (String) session.getAttribute("streetNumErr");
-            String streetNameErr = (String) session.getAttribute("streetNameErr");
-            String postcodeErr = (String) session.getAttribute("postcodeErr");
+        String fnameErr = (String) session.getAttribute("fnameErr");
+        String lnameErr = (String) session.getAttribute("lnameErr");
+        String existErr = (String) session.getAttribute("existErr");
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        String dobErr = (String) session.getAttribute("dobErr");
+        String phoneErr = (String) session.getAttribute("phoneErr");
+        String streetNumErr = (String) session.getAttribute("streetNumErr");
+        String streetNameErr = (String) session.getAttribute("streetNameErr");
+        String postcodeErr = (String) session.getAttribute("postcodeErr");
     %>
     <body>
         <div id="navContainer">

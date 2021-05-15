@@ -13,16 +13,16 @@
         <title>Create a IoTBay Staff Account</title>
     </head>
     <%
-            String fnameErr = (String) session.getAttribute("fnameErr");
-            String lnameErr = (String) session.getAttribute("lnameErr");
-            String existErr = (String) session.getAttribute("existErr");
-            String emailErr = (String) session.getAttribute("emailErr");
-            String passErr = (String) session.getAttribute("passErr");
-            String dobErr = (String) session.getAttribute("dobErr");
-            String phoneErr = (String) session.getAttribute("phoneErr");
-            String streetNumErr = (String) session.getAttribute("streetNumErr");
-            String streetNameErr = (String) session.getAttribute("streetNameErr");
-            String postcodeErr = (String) session.getAttribute("postcodeErr");
+        String fnameErr = (String) session.getAttribute("fnameErr");
+        String lnameErr = (String) session.getAttribute("lnameErr");
+        String existErr = (String) session.getAttribute("existErr");
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        String dobErr = (String) session.getAttribute("dobErr");
+        String phoneErr = (String) session.getAttribute("phoneErr");
+        String streetNumErr = (String) session.getAttribute("streetNumErr");
+        String streetNameErr = (String) session.getAttribute("streetNameErr");
+        String postcodeErr = (String) session.getAttribute("postcodeErr");
     %>
     <body>
         <div id="navContainer">
