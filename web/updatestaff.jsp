@@ -60,17 +60,6 @@
                         <td  align="right">Date of Birth:</td>
                         <td class="style1"><input type="text" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth (YYYY-DD-MM)")%>" name="dob" required/></td> 
                     </tr>
-
-                    <tr>    
-                        <td  align="right">Gender:</td>    
-                        <td class="style1">
-                            <select id="gender" name="gender" required>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </td>    
-                    </tr>
                     <tr>    
                         <td  align="right">Phone Number</td>    
                         <td class="style1"><input type="tel" placeholder="<%=(phoneErr != null ? phoneErr : "Enter Phone Number")%>" value="${user.phNumber}" name="phonenumber" placeholder="(+61)" required/></td>    
