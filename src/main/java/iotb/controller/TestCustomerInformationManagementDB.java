@@ -114,6 +114,9 @@ private void runQueries() throws SQLException{
             case 'R': ;
                 testRead();
                 break;
+                case 'U': ;
+                testUpdate();
+                break;
             case 'D': ;
                 testDelete();
                 break;
@@ -185,11 +188,12 @@ private void testAdd(){
 private void testRead() throws SQLException{
     System.out.print("Customer first name: ");
     String fName = in.nextLine();
-    System.out.print("Customer last name");
+    System.out.print("Customer last name: ");
     String lName = in.nextLine();
-    System.out.print("Customer type:");
+    System.out.print("Customer type: ");
     String type = in.nextLine();
     CustomerInformationManagement customer = db.findCustomer(fName, lName, type);
+    System.out.println("Hi");
     if(customer != null){
         System.out.println("Customer " + customer.getfName() +" exists in the database.");
     }
@@ -201,9 +205,9 @@ private void testRead() throws SQLException{
 private void testUpdate(){
     System.out.print("Customer first name: ");
     String fName = in.nextLine();
-    System.out.print("Customer last name");
+    System.out.print("Customer last name: ");
     String lName = in.nextLine();
-    System.out.print("Customer type:");
+    System.out.print("Customer type: ");
     String type = in.nextLine();
     
     try{
@@ -254,11 +258,11 @@ private void testUpdate(){
 private void testDelete(){
     System.out.print("Customer first name: ");
     String fName = in.nextLine();
-    System.out.print("Customer last name");
+    System.out.print("Customer last name: ");
     String lName = in.nextLine();
-    System.out.print("Customer type:");
+    System.out.print("Customer type: ");
     String type = in.nextLine();
-    System.out.print("Customer email:");
+    System.out.print("Customer email: ");
     String email = in.nextLine();
     
     try{

@@ -27,26 +27,55 @@ public class CustomerInformationManagementManager {
    //execute this query using the statement field       
    //add the results to a ResultSet       
    //search the ResultSet for a user using the parameters  
-   String fetch = "SELECT " +
-"CUSTOMERTABLE.CUSTOMERID, CUSTOMERTABLE.CUSTOMERTYPE," +
-"USERTABLE.FIRSTNAME, USERTABLE.LASTNAME, USERTABLE.DOB, USERTABLE.GENDER, USERTABLE.EMAILADDRESS,"
-+ "USERTABLE.PASSWORD, USERTABLE.PHONENUMBER, USERTABLE.STREETNUMBER, USERTABLE.STREETNAME, USERTABLE.POSTCODE,\n" +
-"CUSTOMERTABLE.ORDERID, CUSTOMERTABLE.REGISTERED" +
-"FROM USERTABLE" +
-"INNER JOIN CUSTOMERTABLE ON USERTABLE.USERID = CUSTOMERTABLE.USERID" +
-"WHERE USERTABLE.FIRSTNAME = '" + fName + "' AND  USERTABLE.FIRSTNAME = '" + lName + "' "
- + "AND CUSTOMERTABLE.CUSTOMERTYPE = '"+type+"';  ";  
-
+   
+ /*String fetch = "SELECT " +
+"IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERID, IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERTYPE," +
+"IOTBAYADMIN.USERTABLE.FIRSTNAME, IOTBAYADMIN.USERTABLE.LASTNAME, IOTBAYADMIN.USERTABLE.DOB, IOTBAYADMIN.USERTABLE.GENDER, IOTBAYADMIN.USERTABLE.EMAILADDRESS,"
++ "IOTBAYADMIN.USERTABLE.PASSWORD, IOTBAYADMIN.USERTABLE.PHONENUMBER, IOTBAYADMIN.USERTABLE.STREETNUMBER, IOTBAYADMIN.USERTABLE.STREETNAME, IOTBAYADMIN.USERTABLE.POSTCODE," +
+"IOTBAYADMIN.CUSTOMERTABLE.ORDERID, IOTBAYADMIN.CUSTOMERTABLE.REGISTERED" +
+"FROM IOTBAYADMIN.USERTABLE" +
+"INNER JOIN IOTBAYADMIN.CUSTOMERTABLE ON IOTBAYADMIN.USERTABLE.USERID = IOTBAYADMIN.CUSTOMERTABLE.USERID" +
+"WHERE IOTBAYADMIN.USERTABLE.FIRSTNAME = '" + fName + "' AND  IOTBAYADMIN.USERTABLE.FIRSTNAME = '" + lName + "' "
+ + "AND IOTBAYADMIN.CUSTOMERTABLE.CUSTOMERTYPE = '"+type+"'";   
+*/
    //"AND USERTABLE.LASTNAME = 'Neil' AND CUSTOMERTABLE.CUSTOMERTYPE = 'Individual'; "
            
-           //+ "ISDUSER.USERS where EMAIL = '" + email +"'  and PASSWORD='"+ password +"'" ;
+   //+ "ISDUSER.USERS where EMAIL = '" + email +"'  and PASSWORD='"+ password +"'" ;
+   
+   //String fetch = "select * FROM IOTBAY.USERTABLE where FIRSTNAME = '" + fName +"'  AND LASTNAME='"+ lName +"'" ;
+   //String fetch2 = "select * FROM IOTBAY.CUSTOMERTABLE where CUSTOMERTYPE = '" + type +"'" ;
+   
+   
+   String fetch = "SELECT * FROM IOTBAYADMIN.CUSTOMERINFORMATIONMANAGEMENT1 where FIRSTNAME = '" +fName+"' AND LASTNAME = '"+lName+"' AND CUSTOMERTYPE = '"+type+"'  ";
+           
    ResultSet rs = st.executeQuery(fetch);
    
+   //ResultSet rs2 = st.executeQuery(fetch2);
+   
+  
+   //String customerOrderID = null;
+   //String customerRegistered = null;
+   //String customerType = null;
+   //String customerID = null;
+   /*
+   while(rs2.next()){
+       String customerType = rs2.getString(3);
+       if(customerType.equals(type)){
+           String customerID = rs2.getString(1);
+           String customerOrderID = rs2.getString(4);
+           String customerRegistered = rs2.getString(5);
+       }
+   }
+*/
+   
+   
    while(rs.next()){
-       String customerFName = rs.getString(3);
+       String customerFName = rs.getString(3); 
        String customerLName = rs.getString(4);
        String customerType = rs.getString(2);
-       if(customerFName.equals(fName) && customerLName.equals(lName) && customerType.equals(type)){
+       //String customerFName = rs.getString(2);
+       //String customerLName = rs.getString(3);
+            if(customerFName.equals(fName) && customerLName.equals(lName) && customerType.equals(type)){
            String customerID = rs.getString(1);
            String customerDOB = rs.getString(5);
            String customerGender = rs.getString(6);
@@ -58,6 +87,15 @@ public class CustomerInformationManagementManager {
            String customerPostcode = rs.getString(12);
            String customerOrderID = rs.getString(13);
            String customerRegistered = rs.getString(14);
+           
+           //String customerDOB = rs.getString(4);
+           //String customerGender =rs.getString(5);
+           //String customerEmail = rs.getString(6);
+           //String customerPassword = rs.getString(7);
+           //String customerPhone = rs.getString(8);
+           //String customerStreetNumber = rs.getString(9);
+           //String customerStreetName = rs.getString(10);
+           //String customerPostcode = rs.getString(11);
            
            return new CustomerInformationManagement(customerID, customerType, customerFName, customerLName,
            customerDOB, customerGender, customerEmail, customerPassword, customerPhone, 
