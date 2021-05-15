@@ -1,14 +1,11 @@
 package iotb.model.dao;
 
 import iotb.model.AccessLog;
-import iotb.model.Customer;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -23,16 +20,16 @@ public class LogManager {
         statement = connection.createStatement();
     }
 
-    public void addCustomerLog(int userID, Date date) throws ParseException, SQLException {
-        String columns = "INSERT INTO APPLICATIONLOGTABLE(USERID,ACCESSED)";
+    public void addCustomerLog(int userID, Date date, String accesstype) throws ParseException, SQLException {
+        String columns = "INSERT INTO APPLICATIONLOGTABLE(USERID,ACCESSED,ACCESSTYPE)";
         System.out.println(date);
-        String values = "VALUES (" + userID + ",'"+date +"')";
+        String values = "VALUES (" + userID + ",'"+date +"','"+accesstype+"')";
         statement.executeUpdate(columns + values);
     }
     
-    public void addStaffLog(int staffID, Date date) throws ParseException, SQLException {
-        String columns = "INSERT INTO APPLICATIONLOGTABLE(STAFFID, ACCESSED)";
-        String values = "VALUES (" + staffID + ",'" + date + "')";
+    public void addStaffLog(int staffID, Date date, String accesstype) throws ParseException, SQLException {
+        String columns = "INSERT INTO APPLICATIONLOGTABLE(STAFFID, ACCESSED,ACCESSTYPE)";
+        String values = "VALUES (" + staffID + ",'" + date + "','"+accesstype+"')";
         statement.executeUpdate(columns + values);
     }
 
@@ -43,7 +40,8 @@ public class LogManager {
             Integer logid = rs.getInt(1);
             Integer userid = rs.getInt(2);
             Date accessdate = rs.getDate(4);
-            return new AccessLog(logid,userid,null,accessdate);
+            String accesstype = rs.getString(5);
+            return new AccessLog(logid,userid,null,accessdate,accesstype);
         }
         return null;
     }
@@ -55,7 +53,8 @@ public class LogManager {
             Integer logid = rs.getInt(1);
             Integer staffid = rs.getInt(3);
             Date accessdate = rs.getDate(4);
-            return new AccessLog(logid,null,staffid,accessdate);
+            String accesstype = rs.getString(5);
+            return new AccessLog(logid,null,staffid,accessdate,accesstype);
         }
         return null;
     }

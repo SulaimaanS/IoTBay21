@@ -17,12 +17,14 @@ public class AccessLog {
     private Integer userID;
     private Integer staffID;
     private Date accessDate;
+    private String accessType;
 
-    public AccessLog(Integer logID, Integer userID, Integer staffID, Date accessDate) {
+    public AccessLog(Integer logID, Integer userID, Integer staffID, Date accessDate, String accessType) {
         this.logID = logID;
         this.userID = userID;
         this.staffID = staffID;
         this.accessDate = accessDate;
+        this.accessType = accessType;
     }
 
     public Integer getLogID() {
@@ -56,7 +58,14 @@ public class AccessLog {
     public void setAccessDate(Date accessDate) {
         this.accessDate = accessDate;
     }
-    
-    
+
+    public String getAccessType() {
+        return accessType;
+    }
+
+    public void setAccessType(String accessType) {
+        this.accessType = accessType;
+    }
+
     
 }

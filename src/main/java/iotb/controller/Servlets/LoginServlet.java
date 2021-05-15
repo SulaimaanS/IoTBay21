@@ -55,13 +55,13 @@ public class LoginServlet extends HttpServlet {
             try{
                 user = manager.readUser(email,password);
                 customer = customermanager.readCustomer(user.getUserID());
-                if (user != null){
+                if (user != null && customer != null){
                     System.out.println("Login Successful");
                     session = request.getSession(true);
                     session.setAttribute("user", user);
                     session.setAttribute("customer", customer);
                     Date date = new Date();
-                    logmanager.addCustomerLog(user.getUserID(),date);
+                    logmanager.addCustomerLog(user.getUserID(),date,"Login");
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
                 else{

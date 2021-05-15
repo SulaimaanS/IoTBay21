@@ -12,7 +12,6 @@ import iotb.model.dao.LogManager;
 import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Date;
@@ -45,6 +44,7 @@ public class StaffLoginServlet extends HttpServlet {
 
         usermanager = (UserManager)session.getAttribute("userManager");
         staffmanager = (StaffManager)session.getAttribute("staffManager");
+        logmanager = (LogManager)session.getAttribute("logManager");
         
         User user = null;
         Staff staff = null;
@@ -62,13 +62,13 @@ public class StaffLoginServlet extends HttpServlet {
             try{
                 user = usermanager.readUser(email,password);
                 staff = staffmanager.readStaff(user.getUserID());
-                logmanager = (LogManager)session.getAttribute("logManager");
-                if (staff != null){
+                if (user != null && staff !=null){
                     System.out.println("Login Successful");
                     session = request.getSession(true);
                     session.setAttribute("user", user);
+                    session.setAttribute("staff", staff);
                     Date date = new Date();
-                    logmanager.addStaffLog(staff.getStaffID(),date);
+                    logmanager.addStaffLog(staff.getStaffID(),date,"Login");
                     request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
                 else{

@@ -13,15 +13,11 @@
     
 
     <body>
-        <%
-            if (session.getAttribute("user") != null)
-            {
-        %>
         <div id="navContainer">
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
                 <li><a href="updatestaff.jsp">Edit Profile</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+                <li><a href="logoutstaff.jsp">Logout</a></li>
         </div>
 
         <div id="title">
@@ -44,13 +40,6 @@
                 </tr>
             </table>
         </div>    
-
-        <% } else { %>
-
-        <h2>You are not logged in</h2>
-        <input type=button onClick="location.href = 'index.html'"
-               value="Home">
-        <%}%>
 
         <form action="DeleteStaffServlet" method="Post">
             <input type="submit" value="Delete Account">

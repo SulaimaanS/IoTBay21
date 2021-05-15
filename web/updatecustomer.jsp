@@ -29,7 +29,7 @@
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="customerprofile.jsp">Your Profile</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+                <li><a href="logoutcustomer.jsp">Logout</a></li>
             </ul>
         </div>
 
