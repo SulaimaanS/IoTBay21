@@ -1,5 +1,3 @@
-<%@page import="iotb.model.dao.ProductManager"%>
-<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -7,16 +5,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <head>
-        <title>Landing</title>
+        <title>List of Products</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
  
     <%
-            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+            ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("productList");
     %>
     </head>
-    <body action="ListProductServlet">
+    <body>
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
@@ -30,7 +28,7 @@
         <div id="title">
             <h1>Items for Sale</h1>
         </div>
-        <div id="info">
+
         <table id="addProductTable">
             <tr>
                 <td>Product Name</td>
@@ -39,20 +37,26 @@
                 <td>Product Price</td>
                 <td>Product Stock</td>
             </tr>
+            
             <%
-                if (products != null) {
-                    for (Product p: products){
+                if (productList != null) {
+                    for (Product product: productList){
             %>
             <tr>
-                <td><%=p.getProductName()%></td>
+                <td><%=product.getProductName()%></td>
+                <td><%=product.getProductDescription()%></td>
+                <td><%=product.getProductCategory()%></td>
+                <td><%=product.getProductPrice()%></td>
+                <td><%=product.getProductStock()%></td>
             </tr>
             <%}%>
-        <%}%>
         </table>
-        <jsp:include page="/ConnectionServlet" flush="true"/>
         </div>
+        <% }%>
+        <jsp:include page="/ConnectionServlet" flush="true"/>
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>
+        
     </body>
 </html>

@@ -10,9 +10,7 @@ import iotb.model.Product;
 import iotb.model.dao.ProductManager;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -37,15 +35,19 @@ public class ListProductServlet extends HttpServlet {
         ProductValidator validator = new ProductValidator();
         validator.clear(session);
         
+        ArrayList<Product> productList = null;
+        
         try {
-            ArrayList<Product> products = productmanager.listProduct();
-            if (products != null) {
-                session.setAttribute("products", products);
+            productList = productmanager.listProduct();
+            if (productList != null) {
+                System.out.println("List Created");
+                session.setAttribute("productList", productList);
                 request.getRequestDispatcher("listproduct.jsp").include(request, response);
             }
             else{
-                products = productmanager.listProduct();
                 request.getRequestDispatcher("listproduct.jsp").include(request, response);
+                    session.setAttribute("existErr", "Products Do Not Exist In The Database");
+                    request.getRequestDispatcher("catalogue.jsp").include(request, response);
             }
         } catch (SQLException | NullPointerException ex) {
             System.out.println(ex.getMessage() == null ? "Products cannot be loaded" : "welcome");      
