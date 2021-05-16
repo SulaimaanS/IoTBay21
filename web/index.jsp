@@ -15,7 +15,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="register.jsp">Register</a></li>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="mainpage.jsp">MainPage</a></li>
+                <li><a href="order.jsp">Order</a><li> <!-- added -->
+<!--                <li><a href="mainpage.jsp">MainPage</a></li>-->
             </ul>
         </div>
 

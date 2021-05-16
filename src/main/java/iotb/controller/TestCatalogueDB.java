@@ -51,14 +51,14 @@ public class TestCatalogueDB{
              String streetname = in.nextLine();
              System.out.print("Postcode: ");
              String postcode = in.nextLine();
-             manager.addProduct(firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
+//             manager.addProduct(firstName, lastName, email,dob, password, gender, phonenum, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode));
              System.out.println("A Product has been added to the database");   
         }
     
         public static void readProduct() throws SQLException{
              System.out.print("Enter Product ID: ");
              String ProductID = in.nextLine();
-             manager.readProduct(Integer.parseInt(ProductID));
+//             manager.readProduct(Integer.parseInt(ProductID));
         }
         
         public static void updateProduct() throws SQLException, ParseException{
@@ -91,8 +91,9 @@ public class TestCatalogueDB{
         public static void deleteProduct() throws SQLException{
              System.out.print("Enter Product ID to Delete: ");
              String ProductID = in.nextLine();
-             manager.deleteProduct(Integer.parseInt(ProductID));
-             System.out.println("A Product has been deleted");
+//             manager.deleteProduct(Integer.parseInt(ProductID));
+             System.out.println("A Pro             manager.deleteProduct(Integer.parseInt(ProductID));\n" +
+"duct has been deleted");
         }
         
         public static char readChoice(){
