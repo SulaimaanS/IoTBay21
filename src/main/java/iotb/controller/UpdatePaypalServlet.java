@@ -5,6 +5,7 @@
  */
 package iotb.controller;
 
+import iotb.model.Paypal;
 import iotb.model.dao.PaypalManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,9 +46,19 @@ public class UpdatePaypalServlet extends HttpServlet {
             request.getRequestDispatcher("updatePaypal.jsp").include(request, response);
         } else {
             try {
-                manager.updatePaypal(Integer.parseInt(paypalID), Integer.parseInt(paymentID), paypalUsername, paypalPassword);
-                session.setAttribute("updatedPaypal", "PayPal successfully updated");
-                request.getRequestDispatcher("updatePaypal.jsp").include(request, response);
+                
+                Paypal paypal = manager.readPaypal(Integer.parseInt(paypalID));
+                
+                if(paypal != null){
+                    manager.updatePaypal(Integer.parseInt(paypalID), Integer.parseInt(paymentID), paypalUsername, paypalPassword);
+                    session.setAttribute("updatedPaypal", "PayPal successfully updated");
+                    request.getRequestDispatcher("updatePaypal.jsp").include(request, response);
+                } else {
+                    session.setAttribute("updatedPaypal", "PayPal account does not exist");
+                    request.getRequestDispatcher("updatePaypal.jsp").include(request, response);
+                }
+                
+                
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaypalServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ParseException ex) {

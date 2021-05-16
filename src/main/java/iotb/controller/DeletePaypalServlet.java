@@ -41,10 +41,10 @@ public class DeletePaypalServlet extends HttpServlet {
             if(paypal != null) {
                 manager.deletePaypal(Integer.parseInt(paypalID));
                 session.setAttribute("deletedPaypal", "PayPal Account successfully removed");
-                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
+                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
             } else {
                 session.setAttribute("deletedPaypal", "PayPal Account does not exist");
-                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
+                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
             }
             
         } catch (SQLException ex) {

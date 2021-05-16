@@ -5,6 +5,7 @@
  */
 package iotb.controller;
 
+import iotb.model.Payment;
 import iotb.model.dao.PaymentManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,11 +41,18 @@ public class UpdatePaymentServlet extends HttpServlet {
             session.setAttribute("paymentTypeErr", "Error: Payment type does not exist"); //Kind of redundant since HTML form only takes 1 or 2
         } else {
             try {
-                manager.updatePayment(Integer.parseInt(paymentID), Integer.parseInt(orderID), Integer.parseInt(paymentType));
-                session.setAttribute("updatedPayment", "Payment successfully updated");
-                request.getRequestDispatcher("updatePayment.jsp").include(request, response);
                 
+                Payment payment = manager.readPayment(Integer.parseInt(paymentID));
                 
+                if(payment != null) {
+                    manager.updatePayment(Integer.parseInt(paymentID), Integer.parseInt(orderID), Integer.parseInt(paymentType));
+                    session.setAttribute("updatedPayment", "Payment successfully updated");
+                    request.getRequestDispatcher("updatePayment.jsp").include(request, response);
+                } else {
+                    session.setAttribute("updatedPayment", "Payment does not exist");
+                    request.getRequestDispatcher("updatePayment.jsp").include(request, response);
+                }
+    
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaymentServlet.class.getName()).log(Logger.Level.FATAL, manager, ex);
             } catch (ParseException ex) {

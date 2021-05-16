@@ -17,7 +17,7 @@
         <%
             String paypalUsernameErr = (String)session.getAttribute("paypalUsernameErr");
             String paypalPasswordErr = (String)session.getAttribute("paypalPasswordErr");
-            String updatedPaypal = (String)session.getAttribute("updated");
+            String updatedPaypal = (String)session.getAttribute("updatedPaypal");
         %>
         
         <ul>
