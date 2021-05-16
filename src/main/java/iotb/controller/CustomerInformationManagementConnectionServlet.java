@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package iotb.controller;
 
-import iotb.model.dao.*;
+import iotb.model.dao.CustomerInformationManagementManager;
+import iotb.model.dao.DatabaseConnector;
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -20,14 +22,14 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author razor
+ * @author timmy
  */
-public class ConnectionServlet extends HttpServlet {
-
+/*
+public class CustomerInformationManagementConnectionServlet extends HttpServlet {
     private DatabaseConnector database;
-    private UserManager userManager;
+    private CustomerInformationManagementManager customerInformationManagementManager;
     private Connection conn;
-
+    
     @Override //Create and instance of databaseConnector for the deployment session
     public void init() {
         try {
@@ -36,7 +38,7 @@ public class ConnectionServlet extends HttpServlet {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     @Override //Add the databaseConnector, databaseManager, Connection instances to the session
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,12 +46,12 @@ public class ConnectionServlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = database.connection();
         try {
-            userManager = new UserManager(conn);
+            customerInformationManagementManager = new CustomerInformationManagementManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the database manager to the view-session (JSPs)
-        session.setAttribute("userManager", userManager);
+        session.setAttribute("customerInformationManagementManager", customerInformationManagementManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the database connection)
@@ -60,4 +62,7 @@ public class ConnectionServlet extends HttpServlet {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }
+
+*/

@@ -15,142 +15,72 @@ import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.CustomerInformationManagementManager;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;  
+import java.util.Date;
 //import java.sql.Date;
 //import java.text.ParseException;
-
 
 /**
  *
  * @author timmy
  */
 public class TestCustomerInformationManagementDB {
+
     private static Scanner in = new Scanner(System.in);
     private DatabaseConnector connector;
     private Connection con;
     private CustomerInformationManagementManager db;
 
-/*
-public static void main(String[] args) throws SQLException {
-    
-    try {
+    public static void main(String[] args) throws SQLException, ParseException {
+        (new TestCustomerInformationManagementDB()).runQueries();
+    }
 
-        DatabaseConnector connector = new DatabaseConnector();
-        Connection con = connector.connection();
-
-        CustomerInformationManagementManager db = new CustomerInformationManagementManager(con);
-
-        //System.out.print("Customer id: ");
-        //String customerID = in.nextLine();
-
-        System.out.print("Customer type: ");
-        String type = in.nextLine();
-
-        System.out.print("Customer first name: ");
-        String fName = in.nextLine();
-
-        System.out.print("Customer last name: ");
-        String lName = in.nextLine();
-
-        System.out.print("Customer date of birth: ");
-        String dob = in.nextLine();
-        
-        System.out.print("Customer gender: ");
-        String gender = in.nextLine();
-        
-        System.out.print("Customer email: ");
-        String email = in.nextLine();
-        
-        System.out.print("Customer password: ");
-        String password = in.nextLine();
-        
-        System.out.print("Customer phone: ");
-        String phone = in.nextLine();
-        
-        System.out.print("Customer street number: ");
-        String streetNumber = in.nextLine();
-        
-        System.out.print("Customer street name: ");
-        String streetName = in.nextLine();
-        
-        System.out.print("Customer post code: ");
-        String postCode = in.nextLine();
-        
-        System.out.print("Customer orderID: ");
-        String orderID = in.nextLine();
-        
-        System.out.print("Customer registration: ");
-        String registered = in.nextLine();
-        
-        System.out.print("User id: ");
-        String userID = in.nextLine();
-
-        db.addCustomer(type, fName, lName, dob, gender, email, password, phone, streetNumber, 
-        streetName, postCode, orderID, userID, registered);
-
-        System.out.println("Customer is added to the database.");
-        connector.closeConnection();
-        } 
-    
-        catch (ClassNotFoundException | SQLException ex) {
+    public TestCustomerInformationManagementDB() {
+        try {
+            connector = new DatabaseConnector();
+            con = connector.connection();
+            db = new CustomerInformationManagementManager(con);
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-}*/
-
-public static void main(String[] args) throws SQLException, ParseException{
-    (new TestCustomerInformationManagementDB()).runQueries();
-    
-}
-
-public TestCustomerInformationManagementDB(){
-    try{
-        connector = new DatabaseConnector();
-        con = connector.connection();
-        db = new CustomerInformationManagementManager(con);
     }
-    catch (ClassNotFoundException | SQLException ex){
-        Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE,null,ex);
+
+    private char readChoice() {
+        System.out.print("Operations CRUDS or * to exit: ");
+        return in.nextLine().charAt(0);
     }
-}
 
-private char readChoice(){
-    System.out.print("Operations CRUDS or * to exit: ");
-    return in.nextLine().charAt(0);
-}
+    private void runQueries() throws SQLException, ParseException {
+        char c;
 
-private void runQueries() throws SQLException, ParseException{
-    char c;
-    
-    while((c = readChoice()) != '*'){
-        switch(c){
-            case 'C': ;
-                testAdd();
-                break;
-            case 'R': ;
-                testRead();
-                break;
-            case 'U': ;
-                testUpdate();
-                break;
-            case 'D': ;
-                testDelete();
-                break;
-            case 'S': ;
+        while ((c = readChoice()) != '*') {
+            switch (c) {
+                case 'C': ;
+                    testAdd();
+                    break;
+                case 'R': ;
+                    testRead();
+                    break;
+                case 'U': ;
+                    testUpdate();
+                    break;
+                case 'D': ;
+                    testDelete();
+                    break;
+                case 'S': ;
                 showAll();
                 break;
-            default:
-                System.out.println("Unknown Command");
+                default:
+                    System.out.println("Unknown Command");
+            }
         }
     }
-}
 
-private void testAdd() throws SQLException{
-        System.out.print("Customer id: ");
-        String customerID = in.nextLine();
+    private void testAdd() throws SQLException {
+        //System.out.print("Customer id: ");
+        //String customerID = in.nextLine();
         //int id = Integer.parseInt(customerID);
         //System.out.println("");
-        
+
         System.out.print("Customer type: ");
         String type = in.nextLine();
 
@@ -164,147 +94,141 @@ private void testAdd() throws SQLException{
         String date = in.nextLine();
         //Date dob=(Date) new SimpleDateFormat("dd-MM-yyyy").parse(date); 
         //Date dob = Date.valueOf(date);
-        
+
         System.out.print("Customer gender: ");
         String gender = in.nextLine();
-        
+
         System.out.print("Customer email: ");
         String email = in.nextLine();
-        
+
         System.out.print("Customer password: ");
         String password = in.nextLine();
-        
+
         System.out.print("Customer phone: ");
         String phone = in.nextLine();
-        
+
         System.out.print("Customer street number: ");
         String streetNumber = in.nextLine();
         //int streetNum = Integer.parseInt(streetNumber);
-        
+
         System.out.print("Customer street name: ");
         String streetName = in.nextLine();
-        
+
         System.out.print("Customer post code: ");
         String postCode = in.nextLine();
         //int code = Integer.parseInt(postCode);
-        
-        System.out.print("Customer orderID: ");
-        String orderID = in.nextLine();
+
+        //System.out.print("Customer orderID: ");
+        //String orderID = in.nextLine();
         //int order = Integer.parseInt(orderID);
-        
+
         System.out.print("Customer registration: ");
         String registered = in.nextLine();
         //boolean registration = Boolean.parseBoolean(registered);
-         
-        db.addCustomer(customerID, type, fName, lName, date, gender, email, password, phone, streetNumber,
-                streetName, postCode, orderID, registered);
-        
-    System.out.println("Customer is added to the database.");
-}
 
-private void testRead() throws SQLException{
-    System.out.print("Customer first name: ");
-    String fName = in.nextLine();
-    System.out.print("Customer last name: ");
-    String lName = in.nextLine();
-    System.out.print("Customer type: ");
-    String type = in.nextLine();
-    CustomerInformationManagement customer = db.findCustomer(fName, lName, type);
-    //System.out.println("Hi");
-    if(customer != null){
-        System.out.println("Customer " + customer.getfName() +" exists in the database.");
-    }
-    else{
-        System.out.println("Customer does not exist.");
-    }
-}
+        db.addCustomer(type, fName, lName, date, gender, email, password, phone, streetNumber,
+                streetName, postCode, registered);
 
-private void testUpdate(){
-  
-    System.out.print("Customer email: ");
-    String email = in.nextLine();
-    
-    try{
-        if(db.checkCustomer(email)){
-        
+        System.out.println("Customer is added to the database.");
+    }
+
+    private void testRead() throws SQLException {
         System.out.print("Customer first name: ");
         String fName = in.nextLine();
-        
         System.out.print("Customer last name: ");
         String lName = in.nextLine();
-        
-        System.out.print("Customer date of birth: ");
-        String dob = in.nextLine();
-            
-        System.out.print("Customer gender: ");
-        String gender = in.nextLine();
-        
-        System.out.print("Customer password: ");
-        String password = in.nextLine();
-        
-        System.out.print("Customer phone: ");
-        String phone = in.nextLine();
-        
-        System.out.print("Customer street number: ");
-        String streetNumber = in.nextLine();
-        
-        System.out.print("Customer street name: ");
-        String streetName = in.nextLine();
-        
-        System.out.print("Customer post code: ");
-        String postCode = in.nextLine();
-        /*
+        System.out.print("Customer type: ");
+        String type = in.nextLine();
+        CustomerInformationManagement customer = db.findCustomer(fName, lName, type);
+        //System.out.println("Hi");
+        if (customer != null) {
+            System.out.println("Customer " + customer.getfName() + " exists in the database.");
+        } else {
+            System.out.println("Customer does not exist.");
+        }
+    }
+
+    private void testUpdate() {
+
+        System.out.print("Customer email: ");
+        String email = in.nextLine();
+
+        try {
+            if (db.checkCustomer(email)) {
+
+                System.out.print("Customer first name: ");
+                String fName = in.nextLine();
+
+                System.out.print("Customer last name: ");
+                String lName = in.nextLine();
+
+                System.out.print("Customer date of birth: ");
+                String dob = in.nextLine();
+
+                System.out.print("Customer gender: ");
+                String gender = in.nextLine();
+
+                System.out.print("Customer password: ");
+                String password = in.nextLine();
+
+                System.out.print("Customer phone: ");
+                String phone = in.nextLine();
+
+                System.out.print("Customer street number: ");
+                String streetNumber = in.nextLine();
+
+                System.out.print("Customer street name: ");
+                String streetName = in.nextLine();
+
+                System.out.print("Customer post code: ");
+                String postCode = in.nextLine();
+                /*
         System.out.print("Customer orderID: ");
         String orderID = in.nextLine();
-        */
-        db.updateCustomer(fName, lName, dob, gender, email, password, phone, streetNumber,
-        streetName, postCode);
-        System.out.println("Customer has been updated");
-        }
-        else{
-            System.out.println("Customer does not exist");
+                 */
+                db.updateCustomer(fName, lName, dob, gender, email, password, phone, streetNumber,
+                        streetName, postCode);
+                System.out.println("Customer has been updated");
+            } else {
+                System.out.println("Customer does not exist");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    catch(SQLException ex){
-        Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
 
-private void testDelete(){
-    //System.out.print("Customer first name: ");
-    //String fName = in.nextLine();
-    //System.out.print("Customer last name: ");
-    //String lName = in.nextLine();
-    //System.out.print("Customer type: ");
-    //String type = in.nextLine();
-    System.out.print("Customer email: ");
-    String email = in.nextLine();
-    
-    try{
-        if(db.checkCustomer(email)){
-            db.deleteCustomer(email);
-            System.out.println("Customer has been deleted");
-        }
-        else{
-            System.out.println("Customer does not exist");
-        }
-    }
-    
-    catch (SQLException ex){
-        Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
+    private void testDelete() {
+        //System.out.print("Customer first name: ");
+        //String fName = in.nextLine();
+        //System.out.print("Customer last name: ");
+        //String lName = in.nextLine();
+        //System.out.print("Customer type: ");
+        //String type = in.nextLine();
+        System.out.print("Customer email: ");
+        String email = in.nextLine();
 
+        try {
+            if (db.checkCustomer(email)) {
+                db.deleteCustomer(email);
+                System.out.println("Customer has been deleted");
+            } else {
+                System.out.println("Customer does not exist");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TestCustomerInformationManagementDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 private void showAll(){
     try{
         ArrayList<CustomerInformationManagement> customers = db.fectCustomers();
         System.out.println("CUSTOMER INFORMATION TABLE: ");
         customers.stream().forEach((customer) -> {
-            System.out.printf("%-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s %-30s \n", customer.getCustomerID(), customer.getType(),
+            System.out.printf("%-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s %-30s %-20s %-10s %-20s \n", customer.getCustomerID(), customer.getType(),
                     customer.getfName(), customer.getlName(), customer.getDob(), customer.getGender(),
                     customer.getEmail(), customer.getPassword(), customer.getPhone(), 
                     customer.getStreetNumber(), customer.getStreetName(), customer.getPostCode(), 
-                    customer.getOrderID(), customer.getRegistered());
+                    customer.getRegistered());
         });
         System.out.println();
     }
@@ -314,5 +238,5 @@ private void showAll(){
     }
 }
 
-
+    
 }

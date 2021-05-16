@@ -22,12 +22,11 @@ public class CustomerInformationManagement {
     private String streetNumber;
     private String streetName;
     private String postCode;
-    private String orderID;
     private String registered;
 
     public CustomerInformationManagement(String customerID, String type, String fName, String lName, 
             String dob, String gender, String email, String password, String phone, String streetNumber, 
-            String streetName, String postCode, String orderID, String registered) {
+            String streetName, String postCode, String registered) {
         this.customerID = customerID;
         this.fName = fName;
         this.lName = lName;
@@ -39,7 +38,6 @@ public class CustomerInformationManagement {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.postCode = postCode;
-        this.orderID = orderID;
         this.registered = registered;
     }
 
@@ -137,14 +135,6 @@ public class CustomerInformationManagement {
 
     public void setPostCode(String postCode) {
         this.postCode = postCode;
-    }
-
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
     }
 
     public String getRegistered() {

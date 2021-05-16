@@ -8,6 +8,26 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>iotb.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerInformationManagementServlet</servlet-name>
+        <servlet-class>iotb.controller.CustomerInformationManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerInformationManagementCreateServlet</servlet-name>
+        <servlet-class>iotb.controller.CustomerInformationManagementCreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerInformationManagementAddServlet</servlet-name>
+        <servlet-class>iotb.controller.CustomerInformationManagementAddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerInformationManagementConnectionServlet</servlet-name>
+        <servlet-class>iotb.controller.CustomerInformationManagementConnectionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConnServlet</servlet-name>
+        <servlet-class>iotb.controller.ConnServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -16,14 +36,26 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-    <servlet-name>CustomerInformationManagementServlet</servlet-name>
-    <servlet-class>iotb.controller.ConnectionServlet </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CustomerInformationManagementServlet</servlet-name>
-    <url-pattern>CustomerInformationManagementServlet</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerInformationManagementServlet</servlet-name>
+        <url-pattern>/CustomerInformationManagementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerInformationManagementCreateServlet</servlet-name>
+        <url-pattern>/CustomerInformationManagementCreateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerInformationManagementAddServlet</servlet-name>
+        <url-pattern>/CustomerInformationManagementAddServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerInformationManagementConnectionServlet</servlet-name>
+        <url-pattern>/CustomerInformationManagementConnectionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
