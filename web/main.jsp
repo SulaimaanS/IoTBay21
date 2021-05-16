@@ -17,6 +17,9 @@
         </ul>
         
         <h1>Main Page</h1>
+        <div class="vertical-menu">
+            <a href="submitPayment.jsp">Submit Payment</a>
+        </div>
         <h2>Payment options:</h2>
         <div class="vertical-menu">
         <a href="searchPayment.jsp">Search Payment History</a>

@@ -17,7 +17,7 @@
         <%
             String paypalUsernameErr = (String)session.getAttribute("paypalUsernameErr");
             String paypalPasswordErr = (String)session.getAttribute("paypalPasswordErr");
-            String updated = (String)session.getAttribute("updated");
+            String updatedPaypal = (String)session.getAttribute("updated");
         %>
         
         <ul>
@@ -26,7 +26,7 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Update my PayPal Account Details</h1><span><%=(updated != null ? updated : "")%></span>
+        <h1>Update my PayPal Account Details</h1><span><%=(updatedPaypal != null ? updatedPaypal : "")%></span>
         <form method="post" action="UpdatePaypalServlet">
             <table>
                 <tr><td>PayPal ID: </td><td><input type="text" placeholder="Enter existing PayPal ID" name="paypalID"></td></tr>

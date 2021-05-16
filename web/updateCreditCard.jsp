@@ -19,7 +19,7 @@
             String cardNumberErr = (String) session.getAttribute("cardNumberErr");
             String holderNameErr = (String) session.getAttribute("holderNameErr");
             String cvvErr = (String) session.getAttribute("cvvErr");
-            String updated = (String)session.getAttribute("updated");
+            String updatedCreditCard = (String)session.getAttribute("updatedCreditCard");
         %>
         
         <ul>
@@ -28,14 +28,14 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Edit Credit Card Details</h1><span><%=(updated != null ? updated : "")%></span>
+        <h1>Edit Credit Card Details</h1><span><%=(updatedCreditCard != null ? updatedCreditCard : "")%></span>
         <form method="post" action="UpdateCreditCardServlet">
             <table>
                 <tr><td>Card ID: </td><td><input type="text" placeholder="Enter existing Card ID" name="cardID"></td></tr>
                 <tr><td>Card Number: </td><td><input type="text" placeholder="<%=(cardNumberErr != null ? cardNumberErr : "Enter 16-digit card number")%>" name="cardNumber"></td></tr>
                 <tr><td>Expiry date: </td><td><input type="date" name="expiryDate"></td></tr>
                 <tr><td>Card Holder Name: </td><td><input type="text" placeholder="<%=(holderNameErr != null ? holderNameErr : "Enter holder name")%>" name="holderName"></td></tr>
-                <tr><td>CVV: </td><td><input type="text" placeholder="<%=(cvvErr != null ? cvvErr : "Enter 3-digit CVV number")%>" name="cvv"></td><</tr>
+                <tr><td>CVV: </td><td><input type="text" placeholder="<%=(cvvErr != null ? cvvErr : "Enter 3-digit CVV number")%>" name="cvv"></td></tr>
                 <tr><td></td><td><input type="submit" value="Update credit card"></td></tr>
             </table>
         </form>

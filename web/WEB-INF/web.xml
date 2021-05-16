@@ -68,6 +68,10 @@
         <servlet-name>SearchedPaymentServlet</servlet-name>
         <servlet-class>iotb.controller.SearchedPaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.SubmitPaymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/ConnectionServlet</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>SearchedPaymentServlet</servlet-name>
         <url-pattern>/SearchedPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <url-pattern>/SubmitPaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

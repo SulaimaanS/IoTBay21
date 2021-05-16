@@ -15,7 +15,7 @@
     <body>
         
         <% 
-            String deleted = (String) session.getAttribute("deletedPayment");
+            String deletedPayment = (String) session.getAttribute("deletedPayment");
         %>
         
         <ul>
@@ -24,7 +24,7 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Remove Payment Details</h1><span><%=(deleted != null ? deleted : "")%></span>
+        <h1>Remove Payment Details</h1><span><%=(deletedPayment != null ? deletedPayment : "")%></span>
         <form method="post" action="DeletePaymentServlet">
             <table>
                 <tr><td>Payment ID: </td><td><input type="text" placeholder="Enter existing Payment ID" name="paymentID"></td></tr>

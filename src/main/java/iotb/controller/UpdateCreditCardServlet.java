@@ -53,7 +53,7 @@ public class UpdateCreditCardServlet extends HttpServlet {
         } else {
             try {
                 manager.updateCreditCard(Integer.parseInt(cardID), cardNumber, expiryDate, holderName, cvv);
-                session.setAttribute("updated", "Credit Card successfully updated");
+                session.setAttribute("updatedCreditCard", "Credit Card successfully updated");
                 request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaymentServlet.class.getName()).log(Logger.Level.FATAL, manager, ex);

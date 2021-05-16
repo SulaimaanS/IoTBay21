@@ -15,7 +15,7 @@
     <body>
         
         <%
-             String updated = (String)session.getAttribute("updated");
+             String updatedPayment = (String)session.getAttribute("updatedPayment");
         %>
         
         <ul>
@@ -24,7 +24,7 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Update Payment Details</h1><span><%=(updated != null ? updated : "")%></span>
+        <h1>Update Payment Details</h1><span><%=(updatedPayment != null ? updatedPayment : "")%></span>
         <form method="post" action="UpdatePaymentServlet">
             <table>
                 <tr><td>Existing Payment ID: </td><td><input type="text" placeholder="Enter existing Payment ID" name="paymentID"></td></tr>
@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Add Payment"></td>
+                    <td><input type="submit" value="Update Payment details"></td>
                 </tr>
             </table>
         </form>

@@ -15,7 +15,7 @@
     <body>
         
         <% 
-            String deleted = (String) session.getAttribute("deleted");
+            String deletedCreditCard = (String) session.getAttribute("deleted");
         %>
         
         <ul>
@@ -24,7 +24,7 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Remove Credit Card</h1><span><%=(deleted != null ? deleted : "")%></span>
+        <h1>Remove Credit Card</h1><span><%=(deletedCreditCard != null ? deletedCreditCard : "")%></span>
         <form method="post" action="DeleteCreditCardServlet">
             <table>
                 <tr><td>Card ID: </td><td><input type="text" placeholder="Enter existing Card ID" name="cardID"></td></tr>

@@ -46,7 +46,7 @@ public class UpdatePaypalServlet extends HttpServlet {
         } else {
             try {
                 manager.updatePaypal(Integer.parseInt(paypalID), Integer.parseInt(paymentID), paypalUsername, paypalPassword);
-                session.setAttribute("updated", "PayPal successfully updated");
+                session.setAttribute("updatedPaypal", "PayPal successfully updated");
                 request.getRequestDispatcher("updatePaypal.jsp").include(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaypalServlet.class.getName()).log(Level.SEVERE, null, ex);
