@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
-import iotb.model.CreditCard;
-import iotb.model.dao.CreditCardManager;
+import iotb.controller.Validator;
+import iotb.model.Paypal;
+import iotb.model.dao.PaymentManager;
+import iotb.model.dao.PaypalManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,28 +24,28 @@ import javax.servlet.http.HttpSession;
  *
  * @author 1234
  */
-public class DeleteCreditCardServlet extends HttpServlet {
+public class DeletePaypalServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        String cardID = request.getParameter("cardID");
+        String paypalID = request.getParameter("paypalID");
         
-        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
+        PaypalManager manager = (PaypalManager) session.getAttribute("paypalManager");
         validator.clear(session);
         
         try {
-            CreditCard creditcard = manager.readCreditCard(Integer.parseInt(cardID));
+            Paypal paypal = manager.readPaypal(Integer.parseInt(paypalID));
             
-            if(creditcard != null) {
-                manager.deleteCreditCard(Integer.parseInt(cardID));
-                session.setAttribute("deletedCreditCard", "Credit Card successfully removed");
-                request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
+            if(paypal != null) {
+                manager.deletePaypal(Integer.parseInt(paypalID));
+                session.setAttribute("deletedPaypal", "PayPal Account successfully removed");
+                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
             } else {
-                session.setAttribute("deletedCreditCard", "Credit Card does not exist");
-                request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
+                session.setAttribute("deletedPaypal", "PayPal Account does not exist");
+                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
             }
             
         } catch (SQLException ex) {

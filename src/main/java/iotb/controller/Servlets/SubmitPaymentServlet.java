@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
+import iotb.controller.Validator;
 import iotb.model.Payment;
 import iotb.model.dao.PaymentManager;
 import java.io.IOException;

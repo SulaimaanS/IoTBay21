@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.TestDB;
 
 import iotb.model.Paypal;
-import iotb.model.dao.DBConnector;
+import iotb.model.dao.DatabaseConnector;
 import iotb.model.dao.PaypalManager;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -23,8 +23,8 @@ public class TestPaypalDB {
     public static PaypalManager manager;
     
     public static void main(String[] args) throws ClassNotFoundException, SQLException, ParseException {
-        DBConnector connector = new DBConnector();
-        Connection con = connector.openConnection();
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection con = connector.connection();
         manager = new PaypalManager(con);
         
         char c;

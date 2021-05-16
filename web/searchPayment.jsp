@@ -23,11 +23,31 @@
             String searchedpaymentDate = (String) session.getAttribute("searchedpaymentDate");
         %>
         
-        <ul>
-            <li><a href="main.jsp">IoTBay</a></li>
-            <li><a href="main.jsp">Main</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
-        </ul>
+        <div id="navContainer">
+            <ul id="navbar">
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
+                    <%
+                        if (session.getAttribute("user") == null) {
+                    %>
+                <li><a href="login.jsp">Login</a></li>
+                <li><a href="register.jsp">Register</a></li>
+                <li><a href="staffportal.jsp">Staff Portal</a></li>
+                    <%
+                    } else if (session.getAttribute("customer") != null) {
+                    %>
+                <li><a href="customerprofile.jsp">Your Profile</a></li>
+                <li><a href="logoutcustomer.jsp">Logout</a></li>
+                    <%
+                    } else if (session.getAttribute("staff") != null) {
+                    %>
+                <li><a href="staffhome.jsp">Your Profile</a></li>
+                <li><a href="logoutstaff.jsp">Logout</a></li>
+                    <%
+                        }
+                    %>
+            </ul>
+        </div>
         
         <h1>Search Payment Record</h1>
         <span><%=(paymentDateErr != null ? paymentDateErr : "")%></span>

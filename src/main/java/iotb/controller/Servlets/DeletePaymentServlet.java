@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
-import iotb.model.Paypal;
+import iotb.controller.Validator;
+import iotb.model.Payment;
 import iotb.model.dao.PaymentManager;
-import iotb.model.dao.PaypalManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -23,28 +23,28 @@ import javax.servlet.http.HttpSession;
  *
  * @author 1234
  */
-public class DeletePaypalServlet extends HttpServlet {
+public class DeletePaymentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        String paypalID = request.getParameter("paypalID");
+        String paymentID = request.getParameter("paymentID");
         
-        PaypalManager manager = (PaypalManager) session.getAttribute("paypalManager");
+        PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
         validator.clear(session);
         
         try {
-            Paypal paypal = manager.readPaypal(Integer.parseInt(paypalID));
+            Payment payment = manager.readPayment(Integer.parseInt(paymentID));
             
-            if(paypal != null) {
-                manager.deletePaypal(Integer.parseInt(paypalID));
-                session.setAttribute("deletedPaypal", "PayPal Account successfully removed");
-                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
+            if(payment != null) {
+                manager.deletePayment(Integer.parseInt(paymentID));
+                session.setAttribute("deletedPayment", "Payment successfully removed");
+                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
             } else {
-                session.setAttribute("deletedPaypal", "PayPal Account does not exist");
-                request.getRequestDispatcher("deletePaypal.jsp").include(request, response);
+                session.setAttribute("deletedPayment", "Payment does not exist");
+                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
             }
             
         } catch (SQLException ex) {
@@ -53,5 +53,4 @@ public class DeletePaypalServlet extends HttpServlet {
         
         
     }
-
 }

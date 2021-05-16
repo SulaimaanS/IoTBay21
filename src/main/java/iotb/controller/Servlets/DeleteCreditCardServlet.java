@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
-import iotb.model.Payment;
-import iotb.model.dao.PaymentManager;
+import iotb.controller.Validator;
+import iotb.model.CreditCard;
+import iotb.model.dao.CreditCardManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,28 +23,28 @@ import javax.servlet.http.HttpSession;
  *
  * @author 1234
  */
-public class DeletePaymentServlet extends HttpServlet {
+public class DeleteCreditCardServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        String paymentID = request.getParameter("paymentID");
+        String cardID = request.getParameter("cardID");
         
-        PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
+        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
         validator.clear(session);
         
         try {
-            Payment payment = manager.readPayment(Integer.parseInt(paymentID));
+            CreditCard creditcard = manager.readCreditCard(Integer.parseInt(cardID));
             
-            if(payment != null) {
-                manager.deletePayment(Integer.parseInt(paymentID));
-                session.setAttribute("deletedPayment", "Payment successfully removed");
-                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
+            if(creditcard != null) {
+                manager.deleteCreditCard(Integer.parseInt(cardID));
+                session.setAttribute("deletedCreditCard", "Credit Card successfully removed");
+                request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
             } else {
-                session.setAttribute("deletedPayment", "Payment does not exist");
-                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
+                session.setAttribute("deletedCreditCard", "Credit Card does not exist");
+                request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
             }
             
         } catch (SQLException ex) {
@@ -52,4 +53,5 @@ public class DeletePaymentServlet extends HttpServlet {
         
         
     }
+
 }

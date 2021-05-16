@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotb.controller;
+package iotb.controller.Servlets;
 
-import iotb.model.dao.PaymentManager;
+import iotb.model.dao.CreditCardManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author 1234
  */
-public class DisplayPaymentServlet extends HttpServlet {
+public class DisplayCreditCardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,12 +29,12 @@ public class DisplayPaymentServlet extends HttpServlet {
         response.setContentType("text/html");
         
         
-        PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
+        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
         
         try {
             out.println("<table class=\"records\">");
-            out.println("<tr><th>Payment ID</th><th>Order ID</th><th>Payment Type</th><th>Payment Date</th></tr>");
-            String allRecords = manager.fetchPayment();
+            out.println("<tr><th>Payment ID</th><th>Card ID</th><th>Card Number</th><th>Expiry Date</th><th>Holder Name</th><th>CVV</th></tr>");
+            String allRecords = manager.fetchCreditCard();
             out.println(allRecords);
             out.println("</table>");
             

@@ -9,7 +9,7 @@ public class LoginValidator implements Serializable {
 
     private String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
     private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
-    private String passwordPattern = "[a-z0-9]{4,}";
+    private String passwordPattern = "[A-Za-z0-9]{4,}";
 
     public LoginValidator() {
     }

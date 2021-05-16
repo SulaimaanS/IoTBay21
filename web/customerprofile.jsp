@@ -16,6 +16,9 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
+                <li><a href="createPayment.jsp">Add Payment Information</a></li>
+                <li><a href="viewRecords.jsp">View Payment Details</a></li>
                 <li><a href="updatecustomer.jsp">Edit Profile</a></li>
                 <li><a href="logoutcustomer.jsp">Logout</a></li>
         </div>
@@ -67,9 +70,6 @@
 
         <form action="DeleteCustomerServlet" method="Post">
             <input type="submit" value="Delete Account">
-        </form>
-        <form action="AccessLogServlet" method="Post">
-            <input type="submit" value="Access Logs">
         </form>
 
         <div id="footer">
