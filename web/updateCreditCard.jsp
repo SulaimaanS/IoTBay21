@@ -28,7 +28,9 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
         
-        <h1>Edit Credit Card Details</h1><span><%=(updatedCreditCard != null ? updatedCreditCard : "")%></span>
+        <h1>Edit Credit Card Details</h1>
+        <span><%=(updatedCreditCard != null ? updatedCreditCard : "")%></span>
+        <span><%=(expiryDateErr != null ? expiryDateErr : "")%></span>
         <form method="post" action="UpdateCreditCardServlet">
             <table>
                 <tr><td>Card ID: </td><td><input type="text" placeholder="Enter existing Card ID" name="cardID"></td></tr>

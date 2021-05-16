@@ -32,7 +32,7 @@
                 <tr><td>PayPal ID: </td><td><input type="text" placeholder="Enter existing PayPal ID" name="paypalID"></td></tr>
                 <tr><td>Payment ID: </td><td><input type="text" placeholder="Enter existing Payment ID" name="paymentID"></td></tr>
                 <tr><td>PayPal Username: </td><td><input type="text" placeholder="<%=(paypalUsernameErr != null ? paypalUsernameErr : "Enter PayPal username")%>" name="paypalUsername"></td></tr>
-                <tr><td>PayPal Password: </td><td><input type="text" placeholder="<%=(paypalPasswordErr != null ? paypalPasswordErr : "Enter PayPal password")%>" name="paypalPassword"></td></tr>
+                <tr><td>PayPal Password: </td><td><input type="password" placeholder="<%=(paypalPasswordErr != null ? paypalPasswordErr : "Enter PayPal password")%>" name="paypalPassword"></td></tr>
                 <tr><td></td><td><input type="submit" value="Update PayPal details"></td></tr>
             </table>
         </form>

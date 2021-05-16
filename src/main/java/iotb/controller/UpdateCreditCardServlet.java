@@ -42,7 +42,7 @@ public class UpdateCreditCardServlet extends HttpServlet {
             session.setAttribute("cardNumberErr", "Error: Card number format is incorrect");
             request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
         } else if(!validator.validateExpiryDate(expiryDate)) {
-            session.setAttribute("expiryDateErr", "Error: Expiry date format is incorrect");
+            session.setAttribute("expiryDateErr", "Error: Expiry date field is empty");
             request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
         } else if(!validator.validateHolderName(holderName)) {
             session.setAttribute("holderNameErr", "Error: Holder name format is incorrect");

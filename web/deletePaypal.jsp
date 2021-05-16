@@ -14,7 +14,7 @@
     </head>
     <body>
         <% 
-            String deletedPaypal = (String) session.getAttribute("deleted");
+            String deletedPaypal = (String) session.getAttribute("deletedPaypal");
         %>
         
         <ul>
