@@ -29,6 +29,7 @@ CREATE TABLE APPLICATIONLOGTABLE(
     userID int,
     staffID int,
     accessed varchar(50) NOT NULL,
+    accesstype varchar(25) NOT NULL, 
     PRIMARY KEY (LogID),
     FOREIGN KEY (userID) REFERENCES USERTABLE(userID),
     FOREIGN KEY (staffID) REFERENCES STAFFTABLE(staffID)

@@ -1,7 +1,7 @@
-    <%-- 
-    Document   : shipment
-    Created on : 20/03/2021, 7:22:16 PM
-    Author     : alaw8
+<%-- 
+Document   : shipment
+Created on : 20/03/2021, 7:22:16 PM
+Author     : alaw8
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

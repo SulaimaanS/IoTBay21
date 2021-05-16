@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iotb.controller.TestDB;
 
 import iotb.model.dao.DatabaseConnector;
@@ -17,12 +12,6 @@ import java.util.Scanner;
  * @author alaw8
  */
 public class TestUserDB {
-
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-     */
 
     public static final Scanner in = new Scanner(System.in);
     public static UserManager manager;
@@ -74,7 +63,7 @@ public class TestUserDB {
         String email = in.nextLine();
         System.out.print("Enter Password: ");
         String password = in.nextLine();
-        manager.readUser(email,password);
+        manager.readUser(email, password);
     }
 
     public static void updateUser() throws SQLException, ParseException {

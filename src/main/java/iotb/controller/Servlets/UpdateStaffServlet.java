@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iotb.controller.Servlets;
 
-import iotb.controller.RegisterValidator;
+import iotb.controller.UpdateValidator;
 import iotb.model.Staff;
 import iotb.model.User;
 import iotb.model.dao.StaffManager;
@@ -27,70 +22,61 @@ import javax.servlet.http.HttpSession;
  */
 public class UpdateStaffServlet extends HttpServlet {
 
-   private UserManager usermanager;
-   private StaffManager staffmanager;
-   
+    private UserManager usermanager;
+    private StaffManager staffmanager;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  
+
         HttpSession session = request.getSession();
         String fName = request.getParameter("firstname");
-        String lName = request.getParameter("lastname"); 
-        String email = request.getParameter("email");    
-        String password = request.getParameter("password"); 
-        String dob = request.getParameter("dob"); 
-        String phonenum = request.getParameter("phonenumber"); 
-        String streetnum = request.getParameter("streetnumber"); 
-        String streetname = request.getParameter("streetname"); 
-        String postcode = request.getParameter("postcode"); 
+        String lName = request.getParameter("lastname");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String dob = request.getParameter("dob");
+        String phonenum = request.getParameter("phonenumber");
 
-        usermanager = (UserManager)session.getAttribute("userManager");
-        staffmanager = (StaffManager)session.getAttribute("staffManager");
-        
-        RegisterValidator validator = new RegisterValidator();
+        usermanager = (UserManager) session.getAttribute("userManager");
+        staffmanager = (StaffManager) session.getAttribute("staffManager");
+
+        UpdateValidator validator = new UpdateValidator();
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Email Format Incorrect"); 
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("emailErr", "Email Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else if (!validator.validateName(fName)) {
-            session.setAttribute("fnameErr", "First Name Format Incorrect");  
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("fnameErr", "First Name Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else if (!validator.validateName(lName)) {
-            session.setAttribute("lnameErr", "Last Name Format Incorrect");  
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("lnameErr", "Last Name Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
-            session.setAttribute("passErr", "Password Format Incorrect");  
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("passErr", "Password Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else if (!validator.validateDob(dob)) {
-            session.setAttribute("dobErr", "DOB Format Incorrect");  
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("dobErr", "DOB Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else if (!validator.validatePhoneNum(phonenum)) {
-            session.setAttribute("phoneErr","Phone Number Format Incorrect");  
-            request.getRequestDispatcher("updatestaff.jsp").include(request, response);  
+            session.setAttribute("phoneErr", "Phone Number Format Incorrect");
+            request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else {
-            try{
-                User user = usermanager.readUser(email,password);                
-                if (user == null){
-                    session.setAttribute("existErr", "User Does Not Exist!");
-                    request.getRequestDispatcher("updatestaff.jsp").include(request, response);
-                }else{
-                    usermanager.updateUser(usermanager.getID(email,password),fName,lName,email,password,phonenum);
-                    String updatedemail = request.getParameter("email");    
-                    String updatedpassword = request.getParameter("password"); 
-                    User updateduser = new User(usermanager.getID(updatedemail,updatedpassword),fName,lName,email,password,phonenum);
-                    Staff staff = staffmanager.readStaff(user.getUserID());
-                    session.setAttribute("user",updateduser);
-                    session.setAttribute("staff",staff);
-                    request.getRequestDispatcher("staffhome.jsp").include(request, response);
-                }
-            }catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "Staff does not exist" : "welcome");
+            try {
+                User user = (User) session.getAttribute("user");
+                int userID = user.getUserID();
+                usermanager.updateUser(userID, fName, lName, email, password, phonenum);
+                User updateduser = new User(userID, fName, lName, email, password, phonenum);
+                Staff staff = staffmanager.readStaff(user.getUserID());
+                session.setAttribute("user", updateduser);
+                session.setAttribute("staff", staff);
+                request.getRequestDispatcher("staffhome.jsp").include(request, response);
+            } catch (SQLException | NullPointerException ex) {
+                System.out.println(ex.getMessage() == null ? "Failed to update staff" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("updatestaff.jsp").include(request, response);
             } catch (ParseException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } 
+        }
     }
 }

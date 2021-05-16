@@ -1,10 +1,7 @@
 package iotb.model;
 
-import java.io.Serializable;
-
-//TBD
-
 public class Staff {
+
     private Integer userID;
     private Integer staffID;
 
@@ -28,6 +25,5 @@ public class Staff {
     public void setStaffID(Integer staffID) {
         this.staffID = staffID;
     }
-    
-    
+
 }

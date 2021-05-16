@@ -1,3 +1,4 @@
+<%@page import="iotb.controller.LoginValidator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
             String existErr = (String) session.getAttribute("existErr");
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
+            session.setAttribute("existErr", "");
         %>
         <div id="navContainer">
             <ul id="navbar">
@@ -36,6 +38,7 @@
                     </tr>                      
                     <tr>                       
                         <td colspan="2" id="submitButton"><input class="button" type="submit" value="Login"></td>
+                        <td class="style1"><span><%=(existErr != null ? existErr : "")%></span></td>  
                     </tr>
                 </table>
             </form>

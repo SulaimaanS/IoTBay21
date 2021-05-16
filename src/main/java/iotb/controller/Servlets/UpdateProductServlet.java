@@ -29,8 +29,7 @@ public class UpdateProductServlet extends HttpServlet {
    private ProductManager productmanager;
    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
         HttpSession session = request.getSession();
         String id = request.getParameter("productID");
         String name = request.getParameter("productName");

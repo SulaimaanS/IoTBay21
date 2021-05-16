@@ -24,7 +24,7 @@ public class UserManager {
 
     //Read Operation - Read user by id
     public User readUser(String email, String password) throws SQLException {
-        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '"+password+"'";
+        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '" + password + "'";
         ResultSet rs = statement.executeQuery(query);
 
         while (rs.next()) {
@@ -35,7 +35,7 @@ public class UserManager {
             String emailaddress = rs.getString(4);
             String pass = rs.getString(5);
             String phonenum = rs.getString(6);
-            
+
             return new User(id, firstname, lastname, emailaddress, pass, phonenum);
         }
         return null;
@@ -49,15 +49,15 @@ public class UserManager {
 
     //Delete Operation - Delete user by id
     public void deleteUser(int userID) throws SQLException {
-        String delete = "DELETE FROM USERTABLE WHERE USERID= "+userID+"";
+        String delete = "DELETE FROM USERTABLE WHERE USERID= " + userID + "";
         statement.executeUpdate(delete);
     }
-    
-    public int getID(String email, String password) throws SQLException{
-        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '"+password+"'";
+
+    public int getID(String email, String password) throws SQLException {
+        String query = "SELECT * FROM USERTABLE WHERE EMAILADDRESS = '" + email + "' AND PASSWORD = '" + password + "'";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            Integer id = rs.getInt(1);  
+            Integer id = rs.getInt(1);
             return id;
         }
         return 0;

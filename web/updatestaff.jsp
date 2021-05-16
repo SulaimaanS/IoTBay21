@@ -3,9 +3,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <% 
-            User user = (User)session.getAttribute("user");
-            Customer customer = (Customer)session.getAttribute("customer");
+    <%
+        User user = (User) session.getAttribute("user");
+        Customer customer = (Customer) session.getAttribute("customer");
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,23 +13,23 @@
         <title>Edit ${user.fName}'s Profile</title>
     </head>
     <%
-            String fnameErr = (String) session.getAttribute("fnameErr");
-            String lnameErr = (String) session.getAttribute("lnameErr");
-            String existErr = (String) session.getAttribute("existErr");
-            String emailErr = (String) session.getAttribute("emailErr");
-            String passErr = (String) session.getAttribute("passErr");
-            String dobErr = (String) session.getAttribute("dobErr");
-            String phoneErr = (String) session.getAttribute("phoneErr");
-            String streetNumErr = (String) session.getAttribute("streetNumErr");
-            String streetNameErr = (String) session.getAttribute("streetNameErr");
-            String postcodeErr = (String) session.getAttribute("postcodeErr");
+        String fnameErr = (String) session.getAttribute("fnameErr");
+        String lnameErr = (String) session.getAttribute("lnameErr");
+        String existErr = (String) session.getAttribute("existErr");
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        String dobErr = (String) session.getAttribute("dobErr");
+        String phoneErr = (String) session.getAttribute("phoneErr");
+        String streetNumErr = (String) session.getAttribute("streetNumErr");
+        String streetNameErr = (String) session.getAttribute("streetNameErr");
+        String postcodeErr = (String) session.getAttribute("postcodeErr");
     %>
     <body>
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="staffhome.jsp">Your Profile</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+                <li><a href="logoutstaff.jsp">Logout</a></li>
             </ul>
         </div>
 
@@ -59,17 +59,6 @@
                     <tr>    
                         <td  align="right">Date of Birth:</td>
                         <td class="style1"><input type="text" placeholder="<%=(dobErr != null ? dobErr : "Enter Date of Birth (YYYY-DD-MM)")%>" name="dob" required/></td> 
-                    </tr>
-
-                    <tr>    
-                        <td  align="right">Gender:</td>    
-                        <td class="style1">
-                            <select id="gender" name="gender" required>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </td>    
                     </tr>
                     <tr>    
                         <td  align="right">Phone Number</td>    
