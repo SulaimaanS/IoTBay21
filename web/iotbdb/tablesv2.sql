@@ -80,6 +80,7 @@ CREATE TABLE PAYMENTTABLE(
     paymentID int NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1), 
     orderID int NOT NULL,
     paymentType int NOT NULL, /*1 is credit card, 2 is paypal*/
+    paymentdate date,
     PRIMARY KEY (paymentID),
     FOREIGN KEY (orderID) REFERENCES ORDERTABLE(orderID)
 );
@@ -90,7 +91,7 @@ CREATE TABLE CREDITCARDTABLE(
     cardNumber varchar(40) NOT NULL,
     expiryDate date NOT NULL,
     holderName varchar(50) NOT NULL,
-    CVV int NOT NULL,
+    CVV varchar(30) NOT NULL,
     PRIMARY KEY (CardID),
     FOREIGN KEY (paymentID) REFERENCES PAYMENTTABLE(paymentID)
 );
@@ -98,7 +99,8 @@ CREATE TABLE CREDITCARDTABLE(
 CREATE TABLE PAYPALTABLE(
     paypalID int NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1), 
     paymentID int NOT NULL,
-    paypalToken varchar(200) NOT NULL,
+    paypalusername varchar(50),
+    paypalpassword varchar(50),
     PRIMARY KEY (paypalID),
     FOREIGN KEY (paymentID) REFERENCES PAYMENTTABLE(paymentID)
 );
