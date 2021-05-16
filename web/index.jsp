@@ -33,7 +33,10 @@
                     <%
                         }
                     %>
+                <li>        <a href="createPayment.jsp">Add Payment Information</a></li>
+                    <li><a href="viewRecords.jsp">View Payment Details</a></li>
             </ul>
+
         </div>
 
         <div id="homeTitle">
