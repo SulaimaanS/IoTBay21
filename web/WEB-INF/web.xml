@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>ReadProductServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.ReadProductServlet</servlet-class>
+        <servlet-class>iotb.controller.Servlets.SearchProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateCustomerServlet</servlet-name>
@@ -45,6 +45,10 @@
         <servlet-class>iotb.controller.Servlets.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.SearchProductServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>StaffLoginServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.StaffLoginServlet</servlet-class>
     </servlet>
@@ -55,6 +59,10 @@
     <servlet>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.DeleteAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProductServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.ListProductServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
@@ -105,12 +113,20 @@
         <url-pattern>/StaffLoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <url-pattern>/SearchProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>StaffRegisterServlet</servlet-name>
         <url-pattern>/StaffRegisterServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <url-pattern>/DeleteAccountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductServlet</servlet-name>
+        <url-pattern>/ListProductServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

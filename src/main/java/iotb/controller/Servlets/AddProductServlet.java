@@ -69,7 +69,6 @@ public class AddProductServlet extends HttpServlet {
                     request.getRequestDispatcher("addproduct.jsp").include(request, response);
                 } else {
                     productmanager.addProduct(name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
-                    Product product = new Product(productmanager.getID(name), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
                     request.getRequestDispatcher("catalogue.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {

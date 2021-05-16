@@ -8,6 +8,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
+    <%
+        String productNameErr = (String) session.getAttribute("productNameErr");
+    %>
     </head>
     <body>
         <div id="navContainer">
@@ -20,12 +23,24 @@
             </ul>
         </div>
 
-        <div id="homeTitle">
-            <h1> Welcome to IoTBay </h1>
+        <div id="title">
+            <h1>Catalogue</h1>
         </div>
 
-        <div id="homeLogo">
-            Logo
+        <div id="registerform">
+            <form action="SearchProductServlet" method="Post">
+
+                    <table id="addProductTable">
+                        <tr>    
+                            <td  align="right">Product Name:</td>    
+                            <td class="style1"><input type="text" placeholder="<%=(productNameErr != null ? productNameErr : "Enter Product Name")%>" name="productName" required/></td>    
+                        </tr>
+                        <tr>                       
+                            <td colspan="2" id="submitButton"><input class="button" type="submit" value="Search Product"></td>
+                        </tr>
+                    </table>
+                <input type="hidden" value="searchproduct">
+            </form>
         </div>
         <jsp:include page="/ConnectionServlet" flush="true"/>
         <div id="footer">

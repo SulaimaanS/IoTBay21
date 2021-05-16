@@ -75,13 +75,6 @@ public class UpdateProductServlet extends HttpServlet {
                     request.getRequestDispatcher("updateproduct.jsp").include(request, response);
                 }else{
                     productmanager.updateProduct(Integer.parseInt(id), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
-                    String updatedName = request.getParameter("productName"); 
-                    String updatedDesc = request.getParameter("productDesc"); 
-                    String updatedCat = request.getParameter("productCat"); 
-                    String updatedPrice = request.getParameter("productPrice"); 
-                    String updatedStock = request.getParameter("productStock");
-                    Product updatedproduct = new Product(productmanager.getID(updatedName), updatedName, updatedDesc, updatedCat, Float.parseFloat(updatedPrice), Integer.parseInt(updatedStock));
-                    session.setAttribute("product",updatedproduct);
                     request.getRequestDispatcher("catalogue.jsp").include(request, response);
                 }
             }catch (SQLException | NullPointerException ex) {

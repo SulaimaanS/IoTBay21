@@ -2,10 +2,13 @@ package iotb.model.dao;
 
 import iotb.model.Product;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductManager {
 
@@ -42,6 +45,19 @@ public class ProductManager {
             return new Product(Integer.parseInt(id), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
         }
         return null;
+    }
+    
+    public ArrayList<Product> listProduct() throws SQLException {
+        ArrayList<Product> products = new ArrayList<Product>();
+        String query = "SELECT * FROM PRODUCTTABLE FETCH FIRST 100 ROWS ONLY";
+        ResultSet rs = statement.executeQuery(query);
+
+        while (rs.next()) {
+            Product product = new Product(Integer.parseInt(rs.getString(1)), rs.getString(2), rs.getString(3),rs.getString(4), Float.parseFloat(rs.getString(5)), Integer.parseInt(rs.getString(6)));
+            System.out.println(rs.getString(2));
+            products.add(product);
+        }
+        return products;
     }
 
     public void updateProduct(int productID, String productName, String productDesc, String productCat, float productPrice, int productStock) throws SQLException {

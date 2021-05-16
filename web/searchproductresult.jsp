@@ -4,10 +4,13 @@
 
 <html>
     <head>
-        <title>Landing</title>
+        <title>Search Result</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
+    <%
+        Product searchproduct = (Product)session.getAttribute("searchproduct");
+    %>
     </head>
     <body>
         <div id="navContainer">
@@ -20,13 +23,26 @@
             </ul>
         </div>
 
-        <div id="homeTitle">
-            <h1> Welcome to IoTBay </h1>
+        <div id="title">
+            <h1>Search Result</h1>
         </div>
-
-        <div id="homeLogo">
-            Logo
-        </div>
+        
+            <table id="infoTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                </tr>
+                <tr>
+                    <td>${searchproduct.productName}</td>
+                    <td>${searchproduct.productDescription}</td>
+                    <td>${searchproduct.productCategory}</td>
+                    <td>${searchproduct.productPrice}</td>
+                    <td>${searchproduct.productStock}</td>
+                </tr>
+            </table>
         <jsp:include page="/ConnectionServlet" flush="true"/>
         <div id="footer">
             Copyright 2021, IoTBay Solutions 

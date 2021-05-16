@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
-        <title>Remove Product</title>
+        <title>Update Product</title>
     </head>
     <%
         String productIDErr = (String) session.getAttribute("productIDErr");
@@ -19,6 +19,9 @@
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="login.jsp">Login</a></li>
+                <li><a href="register.jsp">Register</a></li>
+                <li><a href="staffportal.jsp">Staff Portal</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
             </ul>
         </div>
 

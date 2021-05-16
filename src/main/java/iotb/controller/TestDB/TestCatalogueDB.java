@@ -22,7 +22,7 @@ public class TestCatalogueDB{
         while ((c=readChoice()) != 'x'){
             switch(c){
                 case 'c': addProduct();break;
-                case 'r': readProduct();break;
+                case 'r': listProduct();break;
                 case 'u': updateProduct();break;
                 case 'd': deleteProduct();break;
                 default:help(); break;
@@ -45,10 +45,8 @@ public class TestCatalogueDB{
              System.out.println("A Product has been added to the database");   
         }
     
-        public static void readProduct() throws SQLException{
-             System.out.print("Enter Product ID: ");
-             String ProductID = in.nextLine();
-             manager.readProduct(Integer.parseInt(ProductID));
+        public static void listProduct() throws SQLException{
+             manager.listProduct();
         }
         
         public static void updateProduct() throws SQLException, ParseException{

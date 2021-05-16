@@ -10,7 +10,7 @@ public class ProductValidator implements Serializable {
     private String productIDPattern = "^(0|[1-9][0-9]*)$";
     private String productNamePattern = "^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$";
     private String productDescPattern = "^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$";
-    private String productCatPattern = "^[A-Z][a-zA-Z]+$";
+    private String productCatPattern = "^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$";
     private String productPricePattern = "[+-]?([0-9]*[.])?[0-9]+$";
     private String productStockPattern = "^(0|[1-9][0-9]*)$";
     
