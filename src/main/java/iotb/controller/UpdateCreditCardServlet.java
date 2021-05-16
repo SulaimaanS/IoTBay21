@@ -5,6 +5,7 @@
  */
 package iotb.controller;
 
+import iotb.model.CreditCard;
 import iotb.model.dao.CreditCardManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,9 +53,19 @@ public class UpdateCreditCardServlet extends HttpServlet {
             request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
         } else {
             try {
-                manager.updateCreditCard(Integer.parseInt(cardID), cardNumber, expiryDate, holderName, cvv);
-                session.setAttribute("updatedCreditCard", "Credit Card successfully updated");
-                request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
+                
+                CreditCard creditcard = manager.readCreditCard(Integer.parseInt(cardID));
+                
+                if (creditcard != null){
+                    manager.updateCreditCard(Integer.parseInt(cardID), cardNumber, expiryDate, holderName, cvv);
+                    session.setAttribute("updatedCreditCard", "Credit Card successfully updated");
+                    request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
+                } else {
+                    session.setAttribute("updatedCreditCard", "Credit Card does not exist");
+                    request.getRequestDispatcher("updateCreditCard.jsp").include(request, response);
+                }
+                
+                
             } catch (SQLException ex) {
                 Logger.getLogger(CreatePaymentServlet.class.getName()).log(Logger.Level.FATAL, manager, ex);
             } catch (ParseException ex) {
