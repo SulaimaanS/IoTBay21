@@ -1,4 +1,9 @@
-<%@page import="iotb.controller.LoginValidator"%>
+<%-- 
+    Document   : staff
+    Created on : 20/03/2021, 7:21:44 PM
+    Author     : alaw8
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,16 +22,16 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="register.jsp">Register</a></li>
+                <li><a href="staffregister.jsp">Staff Register</a></li>
             </ul>
         </div>
 
         <div id="title">
-            <h1>Login to IoTBay</h1>
+            <h1>IoTBay Staff Login</h1>
         </div>
 
         <div id="loginform">
-            <form action="LoginServlet" method="post"> 
+            <form action="StaffLoginServlet" method="post"> 
                 <table id="loginTable">
                     <tr>    
                         <td  align="right">Email:</td>    
@@ -38,7 +43,7 @@
                     </tr>                      
                     <tr>                       
                         <td colspan="2" id="submitButton"><input class="button" type="submit" value="Login"></td>
-                        <td class="style1"><span><%=(existErr != null ? existErr : "")%></span></td>  
+                        <td class="style1"><span><%=(existErr != null ? existErr : "")%></span></td>   
                     </tr>
                 </table>
             </form>

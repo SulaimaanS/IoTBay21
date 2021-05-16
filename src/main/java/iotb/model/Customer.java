@@ -1,53 +1,81 @@
 package iotb.model;
 
-import java.io.Serializable;
-
-//TBD
+import java.util.Date;
 
 public class Customer {
-    private String userID;
-    private String customerID;
-    private String orderID;
-    private String registered;
 
-    public Customer(String userID, String customerID, String orderID, String registered) {
+    private Integer userID;
+    private Integer customerID;
+    private Date dob;
+    private Integer streetNumber;
+    private String streetName;
+    private Integer postCode;
+    private Boolean registered;
+
+    public Customer(Integer userID, Integer customerID, Date dob, Integer streetNumber, String streetName, Integer postCode, Boolean registered) {
         this.userID = userID;
         this.customerID = customerID;
-        this.orderID = orderID;
+        this.dob = dob;
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.postCode = postCode;
         this.registered = registered;
     }
 
-    public String getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
-    public String getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
 
-    public String getOrderID() {
-        return orderID;
+    public Date getDob() {
+        return dob;
     }
 
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 
-    public String getRegistered() {
+    public Integer getStreetNumber() {
+        return streetNumber;
+    }
+
+    public void setStreetNumber(Integer streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public Integer getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(Integer postCode) {
+        this.postCode = postCode;
+    }
+
+    public Boolean getRegistered() {
         return registered;
     }
 
-    public void setRegistered(String registered) {
+    public void setRegistered(Boolean registered) {
         this.registered = registered;
     }
-    
-    
+
 }

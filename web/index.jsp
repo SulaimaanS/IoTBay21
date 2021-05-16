@@ -12,10 +12,26 @@
     <body>
         <div id="navContainer">
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="register.jsp">Register</a></li>
+                <li><a href="index.jsp">Home</a></li>
+                    <%
+                        if (session.getAttribute("user") == null) {
+                    %>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="mainpage.jsp">MainPage</a></li>
+                <li><a href="register.jsp">Register</a></li>
+                <li><a href="staffportal.jsp">Staff Portal</a></li>
+                    <%
+                    } else if (session.getAttribute("customer") != null) {
+                    %>
+                <li><a href="customerprofile.jsp">Your Profile</a></li>
+                <li><a href="logoutcustomer.jsp">Logout</a></li>
+                    <%
+                    } else if (session.getAttribute("staff") != null) {
+                    %>
+                <li><a href="staffhome.jsp">Your Profile</a></li>
+                <li><a href="logoutstaff.jsp">Logout</a></li>
+                    <%
+                        }
+                    %>
             </ul>
         </div>
 

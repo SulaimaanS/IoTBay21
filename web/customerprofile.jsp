@@ -5,26 +5,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
-        <title>Main Page</title>
-        <% 
-            User currentUser = (User)session.getAttribute("currentUser");
-        %>
+        <title>Customer Page</title>
     </head>
 
     <body>
-        <%
-            if (session.getAttribute("currentUser") != null)
-            {
-        %>
         <div id="navContainer">
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="welcome.jsp">Welcome</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="updatecustomer.jsp">Edit Profile</a></li>
+                <li><a href="logoutcustomer.jsp">Logout</a></li>
         </div>
 
         <div id="title">
-            <h1>MainPage</h1>
+            <h1>${user.fName}'s Page</h1>
         </div>
 
         <div id="info">
@@ -32,30 +25,26 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Address</th>
                     <td>
                 </tr>
                 <tr>
                     <td>
-                        ${currentUser.fName} ${currentUser.lName}
+                        ${user.fName} ${user.lName}
                     </td>
                     <td>
-                        ${currentUser.emailAddress}
+                        ${user.emailAddress}
                     </td>
-                    <td>${currentUser.streetNumber} ${currentUser.streetName}, ${currentUser.postCode}</td>
                 </tr>
             </table>
         </div>    
 
-        <% } else { %>
-
-        <h2>You are not logged in</h2>
-        <input type=button onClick="location.href = 'index.html'"
-               value="Home">
-        <%}%>
+        <form action="DeleteCustomerServlet" method="Post">
+            <input type="submit" value="Delete Account">
+        </form>
 
         <div id="footer">
             Copyright 2021, IoTBay Solutions 
         </div>
     </body>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>
