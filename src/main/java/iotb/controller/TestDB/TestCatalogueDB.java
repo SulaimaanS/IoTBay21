@@ -86,49 +86,11 @@ public class TestCatalogueDB {
                      "D - Delete Product\n"+ 
                      "X - Exit\n");
         }
-    }
+    
 
     public static void readProduct() throws SQLException {
         System.out.print("Enter Product ID: ");
         String ProductID = in.nextLine();
         manager.readProduct(Integer.parseInt(ProductID));
-    }
-
-    public static void updateProduct() throws SQLException, ParseException {
-        System.out.print("Enter Product ID to Update: ");
-        String id = in.nextLine();
-        System.out.print("Product Name: ");
-        String name = in.nextLine();
-        System.out.print("Product Description: ");
-        String description = in.nextLine();
-        System.out.print("Product Category: ");
-        String category = in.nextLine();
-        System.out.print("Product Price: ");
-        String price = in.nextLine();
-        System.out.print("Product Stock: ");
-        String stock = in.nextLine();
-        manager.updateProduct(Integer.parseInt(id), name, description, category, Float.parseFloat(price), Integer.parseInt(stock));
-        System.out.println("A Product has been updated");
-    }
-
-    public static void deleteProduct() throws SQLException {
-        System.out.print("Enter Product ID to Delete: ");
-        String ProductID = in.nextLine();
-        manager.deleteProduct(Integer.parseInt(ProductID));
-        System.out.println("A Product has been deleted");
-    }
-
-    public static char readChoice() {
-        System.out.print("Choices C/R/U/D/X: ");
-        return in.nextLine().charAt(0);
-    }
-
-    public static void help() {
-        System.out.println("Product CRUD operations: \n"
-                + "C - Create Product\n"
-                + "R - Read Product\n"
-                + "U - Update Product\n"
-                + "D - Delete Product\n"
-                + "X - Exit\n");
     }
 }
