@@ -34,9 +34,10 @@ public class DeleteCustomerServlet extends HttpServlet {
         try {
             customermanager.deleteCustomer(user.getUserID());
             usermanager.deleteUser(user.getUserID());
-            request.getRequestDispatcher("logout.jsp").include(request, response);
+            session.invalidate();
+            request.getRequestDispatcher("index.jsp").include(request, response);
         } catch (SQLException | NullPointerException ex) {
-            System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+            System.out.println(ex.getMessage() == null ? "Failed to delete account" : "Error");
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.getRequestDispatcher("customerprofile.jsp").include(request, response);
         }

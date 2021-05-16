@@ -19,6 +19,7 @@
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
         String phoneErr = (String) session.getAttribute("phoneErr");
+        session.setAttribute("existErr", "");
     %>
     <body>
         <div id="navContainer">
@@ -59,6 +60,7 @@
                     </tr>    
                     <tr>                       
                         <td colspan="2" id="submitButton"><input class="button" type="submit" value="Sign Up!"></td>
+                        <td class="style1"><span><%=(existErr != null ? existErr : "")%></span></td>  
                     </tr>
                 </table>
         </div>

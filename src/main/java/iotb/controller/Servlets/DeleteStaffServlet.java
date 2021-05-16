@@ -33,11 +33,11 @@ public class DeleteStaffServlet extends HttpServlet {
 
         try {
             staffmanager.deleteStaff(user.getUserID());
-            System.out.println("Staff has been deleted");
             usermanager.deleteUser(user.getUserID());
-            request.getRequestDispatcher("logout.jsp").include(request, response);
+            session.invalidate();
+            request.getRequestDispatcher("index.jsp").include(request, response);
         } catch (SQLException | NullPointerException ex) {
-            System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+            System.out.println(ex.getMessage() == null ? "Failed to delete account" : "Error");
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.getRequestDispatcher("staffhome.jsp").include(request, response);
         }

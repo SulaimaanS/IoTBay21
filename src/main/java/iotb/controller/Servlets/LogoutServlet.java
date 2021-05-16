@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import iotb.model.dao.CustomerManager;
 import iotb.model.dao.LogManager;
-import iotb.model.dao.UserManager;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -20,8 +18,6 @@ import java.util.logging.Logger;
 
 public class LogoutServlet extends HttpServlet {
 
-    private UserManager manager;
-    private CustomerManager customermanager;
     private LogManager logmanager;
 
     @Override

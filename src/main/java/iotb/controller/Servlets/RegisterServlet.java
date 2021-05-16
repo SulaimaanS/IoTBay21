@@ -76,7 +76,7 @@ public class RegisterServlet extends HttpServlet {
             try {
                 User exist = usermanager.readUser(email, password);
                 if (exist != null) {
-                    session.setAttribute("existErr", "User Already Exists!");
+                    session.setAttribute("existErr", "Customer Already Exists!");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
                     usermanager.addUser(fName, lName, email, password, phonenum);
@@ -88,7 +88,7 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("customerprofile.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+                System.out.println(ex.getMessage() == null ? "Failed to register Customer" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("register.jsp").include(request, response);
             } catch (ParseException ex) {

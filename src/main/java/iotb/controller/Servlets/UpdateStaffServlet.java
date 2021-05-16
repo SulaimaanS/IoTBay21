@@ -1,6 +1,6 @@
 package iotb.controller.Servlets;
 
-import iotb.controller.RegisterValidator;
+import iotb.controller.UpdateValidator;
 import iotb.model.Staff;
 import iotb.model.User;
 import iotb.model.dao.StaffManager;
@@ -35,14 +35,11 @@ public class UpdateStaffServlet extends HttpServlet {
         String password = request.getParameter("password");
         String dob = request.getParameter("dob");
         String phonenum = request.getParameter("phonenumber");
-        String streetnum = request.getParameter("streetnumber");
-        String streetname = request.getParameter("streetname");
-        String postcode = request.getParameter("postcode");
 
         usermanager = (UserManager) session.getAttribute("userManager");
         staffmanager = (StaffManager) session.getAttribute("staffManager");
 
-        RegisterValidator validator = new RegisterValidator();
+        UpdateValidator validator = new UpdateValidator();
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
@@ -66,20 +63,15 @@ public class UpdateStaffServlet extends HttpServlet {
         } else {
             try {
                 User user = (User) session.getAttribute("user");
-                if (user == null) {
-                    session.setAttribute("existErr", "User Does Not Exist!");
-                    request.getRequestDispatcher("updatestaff.jsp").include(request, response);
-                } else {
-                    int userID = user.getUserID();
-                    usermanager.updateUser(userID, fName, lName, email, password, phonenum);
-                    User updateduser = new User(userID, fName, lName, email, password, phonenum);
-                    Staff staff = staffmanager.readStaff(user.getUserID());
-                    session.setAttribute("user", updateduser);
-                    session.setAttribute("staff", staff);
-                    request.getRequestDispatcher("staffhome.jsp").include(request, response);
-                }
+                int userID = user.getUserID();
+                usermanager.updateUser(userID, fName, lName, email, password, phonenum);
+                User updateduser = new User(userID, fName, lName, email, password, phonenum);
+                Staff staff = staffmanager.readStaff(user.getUserID());
+                session.setAttribute("user", updateduser);
+                session.setAttribute("staff", staff);
+                request.getRequestDispatcher("staffhome.jsp").include(request, response);
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "Staff does not exist" : "welcome");
+                System.out.println(ex.getMessage() == null ? "Failed to update staff" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("updatestaff.jsp").include(request, response);
             } catch (ParseException ex) {

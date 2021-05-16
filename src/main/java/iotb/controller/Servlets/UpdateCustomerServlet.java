@@ -1,6 +1,6 @@
 package iotb.controller.Servlets;
 
-import iotb.controller.RegisterValidator;
+import iotb.controller.UpdateValidator;
 import iotb.model.Customer;
 import iotb.model.User;
 import iotb.model.dao.CustomerManager;
@@ -42,7 +42,7 @@ public class UpdateCustomerServlet extends HttpServlet {
         usermanager = (UserManager) session.getAttribute("userManager");
         customermanager = (CustomerManager) session.getAttribute("customerManager");
 
-        RegisterValidator validator = new RegisterValidator();
+        UpdateValidator validator = new UpdateValidator();
         validator.clear(session);
 
         if (!validator.validateEmail(email)) {
@@ -75,21 +75,16 @@ public class UpdateCustomerServlet extends HttpServlet {
         } else {
             try {
                 User user = (User) session.getAttribute("user");
-                if (user == null) {
-                    session.setAttribute("existErr", "User Does Not Exist!");
-                    request.getRequestDispatcher("updatecustomer.jsp").include(request, response);
-                } else {
-                    int userID = user.getUserID();
-                    usermanager.updateUser(userID, fName, lName, email, password, phonenum);
-                    customermanager.updateCustomer(userID, customermanager.getID(userID), dob, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode), true);
-                    User updateduser = new User(userID, fName, lName, email, password, phonenum);
-                    Customer customer = customermanager.readCustomer(user.getUserID());
-                    session.setAttribute("user", updateduser);
-                    session.setAttribute("customer", customer);
-                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
-                }
+                int userID = user.getUserID();
+                usermanager.updateUser(userID, fName, lName, email, password, phonenum);
+                customermanager.updateCustomer(userID, customermanager.getID(userID), dob, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode), true);
+                User updateduser = new User(userID, fName, lName, email, password, phonenum);
+                Customer customer = customermanager.readCustomer(user.getUserID());
+                session.setAttribute("user", updateduser);
+                session.setAttribute("customer", customer);
+                request.getRequestDispatcher("customerprofile.jsp").include(request, response);
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+                System.out.println(ex.getMessage() == null ? "Failed to update customer" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("updatecustomer.jsp").include(request, response);
             } catch (ParseException ex) {

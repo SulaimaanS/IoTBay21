@@ -52,21 +52,15 @@ public class LoginServlet extends HttpServlet {
             try {
                 user = manager.readUser(email, password);
                 customer = customermanager.readCustomer(user.getUserID());
-                if (user != null && customer != null) {
-                    System.out.println("Login Successful");
-                    session = request.getSession(true);
-                    session.setAttribute("user", user);
-                    session.setAttribute("customer", customer);
-                    Date date = new Date();
-                    logmanager.addCustomerLog(user.getUserID(), date, "Login");
-                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
-                } else {
-                    System.out.println("Login Failed");
-                    session.setAttribute("existErr", "User Does Not Exist In The Database");
-                    request.getRequestDispatcher("login.jsp").include(request, response);
-                }
+                System.out.println("Login Successful");
+                session = request.getSession(true);
+                session.setAttribute("user", user);
+                session.setAttribute("customer", customer);
+                Date date = new Date();
+                logmanager.addCustomerLog(user.getUserID(), date, "Login");
+                request.getRequestDispatcher("customerprofile.jsp").include(request, response);
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+                session.setAttribute("existErr", "Customer Does Not Exist In The Database");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("login.jsp").include(request, response);
             } catch (ParseException ex) {

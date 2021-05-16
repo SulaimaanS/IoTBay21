@@ -17,6 +17,7 @@
         String streetNumErr = (String) session.getAttribute("streetNumErr");
         String streetNameErr = (String) session.getAttribute("streetNameErr");
         String postcodeErr = (String) session.getAttribute("postcodeErr");
+        session.setAttribute("existErr", "");
     %>
     <body>
         <div id="navContainer">
@@ -73,6 +74,7 @@
                     </tr>
                     <tr>                       
                         <td colspan="2" id="submitButton"><input class="button" type="submit" value="Sign Up!"></td>
+                        <td class="style1"><span><%=(existErr != null ? existErr : "")%></span></td>  
                     </tr>
                 </table>
         </div>

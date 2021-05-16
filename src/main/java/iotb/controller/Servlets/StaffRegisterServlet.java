@@ -53,14 +53,14 @@ public class StaffRegisterServlet extends HttpServlet {
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Password Format Incorrect");
             request.getRequestDispatcher("staffregister.jsp").include(request, response);
-        }else if (!validator.validatePhoneNum(phonenum)) {
+        } else if (!validator.validatePhoneNum(phonenum)) {
             session.setAttribute("phoneErr", "Phone Number Format Incorrect");
             request.getRequestDispatcher("staffregister.jsp").include(request, response);
         } else {
             try {
                 User exist = usermanager.readUser(email, password);
                 if (exist != null) {
-                    session.setAttribute("existErr", "User Already Exists!");
+                    session.setAttribute("existErr", "Staff Already Exists!");
                     request.getRequestDispatcher("staffregister.jsp").include(request, response);
                 } else {
                     usermanager.addUser(fName, lName, email, password, phonenum);
@@ -72,13 +72,12 @@ public class StaffRegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("staffhome.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
+                System.out.println(ex.getMessage() == null ? "Failed to sign up staff" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("staffregister.jsp").include(request, response);
             } catch (ParseException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 }
