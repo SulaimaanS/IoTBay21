@@ -1,3 +1,4 @@
+<%@page import="iotb.model.Customer"%>
 <%@page import="iotb.model.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,7 +8,10 @@
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Customer Page</title>
     </head>
-
+    <%
+        User user = (User) session.getAttribute("user");
+        Customer customer = (Customer) session.getAttribute("customer");
+    %>
     <body>
         <div id="navContainer">
             <ul id="navbar">
@@ -25,7 +29,12 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <td>
+                    <th>Password</th>
+                    <th>Phone Number</th>
+                    <th>DOB</th>
+                    <th>Street Number</th>
+                    <th>Street Name</th>
+                    <th>Post Code</th>
                 </tr>
                 <tr>
                     <td>
@@ -34,12 +43,33 @@
                     <td>
                         ${user.emailAddress}
                     </td>
+                    <td>
+                        ${user.password}
+                    </td>
+                    <td>
+                        ${user.phNumber}
+                    </td>
+                    <td>
+                        ${customer.dob}
+                    </td>
+                    <td>
+                        ${customer.streetNumber}
+                    </td>
+                    <td>
+                        ${customer.streetName}
+                    </td> 
+                    <td>
+                        ${customer.postCode}
+                    </td>
                 </tr>
             </table>
         </div>    
 
         <form action="DeleteCustomerServlet" method="Post">
             <input type="submit" value="Delete Account">
+        </form>
+        <form action="AccessLogServlet" method="Post">
+            <input type="submit" value="Access Logs">
         </form>
 
         <div id="footer">
