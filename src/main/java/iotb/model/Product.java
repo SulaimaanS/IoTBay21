@@ -24,7 +24,7 @@ public class Product implements Serializable {
         return productID;
     }
 
-    public void setUserID(int productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 
@@ -32,39 +32,41 @@ public class Product implements Serializable {
         return productName;
     }
 
-    public void setproductName(String productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
     }
 
-    public String getproductDescription() {
+    public String getProductDescription() {
         return productDescription;
     }
 
-    public void setproductDescription(String productDescription) {
+    public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
 
-    public String getproductCategory() {
+    public String getProductCategory() {
         return productCategory;
     }
 
-    public void setproductCategory(String productCategory) {
+    public void setProductCategory(String productCategory) {
         this.productCategory = productCategory;
     }
+  
+    public float getProductPrice() {
 
-    public float getproductPrice() {
         return productPrice;
     }
 
-    public void setproductPrice(float productPrice) {
+    public void setProductPrice(float productPrice) {
         this.productPrice = productPrice;
     }
+    
+    public int getProductStock() {
 
-    public int getproductStock() {
         return productStock;
     }
 
-    public void setproductStock(int productStock) {
+    public void setProductStock(int productStock) {
         this.productStock = productStock;
     }
 }

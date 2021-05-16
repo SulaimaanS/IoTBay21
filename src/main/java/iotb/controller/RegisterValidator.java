@@ -67,10 +67,5 @@ public class RegisterValidator implements Serializable {
         session.setAttribute("lnameErr", "Enter First Name");
         session.setAttribute("passErr", "Enter Password");
         session.setAttribute("dobErr", "Enter Date of Birth");
-        session.setAttribute("phoneErr", "Enter Phone Number");
-        session.setAttribute("streetNumErr", "Enter Street Number");
-        session.setAttribute("streetNameErr", "Enter Street Name");
-        session.setAttribute("postcodeErr", "Enter Postcode");
-        session.setAttribute("existErr","");          
     }
 }
