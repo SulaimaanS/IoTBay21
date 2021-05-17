@@ -9,4 +9,14 @@ VALUES
 (7,'07/11/2001',101,'Sesame Street',2839,'True'),
 (8,'10/09/2001',573,'Konami Street',2019,'True'),
 (9,'04/11/2001',13,'Kyuu Street',1029,'True'),
-(10,'06/11/2001',21,'Satisfaction Street',1902,'True');
+(10,'12/11/2001',21,'Procopets Street',1902,'True'),
+(11,'11/28/2001',25,'Diana Street',2100,'True'),
+(12,'12/12/2001',10,'Edmonton Street',2100,'True'),
+(13,'02/21/2001',2,'York Street',2112,'True'),
+(14,'09/11/2001',20,'Jones Street',2139,'True'),
+(15,'03/01/2001',99,'Kayle Street',2020,'True'),
+(16,'06/06/2001',404,'Pyrmont Street',2619,'True'),
+(17,'08/11/2001',101,'Sydney Street',3839,'True'),
+(18,'12/09/2001',573,'Kiama Street',1019,'True'),
+(19,'08/11/2001',13,'Lexington Street',1129,'True'),
+(20,'07/11/2001',21,'Lily Street',1922,'True');
