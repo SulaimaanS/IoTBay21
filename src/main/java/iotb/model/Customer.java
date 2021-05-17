@@ -12,7 +12,7 @@ public class Customer {
     private Integer postCode;
     private Boolean registered;
 
-    public Customer(Integer userID, Integer customerID, Date dob, Integer streetNumber, String streetName, Integer postCode, Boolean registered) {
+    public Customer(Integer userID, Integer customerID, Date dob, Integer streetNumber, String streetName, Integer postCode, Boolean registered) { //Returns customer
         this.userID = userID;
         this.customerID = customerID;
         this.dob = dob;
@@ -22,15 +22,15 @@ public class Customer {
         this.registered = registered;
     }
 
-    public Integer getUserID() {
+    public Integer getUserID() { //Returns userID of the Customer
         return userID;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Integer userID) { //Sets User ID to new userID passed to it
         this.userID = userID;
     }
 
-    public Integer getCustomerID() {
+    public Integer getCustomerID() { //Returns CustomerID of the Customer
         return customerID;
     }
 

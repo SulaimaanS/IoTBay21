@@ -65,10 +65,6 @@
         <servlet-class>iotb.controller.Servlets.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditServlet</servlet-name>
-        <servlet-class>iotb.controller.Servlets.EditServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CreatePaymentServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.CreatePaymentServlet</servlet-class>
     </servlet>
@@ -199,10 +195,6 @@
     <servlet-mapping>
         <servlet-name>ListProductServlet</servlet-name>
         <url-pattern>/ListProductServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditServlet</servlet-name>
-        <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreatePaymentServlet</servlet-name>

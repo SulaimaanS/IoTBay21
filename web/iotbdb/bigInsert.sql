@@ -187,20 +187,37 @@ VALUES
 
 INSERT INTO ORDERTABLE (CUSTOMERID, DATEORDERED, ORDERTOTAL)
 VALUES
-((SELECT CUSTOMERID FROM CUSTOMERTABLE WHERE CUSTOMERID = 1), '2021-06-02', 100.00);
+(1, '2021-06-02', 100.00),
+(2, '2021-06-12', 150.00),
+(3, '2021-03-12', 3650.00),
+(4, '2022-12-12', 450.00),
+(5, '2023-06-18', 2800.00),
+(6, '2020-04-22', 1500.00),
+(7, '2021-05-28', 200.00),
+(8, '2022-06-09', 190.00),
+(9, '2023-07-10', 180.00),
+(10, '2021-08-12', 150.00);
 
 INSERT INTO PAYMENTTABLE (ORDERID, PAYMENTTYPE)
 VALUES
-((SELECT ORDERID FROM ORDERTABLE WHERE ORDERid=1), 1);
+(1, 1),
+(2, 2),
+(3, 2),
+(4, 1),
+(5, 1),
+(6, 2),
+(7, 1),
+(8, 2),
+(9, 1);
 
 INSERT INTO CREDITCARDTABLE (PAYMENTID, CARDNUMBER, EXPIRYDATE, HOLDERNAME, CVV)
 VALUES
-((SELECT PAYMENTID FROM PAYMENTTABLE WHERE PAYMENTTYPE=1), '1234567', '2023-06-02', 'John Smith', '123'),
-((SELECT PAYMENTID FROM PAYMENTTABLE WHERE PAYMENTTYPE=1), '7654321', '2023-06-12', 'Ashley Hunter', '321');
+(2, '1234567', '2023-06-02', 'John Smith', '123'),
+(3, '7654321', '2023-06-12', 'Ashley Hunter', '321');
 
 INSERT INTO PAYPALTABLE (PAYMENTID, PAYPALUSERNAME, PAYPALPASSWORD)
 VALUES
-(1, 'paypaluser1', '345435'),
+(1, 'paypaluser1', '738387'),
 (2, 'paypaluser2', '7258'),
 (3, 'paypaluser3', '73273852'),
 (4, 'paypaluser4', '325478'),
@@ -208,14 +225,4 @@ VALUES
 (6, 'paypaluser6', '783753'),
 (7, 'paypaluser7', '73873'),
 (8, 'paypaluser8', '78637832'),
-(9, 'paypaluser9', '3787836'),
-(10, 'paypaluser10', '738387'),
-(11, 'paypaluser11', '78362873'),
-(12, 'paypaluser12', '7832738'),
-(13, 'paypaluser13', '45387'),
-(14, 'paypaluser14', '7837863'),
-(15, 'paypaluser15', '738786'),
-(16, 'paypaluser16', '327878'),
-(17, 'paypaluser17', '37899'),
-(18, 'paypaluser18', '72372'),
-(19, 'paypaluser19', '7387832');
+(9, 'paypaluser9', '3787836');
