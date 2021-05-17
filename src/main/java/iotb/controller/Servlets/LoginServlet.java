@@ -27,21 +27,25 @@ public class LoginServlet extends HttpServlet {
     @Override
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //Get all necessary parameters from the session
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+        //Get the managers to be used from session
         manager = (UserManager) session.getAttribute("userManager");
         customermanager = (CustomerManager) session.getAttribute("customerManager");
         logmanager = (LogManager) session.getAttribute("logManager");
 
+        //Set users and staff to null
         User user = null;
         Customer customer = null;
 
+        //Get necessary validator for servlet
         LoginValidator validator = new LoginValidator();
         validator.clear(session);
 
+        //Validate all incoming variables to be used for feature
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email Format Incorrect");
             request.getRequestDispatcher("login.jsp").include(request, response);

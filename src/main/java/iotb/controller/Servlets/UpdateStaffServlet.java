@@ -27,7 +27,8 @@ public class UpdateStaffServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
+        //Get all necessary parameters from the session
         HttpSession session = request.getSession();
         String fName = request.getParameter("firstname");
         String lName = request.getParameter("lastname");
@@ -36,12 +37,15 @@ public class UpdateStaffServlet extends HttpServlet {
         String dob = request.getParameter("dob");
         String phonenum = request.getParameter("phonenumber");
 
+        //Get the managers to be used from session
         usermanager = (UserManager) session.getAttribute("userManager");
         staffmanager = (StaffManager) session.getAttribute("staffManager");
-
+        
+        //Get necessary validator for servlet
         UpdateValidator validator = new UpdateValidator();
         validator.clear(session);
 
+        //Validate all incoming variables to be used for feature
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Email Format Incorrect");
             request.getRequestDispatcher("updatestaff.jsp").include(request, response);
@@ -62,15 +66,16 @@ public class UpdateStaffServlet extends HttpServlet {
             request.getRequestDispatcher("updatestaff.jsp").include(request, response);
         } else {
             try {
-                User user = (User) session.getAttribute("user");
+                
+                User user = (User) session.getAttribute("user"); //Get the current user from session
                 int userID = user.getUserID();
-                usermanager.updateUser(userID, fName, lName, email, password, phonenum);
-                User updateduser = new User(userID, fName, lName, email, password, phonenum);
-                Staff staff = staffmanager.readStaff(user.getUserID());
-                session.setAttribute("user", updateduser);
-                session.setAttribute("staff", staff);
-                request.getRequestDispatcher("staffhome.jsp").include(request, response);
-            } catch (SQLException | NullPointerException ex) {
+                usermanager.updateUser(userID, fName, lName, email, password, phonenum); //Update the user to the parameters that were passed
+                User updateduser = new User(userID, fName, lName, email, password, phonenum); 
+                Staff staff = staffmanager.readStaff(user.getUserID()); 
+                session.setAttribute("user", updateduser); //Set the updated user to the session
+                session.setAttribute("staff", staff); //Set the updated staff to the session
+                request.getRequestDispatcher("staffhome.jsp").include(request, response); //Redirect to staff home
+            } catch (SQLException | NullPointerException ex) { //Redirect to same page if there is an exception
                 System.out.println(ex.getMessage() == null ? "Failed to update staff" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("updatestaff.jsp").include(request, response);

@@ -26,15 +26,15 @@ public class DeleteStaffServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //Get all necessary parameters from the session
         HttpSession session = request.getSession();
-
         logmanager = (LogManager) session.getAttribute("logManager");
         usermanager = (UserManager) session.getAttribute("userManager");
         staffmanager = (StaffManager) session.getAttribute("staffManager");
+        
         User user = (User) session.getAttribute("user");
 
-        try {
+        try { //Delete all record in the database related to staff member and invalidate session
             logmanager.deleteLog(user.getUserID());
             staffmanager.deleteStaff(user.getUserID());
             usermanager.deleteUser(user.getUserID());

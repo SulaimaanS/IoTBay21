@@ -27,16 +27,16 @@ public class DeleteCustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //Get all necessary parameters from the session
         HttpSession session = request.getSession();
-
         logmanager = (LogManager) session.getAttribute("logManager");
         usermanager = (UserManager) session.getAttribute("userManager");
         customermanager = (CustomerManager) session.getAttribute("customerManager");
+        
         User user = (User) session.getAttribute("user");
         Customer customer = (Customer) session.getAttribute("customer");
 
-        try {
+        try { //Delete all record in the database related to customer and invalidate session
             logmanager.deleteLog(user.getUserID());
             customermanager.deleteCustomer(customer.getUserID());
             usermanager.deleteUser(user.getUserID());

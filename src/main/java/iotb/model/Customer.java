@@ -34,47 +34,47 @@ public class Customer {
         return customerID;
     }
 
-    public void setCustomerID(Integer customerID) {
+    public void setCustomerID(Integer customerID) { //Sets Customer ID to new CustomerID passed to it
         this.customerID = customerID;
     }
 
-    public Date getDob() {
+    public Date getDob() { //Returns dob of the Customer
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(Date dob) { //Sets DOB to new CustomerID passed to it
         this.dob = dob;
     }
 
-    public Integer getStreetNumber() {
+    public Integer getStreetNumber() { //Returns street number of the Customer
         return streetNumber;
     }
 
-    public void setStreetNumber(Integer streetNumber) {
+    public void setStreetNumber(Integer streetNumber) { //Sets street number to new street number passed to it
         this.streetNumber = streetNumber;
     }
 
-    public String getStreetName() {
+    public String getStreetName() { //Returns street name of the Customer
         return streetName;
     }
 
-    public void setStreetName(String streetName) {
+    public void setStreetName(String streetName) { //Sets street name to new street name passed to it
         this.streetName = streetName;
     }
 
-    public Integer getPostCode() {
+    public Integer getPostCode() { //Returns post code of the Customer
         return postCode;
     }
 
-    public void setPostCode(Integer postCode) {
+    public void setPostCode(Integer postCode) { //Sets post code to new post code passed to it
         this.postCode = postCode;
     }
 
-    public Boolean getRegistered() {
+    public Boolean getRegistered() { //Returns registered state of the customer
         return registered;
     }
 
-    public void setRegistered(Boolean registered) {
+    public void setRegistered(Boolean registered) { //Returns registered state of the customer to what is passed to it
         this.registered = registered;
     }
 
