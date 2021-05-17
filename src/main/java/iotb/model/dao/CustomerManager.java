@@ -66,6 +66,11 @@ public class CustomerManager {
         String delete = "DELETE FROM CUSTOMERTABLE WHERE USERID=" + userID + "";
         statement.executeUpdate(delete);
     }
+    
+    public void deleteOrder(int userID) throws SQLException {
+        String delete = "DELETE FROM ORDERTABLE WHERE CUSTOMERID= " + userID + "";
+        statement.executeUpdate(delete);
+    }
 
     public int getID(int userID) throws SQLException {
         String query = "SELECT * FROM CUSTOMERTABLE WHERE USERID = " + userID + "";
