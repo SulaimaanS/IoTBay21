@@ -7,7 +7,9 @@ package iotb.controller.Servlets;
 
 import iotb.controller.Validator;
 import iotb.model.Payment;
+import iotb.model.dao.CreditCardManager;
 import iotb.model.dao.PaymentManager;
+import iotb.model.dao.PaypalManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -24,7 +26,8 @@ import javax.servlet.http.HttpSession;
  * @author 1234
  */
 public class DeletePaymentServlet extends HttpServlet {
-
+    PaypalManager ppmanager;
+    CreditCardManager ccmanager;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,9 +42,19 @@ public class DeletePaymentServlet extends HttpServlet {
             Payment payment = manager.readPayment(Integer.parseInt(paymentID));
             
             if(payment != null) {
-                manager.deletePayment(Integer.parseInt(paymentID));
-                session.setAttribute("deletedPayment", "Payment successfully removed");
-                request.getRequestDispatcher("deletePayment.jsp").include(request, response);
+                if(payment.getPaymentType().equals("1")){
+                    ccmanager.deleteCreditCard(Integer.parseInt(paymentID));
+                    manager.deletePayment(Integer.parseInt(paymentID));
+                    session.setAttribute("deletedPayment", "Payment successfully removed");
+                    request.getRequestDispatcher("main.jsp").include(request, response);
+                }
+                else{
+                    ppmanager.deletePaypal(Integer.parseInt(paymentID));
+                    manager.deletePayment(Integer.parseInt(paymentID));
+                    session.setAttribute("deletedPayment", "Payment successfully removed");
+                    request.getRequestDispatcher("main.jsp").include(request, response);
+                }
+
             } else {
                 session.setAttribute("deletedPayment", "Payment does not exist");
                 request.getRequestDispatcher("deletePayment.jsp").include(request, response);

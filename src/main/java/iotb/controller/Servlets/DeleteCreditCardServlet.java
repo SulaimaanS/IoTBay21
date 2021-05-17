@@ -41,7 +41,7 @@ public class DeleteCreditCardServlet extends HttpServlet {
             if(creditcard != null) {
                 manager.deleteCreditCard(Integer.parseInt(cardID));
                 session.setAttribute("deletedCreditCard", "Credit Card successfully removed");
-                request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
+                request.getRequestDispatcher("main.jsp").include(request, response);
             } else {
                 session.setAttribute("deletedCreditCard", "Credit Card does not exist");
                 request.getRequestDispatcher("deleteCreditCard.jsp").include(request, response);
