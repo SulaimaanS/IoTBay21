@@ -77,14 +77,13 @@ public class CreditCardManager {
     
     // FETCH - all credit cards - outputs as HTML
     
-    public String fetchCreditCard() throws SQLException {
-        String query = "SELECT * FROM CREDITCARDTABLE";
+    public String fetchCreditCard(int paymentID) throws SQLException {
+        String query = "SELECT * FROM CREDITCARDTABLE WHERE PAYMENTID = "+paymentID+"";
         ResultSet rs = st.executeQuery(query);
         String allRecords = "";
         
         while (rs.next()) {
             
-            String paymentID = rs.getString("PAYMENTID");
             String cardID = rs.getString("CARDID");
             String cardNo = rs.getString("CARDNUMBER");
             String expiryDate = rs.getString("EXPIRYDATE");
