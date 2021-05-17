@@ -1,5 +1,6 @@
 package testing;
 
+import iotb.model.Payment;
 import iotb.model.User;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -11,85 +12,62 @@ import static org.junit.Assert.*;
  */
 public class PaymentTest {
 
-    private User user;
+    private Payment payment;
 
     public PaymentTest() {
-        user = new User(1, "JUnit", "Testing", "Junittesting@gmail.com", "1234", "0432324089");
+        payment = new Payment("1", "2", "2", "2022-06-07");
     }
 
     @Test
-    public void testgetUserID() {
-        int userid = user.getUserID();
-        assertEquals(1, userid);
+    public void testgetPaymentID() {
+        String paymentid = payment.getPaymentID();
+        assertEquals("1", paymentid);
     }
-    
+
     @Test
-    public void testsetUserID() {
-        user.setUserID(2);
-        int userid = user.getUserID();
-        assertEquals(2, userid);
+    public void testsetPaymentID() {
+        payment.setPaymentID("2");
+        String paymentID = payment.getPaymentID();
+        assertEquals("2", paymentID);
     }
-    
+
     @Test
-    public void testgetfName() {
-        String fname = user.getfName();
-        assertEquals("JUnit", fname);
+    public void testgetPaymentType() {
+        String paymentType = payment.getPaymentType();
+        assertEquals("2", paymentType);
     }
-    
+
     @Test
-    public void testsetfName() {
-        user.setfName("Test");
-        String fname = user.getfName();
-        assertEquals("Test", fname);
+    public void testsetPaymentType() {
+        payment.setPaymentType("1");
+        String paymentType = payment.getPaymentType();
+        assertEquals("Test", paymentType);
     }
-    
+
     @Test
-    public void testgetlName() {
-        String fname = user.getlName();
-        assertEquals("Testing", fname);
+    public void testgetOrderID() {
+        String orderID = payment.getOrderID();
+        assertEquals("2", orderID);
     }
-    
+
     @Test
-    public void testsetlName() {
-        user.setfName("Test");
-        String lname = user.getlName();
-        assertEquals("Test", lname);
+    public void testsetOrderID() {
+        payment.setOrderID("3");
+        String orderID = payment.getOrderID();
+        assertEquals("3", orderID);
     }
-    
+
     @Test
-    public void testgetemail() {
-        String email = user.getEmailAddress();
-        assertEquals("Junittesting@gmail.com", email);
+    public void testgetPaymentDate() {
+        String paymentDate = payment.getPaymentDate();
+        assertEquals("2022-06-07", paymentDate);
     }
-    
+
     @Test
-    public void testsetemail() {
-        user.setEmailAddress("test@gmail.com");
-        String email = user.getEmailAddress();
-        assertEquals("test@gmail.com", email);
+    public void testsetPaymentDate() {
+        payment.setPaymentDate("2022-09-10");
+        String paymentDate = payment.getPaymentDate();
+        assertEquals("2022-09-10", paymentDate);
     }
-    @Test
-    public void testgetpw() {
-        String password = user.getPassword();
-        assertEquals("1234", password);
-    }
-    
-    @Test
-    public void testsetpw() {
-        user.setPassword("Test");
-        String pw = user.getPassword();
-        assertEquals("Test", pw);
-    }
-    @Test
-    public void testgetphnumber() {
-        String ph = user.getPhNumber();
-        assertEquals("Testing", ph);
-    }
-    
-    @Test
-    public void testsetphnumber() {
-        user.setPhNumber("0123456789");
-        String ph = user.getPhNumber();
-        assertEquals("0123456789", ph);
-    }
+
 }

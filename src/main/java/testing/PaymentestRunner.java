@@ -11,9 +11,9 @@ import org.junit.runner.notification.Failure;
 public class PaymentestRunner {
     public static void main(String[] args) {
 
-    System.out.println("- Testing User: ");
+    System.out.println("- Testing Payment: ");
 
-    Result result = JUnitCore.runClasses(UserTest.class);
+    Result result = JUnitCore.runClasses(PaymentTest.class);
 
     for (Failure failure : result.getFailures()) {
       System.out.println(failure.toString());
@@ -24,7 +24,7 @@ public class PaymentestRunner {
     System.out.println(" Number of Tests Passed = "+result.getRunCount());
     System.out.println(" Number of Tests Ignored = "+result.getIgnoreCount());
     System.out.println(" Number of Tests Failed = "+result.getFailureCount());
-    System.out.println(" Time = "+result.getRunTime()/1000.0+"s");   
+    System.out.println(" Time = "+result.getRunTime()/1000.0+"s");
 
   }
 }
