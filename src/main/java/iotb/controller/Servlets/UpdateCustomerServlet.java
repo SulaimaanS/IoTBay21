@@ -85,7 +85,7 @@ public class UpdateCustomerServlet extends HttpServlet {
                 Customer customer = customermanager.readCustomer(user.getUserID());
                 session.setAttribute("user", updateduser); //Set the updated user to the session
                 session.setAttribute("customer", customer); //Set the updated customer to the session
-                request.getRequestDispatcher("customerprofile.jsp").include(request, response); //Redirect to customer profule
+                request.getRequestDispatcher("customerprofile.jsp").include(request, response); //Redirect to customer profile
             } catch (SQLException | NullPointerException ex) { //Redirect to same page if there is an exception
                 System.out.println(ex.getMessage() == null ? "Failed to update customer" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);

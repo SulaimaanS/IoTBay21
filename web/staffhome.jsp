@@ -16,6 +16,7 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
                 <li><a href="updatestaff.jsp">Edit Profile</a></li>
                 <li><a href="logoutstaff.jsp">Logout</a></li>
         </div>
