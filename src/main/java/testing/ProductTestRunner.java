@@ -11,9 +11,9 @@ import org.junit.runner.notification.Failure;
 public class ProductTestRunner {
     public static void main(String[] args) {
 
-    System.out.println("- Testing User: ");
+    System.out.println("- Testing Product: ");
 
-    Result result = JUnitCore.runClasses(UserTest.class);
+    Result result = JUnitCore.runClasses(ProductTest.class);
 
     for (Failure failure : result.getFailures()) {
       System.out.println(failure.toString());

@@ -1,6 +1,6 @@
 package testing;
 
-import iotb.model.User;
+import iotb.model.Product;
 import junit.framework.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,85 +11,73 @@ import static org.junit.Assert.*;
  */
 public class ProductTest {
 
-    private User user;
+    private Product product;
 
     public ProductTest() {
-        user = new User(1, "JUnit", "Testing", "Junittesting@gmail.com", "1234", "0432324089");
+        product = new Product(1, "Dell Monitor", "Testing", "Monitors", (float) 15.6, 5);
     }
 
     @Test
     public void testgetUserID() {
-        int userid = user.getUserID();
+        int userid = product.getProductID();
         assertEquals(1, userid);
     }
     
     @Test
     public void testsetUserID() {
-        user.setUserID(2);
-        int userid = user.getUserID();
+        product.setProductID(2);
+        int userid = product.getProductID();
         assertEquals(2, userid);
     }
     
     @Test
-    public void testgetfName() {
-        String fname = user.getfName();
-        assertEquals("JUnit", fname);
+    public void testgetProductDescription() {
+        String productDescription = product.getProductDescription();
+        assertEquals("JUnit", productDescription);
     }
     
     @Test
-    public void testsetfName() {
-        user.setfName("Test");
-        String fname = user.getfName();
-        assertEquals("Test", fname);
+    public void testsetProductDescription() {
+        product.setProductDescription("Test");
+        String productDescription = product.getProductDescription();
+        assertEquals("Test", productDescription);
     }
     
     @Test
-    public void testgetlName() {
-        String fname = user.getlName();
-        assertEquals("Testing", fname);
+    public void testgetProductCategory() {
+        String ProductCategory = product.getProductCategory();
+        assertEquals("Testing", ProductCategory);
     }
     
     @Test
-    public void testsetlName() {
-        user.setfName("Test");
-        String lname = user.getlName();
-        assertEquals("Test", lname);
+    public void testsetProductCategory() {
+        product.setProductCategory("Test");
+        String productCategory = product.getProductCategory();
+        assertEquals("Test", productCategory);
     }
     
     @Test
-    public void testgetemail() {
-        String email = user.getEmailAddress();
-        assertEquals("Junittesting@gmail.com", email);
+    public void testgetProductPrice() {
+        float ProductPrice = product.getProductPrice();
+        assertEquals(70.6, ProductPrice);
     }
     
     @Test
-    public void testsetemail() {
-        user.setEmailAddress("test@gmail.com");
-        String email = user.getEmailAddress();
-        assertEquals("test@gmail.com", email);
+    public void testsetProductPrice() {
+        product.setProductPrice((float) 50.21);
+        float productPrice = product.getProductPrice();
+        assertEquals(99.4, productPrice);
     }
     @Test
-    public void testgetpw() {
-        String password = user.getPassword();
-        assertEquals("1234", password);
+    public void testgetProductStock() {
+        int productStock = product.getProductStock();
+        assertEquals(5990, productStock);
     }
     
     @Test
     public void testsetpw() {
-        user.setPassword("Test");
-        String pw = user.getPassword();
-        assertEquals("Test", pw);
-    }
-    @Test
-    public void testgetphnumber() {
-        String ph = user.getPhNumber();
-        assertEquals("Testing", ph);
-    }
-    
-    @Test
-    public void testsetphnumber() {
-        user.setPhNumber("0123456789");
-        String ph = user.getPhNumber();
-        assertEquals("0123456789", ph);
+        product.setProductStock(67);
+        int productStock = product.getProductStock();
+        assertEquals(600, productStock);
     }
 }
