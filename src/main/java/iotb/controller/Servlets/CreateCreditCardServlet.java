@@ -37,7 +37,7 @@ public class CreateCreditCardServlet extends HttpServlet {
         String holderName = request.getParameter("holderName");
         String cvv = request.getParameter("cvv");
         
-        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
+        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditcardManager");
         validator.clear(session);
         
         if(!validator.validateCardNumber(cardNumber)){

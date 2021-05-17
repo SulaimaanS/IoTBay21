@@ -188,7 +188,7 @@ VALUES
 INSERT INTO ORDERTABLE (CUSTOMERID, DATEORDERED, ORDERTOTAL)
 VALUES
 (1, '2021-06-02', 100.00),
-(2), '2021-06-12', 150.00),
+(2, '2021-06-12', 150.00),
 (3, '2021-03-12', 3650.00),
 (4, '2022-12-12', 450.00),
 (5, '2023-06-18', 2800.00),
@@ -217,6 +217,7 @@ VALUES
 
 INSERT INTO PAYPALTABLE (PAYMENTID, PAYPALUSERNAME, PAYPALPASSWORD)
 VALUES
+(1, 'paypaluser1', '738387'),
 (2, 'paypaluser2', '7258'),
 (3, 'paypaluser3', '73273852'),
 (4, 'paypaluser4', '325478'),
@@ -224,5 +225,4 @@ VALUES
 (6, 'paypaluser6', '783753'),
 (7, 'paypaluser7', '73873'),
 (8, 'paypaluser8', '78637832'),
-(9, 'paypaluser9', '3787836'),
-(10, 'paypaluser10', '738387');
+(9, 'paypaluser9', '3787836');

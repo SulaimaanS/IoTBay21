@@ -32,7 +32,7 @@ public class DeleteCreditCardServlet extends HttpServlet {
         Validator validator = new Validator();
         String cardID = request.getParameter("cardID");
         
-        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
+        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditcardManager");
         validator.clear(session);
         
         try {
