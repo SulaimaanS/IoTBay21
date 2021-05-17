@@ -35,4 +35,5 @@
     <footer>
             <p>IoTBay Solutions Pty Ltd</p>
         </footer>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>
