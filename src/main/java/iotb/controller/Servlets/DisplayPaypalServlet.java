@@ -5,6 +5,8 @@
  */
 package iotb.controller.Servlets;
 
+import iotb.model.Customer;
+import iotb.model.dao.PaymentManager;
 import iotb.model.dao.PaypalManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +21,8 @@ import javax.servlet.http.HttpSession;
  * @author 1234
  */
 public class DisplayPaypalServlet extends HttpServlet {
-
+    Customer customer;
+    PaymentManager pmanager;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,11 +32,12 @@ public class DisplayPaypalServlet extends HttpServlet {
         
         
         PaypalManager manager = (PaypalManager) session.getAttribute("paypalManager");
-        
+        customer = (Customer) session.getAttribute("customer");
+        pmanager = (PaymentManager) session.getAttribute("paymentManager");
         try {
             out.println("<table class=\"records\">");
             out.println("<tr><th>PayPal ID</th><th>Payment ID</th><th>PayPal Username</th><th>PayPal Password</th></tr>");
-            String allRecords = manager.fetchPaypal();
+            String allRecords = manager.fetchPaypal(Integer.parseInt(pmanager.fetchCardPayment(customer.getCustomerID())));
             out.println(allRecords);
             out.println("</table>");
             

@@ -71,8 +71,8 @@ public class PaymentManager {
     
     // FETCH - all payments - outputs as HTML
     
-    public String fetchPayment() throws SQLException {
-        String query = "SELECT * FROM PAYMENTTABLE";
+    public String fetchPayment(int customerID) throws SQLException {
+        String query = "SELECT * FROM PAYMENTTABLE WHERE ORDERID = "+customerID+"";
         ResultSet rs = st.executeQuery(query);
         String allRecords = "";
         
@@ -85,6 +85,20 @@ public class PaymentManager {
             
             allRecords += "<tr><td>" + paymentID + "</td><td>" + orderID + "</td><td>" + paymentType + "</td><td>" + paymentDate + "</td></tr>";
             
+        }
+        return allRecords;
+    }
+    
+    public String fetchCardPayment(int customerID) throws SQLException {
+        String query = "SELECT PAYMENTID FROM PAYMENTTABLE WHERE PAYMENTID = "+customerID+"";
+        ResultSet rs = st.executeQuery(query);
+        String allRecords = "";
+        
+        while (rs.next()) {
+            
+            String paymentID = rs.getString("PAYMENTID");
+            
+            allRecords += paymentID; 
         }
         
         return allRecords;
