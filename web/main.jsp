@@ -31,6 +31,7 @@
         </div>
         <h2>Payment options:</h2>
         <div class="vertical-menu">
+        <a href="createPayment.jsp">Add Payment</a>
         <a href="searchPayment.jsp">Search Payment History</a>
         <a href="viewRecords.jsp">View Payment Records</a>
         <a href="updatePayment.jsp">Update my Payment details</a>
