@@ -1,7 +1,9 @@
 package iotb.controller.Servlets;
 
+import iotb.model.Customer;
 import iotb.model.User;
 import iotb.model.dao.CustomerManager;
+import iotb.model.dao.LogManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,18 +23,22 @@ public class DeleteCustomerServlet extends HttpServlet {
 
     private UserManager usermanager;
     private CustomerManager customermanager;
+    private LogManager logmanager; 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
 
+        logmanager = (LogManager) session.getAttribute("logManager");
         usermanager = (UserManager) session.getAttribute("userManager");
         customermanager = (CustomerManager) session.getAttribute("customerManager");
         User user = (User) session.getAttribute("user");
+        Customer customer = (Customer) session.getAttribute("customer");
 
         try {
-            customermanager.deleteCustomer(user.getUserID());
+            logmanager.deleteLog(user.getUserID());
+            customermanager.deleteCustomer(customer.getUserID());
             usermanager.deleteUser(user.getUserID());
             session.invalidate();
             request.getRequestDispatcher("index.jsp").include(request, response);
