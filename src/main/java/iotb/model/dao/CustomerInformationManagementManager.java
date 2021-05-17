@@ -86,7 +86,7 @@ public class CustomerInformationManagementManager {
     public void updateCustomer(String fName, String lName, String dob,
             String gender, String email, String password, String phone, String streetNumber, String streetName,
             String postCode) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYADMIN.CUSINFOMANTABLE SET FIRSTNAME='" + fName + "',LASTNAME='" + lName + "',DOB= '" + dob + "',GENDER='" + gender + "',PASSWORD='" + password + "',PHONENUMBER='" + phone + "',STREETNUMBER='" + streetNumber + "',STREETNAME='" + streetName + "',POSTCODE='" + postCode + "'WHERE EMAILADDRESS='" + email + "'");
+        //st.executeUpdate("UPDATE IOTBAYADMIN.CUSINFOMANTABLE SET FIRSTNAME='" + fName + "',LASTNAME='" + lName + "',DOB= '" + dob + "',GENDER='" + gender + "',PASSWORD='" + password + "',PHONENUMBER='" + phone + "',STREETNUMBER='" + streetNumber + "',STREETNAME='" + streetName + "',POSTCODE='" + postCode + "'WHERE EMAILADDRESS='" + email + "'");
         //st.execute("UPDATE IOTBAYADMIN.CUSTOMERTABLE SET USERID= '"+ userID + "',CUSTOMERTYPE='" + type + "',ORDERID= '" + orderID + "',REGISTERED='" + registered+"'");  
         //'"+ email + "',NAME='" + name + "',PASSWORD= '" + password + "',GENDER='" +gender+ "', FAVCOL='" +favcol+ "'WHERE EMAIL'" +email+ "'");  
         //st.executeUpdate("UPDATE ISDUSER.USERS SET EMAIL='"+ email + "',NAME='" + name + "',PASSWORD= '" + password + "',GENDER='" +gender+ "', FAVCOL='" +favcol+ "'WHERE EMAIL'" +email+ "'");
