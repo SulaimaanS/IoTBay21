@@ -29,7 +29,7 @@ public class DisplayCreditCardServlet extends HttpServlet {
         response.setContentType("text/html");
         
         
-        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditCardManager");
+        CreditCardManager manager = (CreditCardManager) session.getAttribute("creditcardManager");
         
         try {
             out.println("<table class=\"records\">");

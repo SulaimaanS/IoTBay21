@@ -23,35 +23,35 @@ public class StaffManager {
         statement = connection.createStatement();
     }
 
-    //Create Operation
+    //Create Operation 
     public void addStaff(int userID) throws SQLException {
-        String columns = "INSERT INTO STAFFTABLE(USERID)";
-        String values = "VALUES " + userID + "";
-        statement.executeUpdate(columns + values);
+        String columns = "INSERT INTO STAFFTABLE(USERID)"; //Insert statement of SQL query
+        String values = "VALUES " + userID + ""; //Values statement of SQL query
+        statement.executeUpdate(columns + values); //Execute SQL
     }
 
-    //Read Operation - Read user by id
+    //Read Operation - Read user by userid
     public Staff readStaff(int userID) throws SQLException {
-        String query = "SELECT * FROM STAFFTABLE WHERE USERID = " + userID + "";
-        ResultSet rs = statement.executeQuery(query);
-
+        String query = "SELECT * FROM STAFFTABLE WHERE USERID = " + userID + ""; //Select statement of SQL query
+        ResultSet rs = statement.executeQuery(query); //Execute SQL
+        //Goes through result set and returns Staff if userID matches
         while (rs.next()) {
             Integer staffID = rs.getInt(1);
 
             return new Staff(userID, staffID);
         }
-        return null;
+        return null; //If nothing is found, return null
     }
 
-    //Update Operation - Update user by id
+    //Update Operation - Update staff according to staffid
     public void updateStaff(int staffID, int userID) throws SQLException {
-        String update = "UPDATE STAFFTABLE SET USERID='" + userID + "' WHERE STAFFID=" + staffID + "";
-        statement.executeUpdate(update);
+        String update = "UPDATE STAFFTABLE SET USERID='" + userID + "' WHERE STAFFID=" + staffID + ""; //Update statement of SQL query according to staffID
+        statement.executeUpdate(update); //Execute SQL
     }
 
-    //Delete Operation - Delete user by id
+    //Delete Operation - Delete user by userid
     public void deleteStaff(int userID) throws SQLException {
-        String delete = "DELETE FROM STAFFTABLE WHERE USERID=" + userID + "";
-        statement.executeUpdate(delete);
+        String delete = "DELETE FROM STAFFTABLE WHERE USERID=" + userID + ""; //Delete statement of SQL query according to user ID
+        statement.executeUpdate(delete); //Execute SQL
     }
 }

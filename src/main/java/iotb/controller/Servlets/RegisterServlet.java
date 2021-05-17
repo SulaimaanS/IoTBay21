@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //Get all necessary parameters from the session
         HttpSession session = request.getSession();
         String fName = request.getParameter("firstname");
         String lName = request.getParameter("lastname");
@@ -38,13 +38,16 @@ public class RegisterServlet extends HttpServlet {
         String streetnum = request.getParameter("streetnumber");
         String streetname = request.getParameter("streetname");
         String postcode = request.getParameter("postcode");
-
+        
+        //Get the managers to be used from session
         usermanager = (UserManager) session.getAttribute("userManager");
         customermanager = (CustomerManager) session.getAttribute("customerManager");
 
+        //Get necessary validator for servlet
         RegisterValidator validator = new RegisterValidator();
         validator.clear(session);
 
+        //Validate all incoming variables to be used for feature
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Email Format Incorrect");
             request.getRequestDispatcher("register.jsp").include(request, response);
@@ -75,19 +78,19 @@ public class RegisterServlet extends HttpServlet {
         } else {
             try {
                 User exist = usermanager.readUser(email, password);
-                if (exist != null) {
+                if (exist != null) { //If a user exists, set error message and redirect to same page
                     session.setAttribute("existErr", "Customer Already Exists!");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 } else {
-                    usermanager.addUser(fName, lName, email, password, phonenum);
-                    customermanager.addCustomer(usermanager.getID(email, password), dob, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode), true);
+                    usermanager.addUser(fName, lName, email, password, phonenum); //Add new user
+                    customermanager.addCustomer(usermanager.getID(email, password), dob, Integer.parseInt(streetnum), streetname, Integer.parseInt(postcode), true); //Add new customer
                     User user = new User(usermanager.getID(email, password), fName, lName, email, password, phonenum);
                     Customer customer = customermanager.readCustomer(user.getUserID());
-                    session.setAttribute("user", user);
-                    session.setAttribute("customer", customer);
-                    request.getRequestDispatcher("customerprofile.jsp").include(request, response);
+                    session.setAttribute("user", user); //Set new user to session
+                    session.setAttribute("customer", customer); //Set new customer to session
+                    request.getRequestDispatcher("customerprofile.jsp").include(request, response); //Redirect to customer profile
                 }
-            } catch (SQLException | NullPointerException ex) {
+            } catch (SQLException | NullPointerException ex) { //Redirect to same page if there is an exception
                 System.out.println(ex.getMessage() == null ? "Failed to register Customer" : "Error");
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("register.jsp").include(request, response);

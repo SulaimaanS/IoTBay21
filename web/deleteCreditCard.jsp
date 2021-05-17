@@ -19,9 +19,7 @@
         %>
         
         <ul>
-            <li><a href="main.jsp">IoTBay</a></li>
-            <li><a href="main.jsp">Main</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
+            <li><a href="main.jsp">Payment Options</a></li>
         </ul>
         
         <h1>Remove Credit Card</h1><span><%=(deletedCreditCard != null ? deletedCreditCard : "")%></span>

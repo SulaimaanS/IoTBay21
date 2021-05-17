@@ -12,8 +12,17 @@
 
         <ul>
             <li><a href="main.jsp">IoTBay</a></li>
-            <li><a href="main.jsp">Main</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
+            <%
+                if (session.getAttribute("customer") != null) {
+            %>
+            <li><a href="customerprofile.jsp">Back to Profile</a></li>
+            <%
+                } else if (session.getAttribute("staff") != null) {
+            %>
+            <li><a href="staffhome.jsp">Back to Profile</a></li>
+            <%
+                }
+            %>
         </ul>
         
         <h1>Main Page</h1>
@@ -22,6 +31,7 @@
         </div>
         <h2>Payment options:</h2>
         <div class="vertical-menu">
+        <a href="createPayment.jsp">Add Payment</a>
         <a href="searchPayment.jsp">Search Payment History</a>
         <a href="viewRecords.jsp">View Payment Records</a>
         <a href="updatePayment.jsp">Update my Payment details</a>
@@ -44,4 +54,5 @@
     <footer>
             <p>IoTBay Solutions Pty Ltd</p>
         </footer>
+    <jsp:include page="/ConnectionServlet" flush="true" />
 </html>
