@@ -29,6 +29,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Password</th>
+                    <th>Phone Number</th>
                 </tr>
                 <tr>
                     <td>
@@ -36,6 +38,12 @@
                     </td>
                     <td>
                         ${user.emailAddress}
+                    </td>
+                    <td>
+                        ${user.password}
+                    </td>
+                    <td>
+                        ${user.phNumber}
                     </td>
                 </tr>
             </table>

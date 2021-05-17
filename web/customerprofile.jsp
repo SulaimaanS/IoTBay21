@@ -1,3 +1,4 @@
+<%@page import="iotb.model.Customer"%>
 <%@page import="iotb.model.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,11 +8,17 @@
         <link rel="stylesheet" href="stylesheets/MainStyle.css">
         <title>Customer Page</title>
     </head>
-
+    <%
+        User user = (User) session.getAttribute("user");
+        Customer customer = (Customer) session.getAttribute("customer");
+    %>
     <body>
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
+                <li><a href="createPayment.jsp">Add Payment Information</a></li>
+                <li><a href="viewRecords.jsp">View Payment Details</a></li>
                 <li><a href="updatecustomer.jsp">Edit Profile</a></li>
                 <li><a href="logoutcustomer.jsp">Logout</a></li>
         </div>
@@ -25,7 +32,12 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <td>
+                    <th>Password</th>
+                    <th>Phone Number</th>
+                    <th>DOB</th>
+                    <th>Street Number</th>
+                    <th>Street Name</th>
+                    <th>Post Code</th>
                 </tr>
                 <tr>
                     <td>
@@ -33,6 +45,24 @@
                     </td>
                     <td>
                         ${user.emailAddress}
+                    </td>
+                    <td>
+                        ${user.password}
+                    </td>
+                    <td>
+                        ${user.phNumber}
+                    </td>
+                    <td>
+                        ${customer.dob}
+                    </td>
+                    <td>
+                        ${customer.streetNumber}
+                    </td>
+                    <td>
+                        ${customer.streetName}
+                    </td> 
+                    <td>
+                        ${customer.postCode}
                     </td>
                 </tr>
             </table>

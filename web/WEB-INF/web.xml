@@ -65,6 +65,66 @@
         <servlet-class>iotb.controller.Servlets.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CreatePaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.CreatePaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.CreateCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreatePaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.CreatePaypalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DisplayCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DisplayPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayPaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DisplayPaypalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.UpdateCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.UpdatePaypalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.UpdatePaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DeletePaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCreditCardServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DeleteCreditCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePaypalServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.DeletePaypalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.SearchPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchedPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.SearchedPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <servlet-class>iotb.controller.Servlets.SubmitPaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>iotb.controller.Servlets.LogoutServlet</servlet-class>
     </servlet>
@@ -125,6 +185,10 @@
         <url-pattern>/StaffRegisterServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <url-pattern>/DeleteAccountServlet</url-pattern>
     </servlet-mapping>
@@ -133,8 +197,64 @@
         <url-pattern>/ListProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/LogoutServlet</url-pattern>
+        <servlet-name>CreatePaymentServlet</servlet-name>
+        <url-pattern>/CreatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateCreditCardServlet</servlet-name>
+        <url-pattern>/CreateCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreatePaypalServlet</servlet-name>
+        <url-pattern>/CreatePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayCreditCardServlet</servlet-name>
+        <url-pattern>/DisplayCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayPaymentServlet</servlet-name>
+        <url-pattern>/DisplayPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayPaypalServlet</servlet-name>
+        <url-pattern>/DisplayPaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCreditCardServlet</servlet-name>
+        <url-pattern>/UpdateCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePaypalServlet</servlet-name>
+        <url-pattern>/UpdatePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePaymentServlet</servlet-name>
+        <url-pattern>/UpdatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <url-pattern>/DeletePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCreditCardServlet</servlet-name>
+        <url-pattern>/DeleteCreditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePaypalServlet</servlet-name>
+        <url-pattern>/DeletePaypalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchPaymentServlet</servlet-name>
+        <url-pattern>/SearchPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchedPaymentServlet</servlet-name>
+        <url-pattern>/SearchedPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <url-pattern>/SubmitPaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

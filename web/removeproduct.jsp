@@ -13,15 +13,31 @@
         <div id="navContainer">
             <ul id="navbar">
                 <li><a href="index.jsp">Home</a></li>
+                <li><a href="catalogue.jsp">Catalogue</a></li>
+                    <%
+                        if (session.getAttribute("user") == null) {
+                    %>
                 <li><a href="login.jsp">Login</a></li>
                 <li><a href="register.jsp">Register</a></li>
                 <li><a href="staffportal.jsp">Staff Portal</a></li>
-                <li><a href="catalogue.jsp">Catalogue</a></li>
+                    <%
+                    } else if (session.getAttribute("customer") != null) {
+                    %>
+                <li><a href="customerprofile.jsp">Your Profile</a></li>
+                <li><a href="logoutcustomer.jsp">Logout</a></li>
+                    <%
+                    } else if (session.getAttribute("staff") != null) {
+                    %>
+                <li><a href="staffhome.jsp">Your Profile</a></li>
+                <li><a href="logoutstaff.jsp">Logout</a></li>
+                    <%
+                        }
+                    %>
             </ul>
         </div>
 
         <div id="title"> 
-            <h1>Add a product</h1>
+            <h1>Remove a product</h1>
         </div>
 
         <div id="registerform">

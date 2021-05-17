@@ -46,7 +46,6 @@ public class LogoutServlet extends HttpServlet {
                 Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
         session.invalidate();
         request.getRequestDispatcher("index.jsp").include(request, response);
     }

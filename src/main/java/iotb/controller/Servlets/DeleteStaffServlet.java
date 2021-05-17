@@ -1,6 +1,7 @@
 package iotb.controller.Servlets;
 
 import iotb.model.User;
+import iotb.model.dao.LogManager;
 import iotb.model.dao.StaffManager;
 import iotb.model.dao.UserManager;
 import java.io.IOException;
@@ -21,17 +22,20 @@ public class DeleteStaffServlet extends HttpServlet {
 
     private UserManager usermanager;
     private StaffManager staffmanager;
+    private LogManager logmanager;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
 
+        logmanager = (LogManager) session.getAttribute("logManager");
         usermanager = (UserManager) session.getAttribute("userManager");
         staffmanager = (StaffManager) session.getAttribute("staffManager");
         User user = (User) session.getAttribute("user");
 
         try {
+            logmanager.deleteLog(user.getUserID());
             staffmanager.deleteStaff(user.getUserID());
             usermanager.deleteUser(user.getUserID());
             session.invalidate();
