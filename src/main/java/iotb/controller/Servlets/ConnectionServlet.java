@@ -30,6 +30,9 @@ public class ConnectionServlet extends HttpServlet {
     private CustomerManager customerManager;
     private ProductManager productManager;
     private LogManager logManager;
+    private CreditCardManager creditcardManager;
+    private PaymentManager paymentManager;
+    private PaypalManager paypalManager;
     private Connection conn;
 
     @Override //Create and instance of databaseConnector for the deployment session
@@ -53,6 +56,9 @@ public class ConnectionServlet extends HttpServlet {
             customerManager = new CustomerManager(conn);
             productManager = new ProductManager(conn);
             logManager = new LogManager(conn);
+            creditcardManager = new CreditCardManager(conn);
+            paymentManager = new PaymentManager(conn);
+            paypalManager = new PaypalManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,6 +68,9 @@ public class ConnectionServlet extends HttpServlet {
         session.setAttribute("customerManager", customerManager);
         session.setAttribute("productManager", productManager);
         session.setAttribute("logManager", logManager);
+        session.setAttribute("creditcardManager", creditcardManager);
+        session.setAttribute("paymentManager", paymentManager);
+        session.setAttribute("paypalManager", paypalManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the database connection)

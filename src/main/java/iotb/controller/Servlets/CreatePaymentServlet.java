@@ -25,6 +25,7 @@ import org.jboss.logging.Logger;
  */
 public class CreatePaymentServlet extends HttpServlet {
 
+        private PaymentManager manager;
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,7 +35,7 @@ public class CreatePaymentServlet extends HttpServlet {
         String orderID = request.getParameter("orderID");
         String paymentType = request.getParameter("paymentType");
         
-        PaymentManager manager = (PaymentManager) session.getAttribute("paymentManager");
+        manager = (PaymentManager) session.getAttribute("paymentManager");
         validator.clear(session);
         
         if(!validator.validatePaymentType(paymentType)) {

@@ -42,7 +42,7 @@
         </div>
 
         <div id="title"> 
-            <h1>Add a product</h1>
+            <h1>Update a product</h1>
         </div>
 
         <div id="registerform">
