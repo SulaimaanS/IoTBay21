@@ -61,6 +61,8 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("customerprofile.jsp").include(request, response);
             } catch (SQLException | NullPointerException ex) {
                 session.setAttribute("existErr", "Customer Does Not Exist In The Database");
+                session.setAttribute("customer", null);
+                session.setAttribute("staff", null);
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("login.jsp").include(request, response);
             } catch (ParseException ex) {

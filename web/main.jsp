@@ -12,8 +12,17 @@
 
         <ul>
             <li><a href="main.jsp">IoTBay</a></li>
-            <li><a href="main.jsp">Main</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
+            <%
+                if (session.getAttribute("customer") != null) {
+            %>
+            <li><a href="customerprofile.jsp">Back to Profile</a></li>
+            <%
+                } else if (session.getAttribute("staff") != null) {
+            %>
+            <li><a href="staffhome.jsp">Back to Profile</a></li>
+            <%
+                }
+            %>
         </ul>
         
         <h1>Main Page</h1>

@@ -65,6 +65,8 @@ public class StaffLoginServlet extends HttpServlet {
                 request.getRequestDispatcher("staffhome.jsp").include(request, response);
             } catch (SQLException | NullPointerException ex) {
                 session.setAttribute("existErr", "Staff Does Not Exist In The Database");
+                session.setAttribute("user", null);
+                session.setAttribute("staff", null);
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 request.getRequestDispatcher("stafflogin.jsp").include(request, response);
             } catch (ParseException ex) {

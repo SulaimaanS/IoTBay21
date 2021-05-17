@@ -20,9 +20,7 @@
         %>
         
         <ul>
-            <li><a href="main.jsp">IoTBay</a></li>
-            <li><a href="main.jsp">Main</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
+            <li><a href="main.jsp">Payment Options</a></li>
         </ul>
         
         <h1>Submit Payment</h1>
